@@ -1,19 +1,18 @@
-// src/app/auth/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
-interface LoginResponse {
+export interface LoginResponse {
   token: string;
-  role: 'ADMIN' | 'CLIENT';
+  role: 'ADMIN' | 'CLIENT';  // Tipo exacto 'ADMIN' o 'CLIENT'
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://api.cinemamax.com'; // URL del servidor
+  private apiUrl = 'https://api.cinemamax.com';  // URL de la API
 
   constructor(private http: HttpClient) {}
 
@@ -23,11 +22,14 @@ export class AuthService {
       tap(response => {
         // Guardamos el token y el rol del usuario en el almacenamiento local
         localStorage.setItem('token', response.token);
-        localStorage.setItem('role', response.role);
+        localStorage.setItem('role', response.role);  // Siempre será 'ADMIN' o 'CLIENT'
       }),
       catchError(error => {
         console.error('Error en el login', error);
-        return of({ token: '', role: '' }); // Retorna un objeto vacío si hay error
+        
+        // Devolvemos un observable vacío con valores por defecto (pero compatibles con LoginResponse)
+        const fallbackResponse: LoginResponse = { token: '', role: 'CLIENT' };
+        return of(fallbackResponse);   // Usamos un valor válido para 'role'
       })
     );
   }
