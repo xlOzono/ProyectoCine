@@ -1,4 +1,4 @@
-<!-- Barra de navegación básica -->
+<!-- Barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">CinemaMax</a>
@@ -7,12 +7,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
+        <!-- Link al Login -->
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/login']">Login</a>
         </li>
+
+        <!-- Link a la gestión de películas -->
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/admin']">Panel Admin</a>
+          <a class="nav-link" [routerLink]="['/admin/peliculas']">Gestión de Películas</a>
         </li>
+
+        <!-- Link a la gestión de horarios -->
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/admin/horarios']">Gestión de Horarios</a>
+        </li>
+
+        <!-- Link al Panel de Cliente -->
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/cliente']">Panel Cliente</a>
         </li>
@@ -21,8 +31,7 @@
   </div>
 </nav>
 
-<!-- Contenido dinámico -->
+<!-- Contenedor dinámico para cargar componentes según la ruta -->
 <div class="container mt-4">
-  <!-- Aquí se cargan los componentes dinámicamente según la ruta -->
   <router-outlet></router-outlet>
 </div>

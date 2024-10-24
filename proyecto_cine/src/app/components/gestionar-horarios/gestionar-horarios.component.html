@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Gestión de Horarios</h2>
+  
+    <!-- Botón para crear un nuevo horario -->
+    <button class="btn btn-primary" (click)="nuevoHorario()">Agregar Horario</button>
+  
+    <!-- Tabla de horarios -->
+    <table class="table mt-3" *ngIf="horarios.length > 0">
+      <thead>
+        <tr>
+          <th>Película</th>
+          <th>Sala</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let horario of horarios">
+          <!-- Usamos el método obtenerTituloPelicula para mostrar el título -->
+          <td>{{ obtenerTituloPelicula(horario.peliculaId) }}</td>
+          <td>{{ horario.sala }}</td>
+          <td>{{ horario.fecha }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning" (click)="editarHorario(horario.id)">Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="eliminarHorario(horario.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Mensaje si no hay horarios -->
+    <div *ngIf="horarios.length === 0">
+      <p>No hay horarios registrados.</p>
+    </div>
+  </div>
+  

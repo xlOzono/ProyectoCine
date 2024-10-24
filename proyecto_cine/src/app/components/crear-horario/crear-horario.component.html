@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Agregar Horario</h2>
+  
+    <form [formGroup]="horarioForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="pelicula">Película</label>
+        <select id="pelicula" class="form-control" formControlName="peliculaId">
+          <option *ngFor="let pelicula of peliculas" [value]="pelicula.id">
+            {{ pelicula.titulo }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="sala">Sala</label>
+        <input id="sala" class="form-control" formControlName="sala" />
+      </div>
+  
+      <div class="form-group">
+        <label for="fecha">Fecha y Hora</label>
+        <input id="fecha" type="datetime-local" class="form-control" formControlName="fecha" />
+      </div>
+  
+      <button type="submit" class="btn btn-success">Crear</button>
+    </form>
+  </div>
+  
