@@ -1,1 +1,110 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  min-height: 100%;
+  background-color: transparent;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.card {
+  background-color: #121212;
+  border-radius: 10px;
+}
+
+.bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://canalc.com.ar/wp-content/uploads/2023/07/Nestflix-1140x641.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px); /* Apply blur effect */
+  z-index: -1; /* Send background behind other content */
+}
+
+.container.col-md-6.offset-md-3.mt-5 {
+  background-color: transparent;
+  position: absolute;
+  margin: 0;
+  max-width: 500px; /* Limit the width */
+  z-index: 1; /* Place above background */
+  top: 45%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 540px;
+}
+
+.container {
+  min-height: 100%;
+  align-content: center;
+}
+
+/* ESTILO BOTON PRIMARIO*/
+.btn.btn-primary.w-100.mb-2 {
+  color: white;
+  background-color: #ff2e38;
+  border-color: #ff2e38;
+  margin-top: 5px;
+}
+
+/* ESTILO BOTON SECUNDARIO*/
+.btn.btn-secondary.w-100 {
+  color: white;
+  background-color: #222222;
+  border-color: #222222;
+  margin-top: 10px;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent gray */
+  z-index: -1; /* Overlay above background image but below content */
+}
+
+input[type="text"],
+input[type="password"] {
+  border-color: #353535;
+  background-color: #353535;
+}
+
+.card-header {
+  text-align: center;
+  padding: 30px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#login-logo {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 500px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  background-image: url(assets/images/MAX_cinema_1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1; /* Send background behind other content */
+}

@@ -40,4 +40,8 @@ export class AccountService {
         this.userSubject.next(null);
         this.router.navigate(['/account/login']);
     }
+
+    register(user: User) {
+        return this.http.post(`${environment.apiUrl}/users/register`, user);
+    }
 }
