@@ -10,7 +10,7 @@
     <div class="card-body">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="mb-3">
-          <label class="form-label">Username</label>
+          <label class="form-label">Usuario</label>
           <input
             type="text"
             formControlName="username"
@@ -18,11 +18,13 @@
             [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
           />
           <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
+            <div *ngIf="f.username.errors.required">
+              Ingresa un nombre de usuario
+            </div>
           </div>
         </div>
         <div class="mb-3">
-          <label class="form-label">Password</label>
+          <label class="form-label">Contraseña</label>
           <input
             type="password"
             formControlName="password"
@@ -30,7 +32,7 @@
             [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
           />
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.required">Ingresa una contraseña</div>
           </div>
         </div>
         <div class="button-group">
@@ -43,14 +45,14 @@
               *ngIf="loading"
               class="spinner-border spinner-border-sm me-1"
             ></span>
-            Login
+            ENTRAR
           </button>
           <button
             class="btn btn-secondary w-100"
             [routerLink]="'../register'"
             type="button"
           >
-            Register
+            REGISTRARSE
           </button>
         </div>
       </form>

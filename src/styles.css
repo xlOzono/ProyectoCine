@@ -59,6 +59,7 @@ body {
 
 /* ESTILO BOTON PRIMARIO*/
 .btn.btn-primary.w-100.mb-2 {
+  font-weight: bold;
   color: white;
   background-color: #ff2e38;
   border-color: #ff2e38;
@@ -67,6 +68,7 @@ body {
 
 /* ESTILO BOTON SECUNDARIO*/
 .btn.btn-secondary.w-100 {
+  font-weight: bold;
   color: white;
   background-color: #222222;
   border-color: #222222;
@@ -84,7 +86,8 @@ body {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   border-color: #353535;
   background-color: #353535;
 }
