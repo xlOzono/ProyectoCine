@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    MovieListingComponent,
   ],
   bootstrap: [AppComponent],
   providers: [

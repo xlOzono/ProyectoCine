@@ -1,9 +1,14 @@
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
+<nav class="navbar navbar-expand navbar-dark p-5" *ngIf="user">
+  <img
+    id="nav-logo"
+    src="assets/images/MAX_cinema_1.png"
+    alt="Cinema Max Logo"
+  />
   <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/">Home</a>
+    <a class="nav-item nav-link" routerLink="/">PELICULAS</a>
     <button class="btn btn-link nav-item nav-link" (click)="logout()">
-      Logout
+      CERRAR SESIÓN
     </button>
   </div>
 </nav>

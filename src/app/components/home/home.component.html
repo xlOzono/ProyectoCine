@@ -1,1 +1,10 @@
-<h1>Home Page</h1>
+<div class="bg-color"></div>
+
+<div class="movie-results">
+  <section class="results">
+    <app-movie-listing
+      *ngFor="let movieListing of movieListingList"
+      [movieListing]="movieListing"
+    ></app-movie-listing>
+  </section>
+</div>

@@ -1,3 +1,7 @@
-body{
-    background-color: red;
+html {
+  overflow: hidden;
+}
+
+body {
+  background-color: red;
 }
