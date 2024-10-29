@@ -1,27 +1,106 @@
-# Testlogin
+# Cinema Max: Sistema de Reserva de Boletos de Cine
+Cinema Max es un sistema que permite a los usuarios reservar boletos de cine, elegir asientos y realizar pagos en línea, mejorando la experiencia del cliente y la gestión interna.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+## Objetivo del proyecto
+Automatizar la compra de boletos y la gestión de funciones para la cadena de cines Cinema Max, ofreciendo una interfaz intuitiva para usuarios y administradores.
 
-## Development server
+## Características Principales
+### Administradores:
+Gestión de funciones y salas de cine, con opción para modificar precios, horarios y promociones.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Control de películas: agregar, editar o eliminar películas, carátulas, géneros, clasificaciones y tráilers.
 
-## Code scaffolding
+Asignación de asientos y control de disponibilidad.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Clientes:
+Visualización de películas en cartelera y sus detalles (género, clasificación, tráiler, sinopsis).
 
-## Build
+Selección de funciones, asientos y compra de boletos en línea.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Notificaciones automáticas sobre cambios en funciones y recordatorios.
 
-## Running unit tests
+## Estructura del Proyecto
+Frontend: Construido en Angular como una SPA (Single Page Application), integrando conceptos como:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Binding (Property y Event Binding, Two-way Binding)
 
-## Running end-to-end tests
+Directivas de Angular (NgIf, NgFor, @Input, @Output, @ViewChild)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Componentes, Servicios, Observables y Promises
 
-## Further help
+Uso de Bootstrap para diseño responsivo y estilización
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Control de Seguridad: Implementación de Guards para control de roles y autenticación.
+
+## Instalación
+### Requisitos Previos
+Node.js
+
+Angular CLI
+
+### Pasos de Instalación
+1. Clonar el repositorio: git clone [falta hacer copy paste :D]
+2. Navegar a la carpeta del proyecto: cd CinemaMax
+3. Instalar dependencias: npm install
+4. Ejecutar la aplicación: ng serve
+
+## Uso de la Aplicación
+Acceso de Administrador: Iniciar Sesión, permite gestionar funciones, películas y promociones.
+(Falta agregar como se moviliza el admin por la frame)
+
+Acceso de Cliente: Registro e inicio de sesión para reservar boletos.
+
+## Metodología de Desarrollo: Scrum
+
+### Roles y Responsabilidades
+
+### Eventos de Scrumm
+
+## Historias de Usuario
+
+### Ejemplo 1
+
+
+### Ejemplo 2
+
+
+### Ejemplo 3
+
+## Estructura de Carpetas
+### Ejemplo básico
+/src/app: Contiene los componentes, servicios y módulos.
+
+/assets: Archivos estáticos como imágenes y estilos globales.
+
+## Rúbrica de Evaluación
+
+### Buenas Prácticas
+
+#### Versionado y Gestión de Código
+
+#### Uso de Metodología Ágil
+
+#### Buenas Prácticas de Desarrollo
+
+#### Readme en Repositorio
+
+### Front-End
+
+#### Uso de Directivas y Properties
+
+#### Comunicación entre Componentes
+
+#### Servicios, Inyección y Observables 
+
+#### Buenas Prácticas de Desarrollo
+
+#### Control de Errores, Validación de Datos
+
+#### Seguridad en Rutas
+
+#### Uso de Bootstrap
+
+#### Testing
+
+#### Control de Accesos
+
