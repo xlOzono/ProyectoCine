@@ -5,9 +5,6 @@ Este proyecto se desarrolló en respuesta a una necesidad identificada por la em
 
 Además, se busca promover las películas y sus respectivos tráilers para captar el interés de los clientes. Para ello, se incluirán funciones para usuarios administradores que les permitirán gestionar tanto las películas como la venta de boletos y la disponibilidad de asientos.
 
-## Objetivo
-Automatizar la compra de boletos y la gestión de funciones para la cadena de cines Cinema Max, ofreciendo una interfaz intuitiva para usuarios y administradores.
-
 ## Características Principales
 ### Administradores:
 + Gestión de funciones y salas de cine, con opción para modificar precios, horarios y promociones.
@@ -37,37 +34,34 @@ Automatizar la compra de boletos y la gestión de funciones para la cadena de ci
 + Angular CLI
 
 **Pasos de Instalación**
-1.  Clonar el repositorio: git clone [falta hacer copy paste :D]
+1.  Clonar el repositorio: git clone https://github.com/xlOzono/ProyectoCine.git
 2.  Navegar a la carpeta del proyecto: cd CinemaMax
 3.  Instalar dependencias: npm install
 4.  Ejecutar la aplicación: ng serve
 
 ## Uso de la Aplicación
-+ Acceso de Administrador: Iniciar Sesión, permite gestionar funciones, películas y promociones.
-(Falta agregar como se moviliza el admin por la frame)
 
-+ Acceso de Cliente: Registro e inicio de sesión para reservar boletos.
 
 ## Metodología de Desarrollo: Scrum
 Es una metodología ágil utilizada en el desarrollo de proyectos que se enfoca en entregar resultados incrementales a través de iteraciones llamadas sprints. Facilita la colaboración y la adaptación continua al cambio mediante roles definidos y reuniones regulares para planificar, revisar y mejorar el proceso de trabajo.
 
 ### Roles y Responsabilidades
-Scrum Master: Melisa Huanca
-Product Owner: Fabian Quezada
-Scrum Team: Jorge Caceres, Jean Piere Durán, Joshua Jara, Katalina Oviedo, Bruno Amestica.
++ **Scrum Master:** Melisa Huanca
+
++ **Product Owner:** Fabian Quezada
+
++ **Scrum Team:** Jorge Caceres, Jean Piere Durán, Joshua Jara, Katalina Oviedo, Bruno Amestica.
 
 ### Eventos de Scrumm
++ **Sprint**: 3 frames
 
++ **Iteración**: 1 semana
 
-## Historias de Usuario
++ **Sprint Retrospective**: 30 minutos
 
-> Ejemplo 1
++ **Sprint Review**: 1 hora
 
-
-> Ejemplo 2
-
-
-> Ejemplo 3
++ **Daily Scrum**: 1 hora
 
 ## Estructura de Carpetas
 ### Ejemplo básico
