@@ -6,37 +6,37 @@ Automatizar la compra de boletos y la gestión de funciones para la cadena de ci
 
 ## Características Principales
 ### Administradores:
-Gestión de funciones y salas de cine, con opción para modificar precios, horarios y promociones.
++ Gestión de funciones y salas de cine, con opción para modificar precios, horarios y promociones.
 
-Control de películas: agregar, editar o eliminar películas, carátulas, géneros, clasificaciones y tráilers.
++ Control de películas: agregar, editar o eliminar películas, carátulas, géneros, clasificaciones y tráilers.
 
-Asignación de asientos y control de disponibilidad.
++ Asignación de asientos y control de disponibilidad.
 
 ### Clientes:
-Visualización de películas en cartelera y sus detalles (género, clasificación, tráiler, sinopsis).
++ Visualización de películas en cartelera y sus detalles (género, clasificación, tráiler, sinopsis).
 
-Selección de funciones, asientos y compra de boletos en línea.
++ Selección de funciones, asientos y compra de boletos en línea.
 
-Notificaciones automáticas sobre cambios en funciones y recordatorios.
++ Notificaciones automáticas sobre cambios en funciones y recordatorios.
 
 ## Estructura del Proyecto
-Frontend: Construido en Angular como una SPA (Single Page Application), integrando conceptos como:
++ Frontend: Construido en Angular como una SPA (Single Page Application), integrando conceptos como:
 
-Binding (Property y Event Binding, Two-way Binding)
+  + Binding (Property y Event Binding, Two-way Binding)
 
-Directivas de Angular (NgIf, NgFor, @Input, @Output, @ViewChild)
+  + Directivas de Angular (NgIf, NgFor, @Input, @Output, @ViewChild)
 
-Componentes, Servicios, Observables y Promises
+  + Componentes, Servicios, Observables y Promises
 
-Uso de Bootstrap para diseño responsivo y estilización
+  + Uso de Bootstrap para diseño responsivo y estilización
 
-Control de Seguridad: Implementación de Guards para control de roles y autenticación.
++ Control de Seguridad: Implementación de Guards para control de roles y autenticación.
 
 ## Instalación
 ### Requisitos Previos
-Node.js
++ Node.js
 
-Angular CLI
++ Angular CLI
 
 ### Pasos de Instalación
 1. Clonar el repositorio: git clone [falta hacer copy paste :D]
@@ -45,10 +45,10 @@ Angular CLI
 4. Ejecutar la aplicación: ng serve
 
 ## Uso de la Aplicación
-Acceso de Administrador: Iniciar Sesión, permite gestionar funciones, películas y promociones.
++ Acceso de Administrador: Iniciar Sesión, permite gestionar funciones, películas y promociones.
 (Falta agregar como se moviliza el admin por la frame)
 
-Acceso de Cliente: Registro e inicio de sesión para reservar boletos.
++ Acceso de Cliente: Registro e inicio de sesión para reservar boletos.
 
 ## Metodología de Desarrollo: Scrum
 
@@ -58,49 +58,49 @@ Acceso de Cliente: Registro e inicio de sesión para reservar boletos.
 
 ## Historias de Usuario
 
-### Ejemplo 1
+> Ejemplo 1
 
 
-### Ejemplo 2
+> Ejemplo 2
 
 
-### Ejemplo 3
+> Ejemplo 3
 
 ## Estructura de Carpetas
 ### Ejemplo básico
-/src/app: Contiene los componentes, servicios y módulos.
++ /src/app: Contiene los componentes, servicios y módulos.
 
-/assets: Archivos estáticos como imágenes y estilos globales.
++ /assets: Archivos estáticos como imágenes y estilos globales.
 
 ## Rúbrica de Evaluación
 
 ### Buenas Prácticas
 
-#### Versionado y Gestión de Código
++ Versionado y Gestión de Código
 
-#### Uso de Metodología Ágil
++ Uso de Metodología Ágil
 
-#### Buenas Prácticas de Desarrollo
++ Buenas Prácticas de Desarrollo
 
-#### Readme en Repositorio
++ Readme en Repositorio
 
 ### Front-End
 
-#### Uso de Directivas y Properties
++ Uso de Directivas y Properties
 
-#### Comunicación entre Componentes
++ Comunicación entre Componentes
 
-#### Servicios, Inyección y Observables 
++ Servicios, Inyección y Observables 
 
-#### Buenas Prácticas de Desarrollo
++ Buenas Prácticas de Desarrollo
 
-#### Control de Errores, Validación de Datos
++ Control de Errores, Validación de Datos
 
-#### Seguridad en Rutas
++ Seguridad en Rutas
 
-#### Uso de Bootstrap
++ Uso de Bootstrap
 
-#### Testing
++ Testing
 
-#### Control de Accesos
++ Control de Accesos
 
