@@ -1,4 +1,6 @@
-# Cinema Max: Sistema de Reserva de Boletos de Cine
+![Captura de pantalla 2024-10-29 083615](https://github.com/user-attachments/assets/454b09f7-48a9-484c-8400-376aff73b179)
+
+# Sistema de Reserva de Boletos de Cine
 Cinema Max es un sistema que permite a los usuarios reservar boletos de cine, elegir asientos y realizar pagos en línea, mejorando la experiencia del cliente y la gestión interna.
 
 ## Objetivo del proyecto
