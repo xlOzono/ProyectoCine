@@ -11,6 +11,9 @@
       CERRAR SESIÓN
     </button>
   </div>
+  <div class="navbar-nav" *ngIf="isAdmin">
+    <a class="nav-item nav-link" routerLink="/">ADMINISTRACION</a>
+  </div>
 </nav>
 
 <!-- main app container -->

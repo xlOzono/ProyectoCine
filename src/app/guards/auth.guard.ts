@@ -13,7 +13,12 @@ export class AuthGuard {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const user = this.accountService.userValue;
         if (user) {
-            // authorised so return true
+            // check if route is restricted by role
+            const { roles } = route.data;
+            if (roles && !roles.includes(user.role)) {
+                this.router.navigate(['/']);
+                return false;
+            }
             return true;
         }
 
