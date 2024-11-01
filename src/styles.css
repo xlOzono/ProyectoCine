@@ -118,16 +118,30 @@ input[type="email"]:focus {
 }
 
 #login-logo {
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  width: 20%;
-  height: 20%;
-  transform: translate(-50%, -50%);
-  background-image: url(assets/images/MAX_cinema_1.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: 1; /* Send background behind other content */
+  width: 20vw;
+  min-width: 150px;
+  z-index: 1;
+}
+
+.session-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh; /* Vertically centers content in the viewport */
+  padding: 20px;
+}
+
+#login-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#session-card {
+  max-width: 500px;
+  width: 100%;
 }
 
 .listing {
@@ -136,11 +150,14 @@ input[type="email"]:focus {
 
 #nav-logo {
   height: 7vh;
+  height: 7vh;
   width: auto;
+  min-height: 70px;
   min-height: 70px;
 }
 
 nav {
+  margin-left: 9%;
   margin-left: 9%;
   font-size: 20;
 }

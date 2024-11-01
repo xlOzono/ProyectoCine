@@ -1,61 +1,76 @@
 <div class="bg-image"></div>
 <div class="bg-overlay"></div>
-<div id="login-logo"></div>
 
-<div class="container col-md-6 float-end mt-5" id="session-card">
-  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-  <div *ngIf="success" class="alert alert-success">{{ success }}</div>
-  <div class="card">
-    <h4 class="card-header">Iniciar Sesión</h4>
-    <div class="card-body">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input
-            type="text"
-            formControlName="username"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
-          />
-          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">
-              Ingresa un nombre de usuario
+<div class="session-container">
+  <div id="login-logo-container">
+    <img
+      src="assets/images/MAX_cinema_1.png"
+      alt="Max Cinema Logo"
+      id="login-logo"
+    />
+  </div>
+
+  <div class="container" id="session-card">
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <div *ngIf="success" class="alert alert-success">{{ success }}</div>
+    <div class="card">
+      <h4 class="card-header">Iniciar Sesión</h4>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input
+              type="text"
+              formControlName="username"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+            />
+            <div
+              *ngIf="submitted && f.username.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.username.errors.required">Ingresa un email</div>
             </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Contraseña</label>
-          <input
-            type="password"
-            formControlName="password"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-          />
-          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Ingresa una contraseña</div>
+          <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+            />
+            <div
+              *ngIf="submitted && f.password.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.password.errors.required">
+                Ingresa una contraseña
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="button-group">
-          <button
-            [disabled]="loading"
-            class="btn btn-primary w-100 mb-2"
-            id="login-btn"
-          >
-            <span
-              *ngIf="loading"
-              class="spinner-border spinner-border-sm me-1"
-            ></span>
-            ENTRAR
-          </button>
-          <button
-            class="btn btn-secondary w-100"
-            [routerLink]="'../register'"
-            type="button"
-          >
-            REGISTRARSE
-          </button>
-        </div>
-      </form>
+          <div class="button-group">
+            <button
+              [disabled]="loading"
+              class="btn btn-primary w-100 mb-2"
+              id="login-btn"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm me-1"
+              ></span>
+              ENTRAR
+            </button>
+            <button
+              class="btn btn-secondary w-100"
+              [routerLink]="'../register'"
+              type="button"
+            >
+              REGISTRARSE
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
