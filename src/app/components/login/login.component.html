@@ -29,7 +29,9 @@
               *ngIf="submitted && f.username.errors"
               class="invalid-feedback"
             >
-              <div *ngIf="f.username.errors.required">Ingresa un email</div>
+              <div *ngIf="f.username.errors.required">
+                Ingresa un nombre de usuario
+              </div>
             </div>
           </div>
           <div class="mb-3">
