@@ -4,16 +4,18 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
 
 // array in local storage for registered users
-const usersKey = 'angular-tutorial-users';
+const usersKey = 'cine-app-users';
 let users: any[] = JSON.parse(localStorage.getItem(usersKey)!) || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+    // Interceptor para manejar las solicitudes HTTP    
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
 
         return handleRoute();
 
+        // Decide cómo manejar cada ruta interceptada
         function handleRoute() {
             switch (true) {
                 case url.endsWith('/users/authenticate') && method === 'POST':
@@ -27,7 +29,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         // route functions
-
+        // Manejar la autenticación de usuarios
         function authenticate() {
             const { email, password } = body;
             const user = users.find(x => x.email === email && x.password === password);

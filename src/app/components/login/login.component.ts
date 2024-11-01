@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { AccountService } from 'src/app/services/account.service';
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({ templateUrl: 'login.component.html', styleUrls: ['./login.component.css'] })
 export class LoginComponent implements OnInit {
     form!: FormGroup;
     loading = false;
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
         // show success message after registration
         if (this.route.snapshot.queryParams.registered) {
-            this.success = 'Registration successful';
+            this.success = 'Registro Exitoso';
         }
     }
 

@@ -10,7 +10,6 @@
 html {
   height: 100%;
   margin: 0;
-  overflow-x: hidden;
 }
 
 body {
@@ -39,19 +38,6 @@ body {
   z-index: -1; /* Send background behind other content */
 }
 
-.container.col-md-6.offset-md-3.mt-5 {
-  background-color: transparent;
-  position: absolute;
-  margin: 0;
-  max-width: 500px; /* Limit the width */
-  z-index: 1; /* Place above background */
-  top: 45%;
-  left: 65%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 540px;
-}
-
 .container {
   min-height: 100%;
   align-content: center;
@@ -73,6 +59,18 @@ body {
   background-color: #222222;
   border-color: #222222;
   margin-top: 10px;
+}
+
+#session-card {
+  position: absolute;
+  margin: 0;
+  max-width: 500px; /* Limit the width */
+  z-index: 1; /* Place above background */
+  top: 45%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  height: 40%;
 }
 
 .bg-overlay {
@@ -123,8 +121,8 @@ input[type="email"]:focus {
   position: absolute;
   top: 50%;
   left: 35%;
-  width: 500px;
-  height: 300px;
+  width: 20%;
+  height: 20%;
   transform: translate(-50%, -50%);
   background-image: url(assets/images/MAX_cinema_1.png);
   background-size: contain;
@@ -137,22 +135,22 @@ input[type="email"]:focus {
 }
 
 #nav-logo {
-  height: 100px;
+  height: 7vh;
   width: auto;
+  min-height: 70px;
 }
 
 nav {
-  left: 10%;
+  margin-left: 9%;
   font-size: 20;
 }
 
 .nav-item.nav-link {
-  width: 200px;
-  text-align: center;
   font-weight: bold;
-  font-family: "Inter", sans-serif;
   color: white;
   margin-left: 40px;
   background-color: #ff2e38;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
