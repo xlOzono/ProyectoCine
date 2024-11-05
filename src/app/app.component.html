@@ -5,15 +5,18 @@
     src="assets/images/MAX_cinema_1.png"
     alt="Cinema Max Logo"
   />
-  <div class="navbar-nav">
+  <ul class="nav nav-pills">
     <a class="nav-item nav-link" routerLink="/">PELICULAS</a>
     <button class="btn btn-link nav-item nav-link" (click)="logout()">
       CERRAR SESIÓN
     </button>
-  </div>
-  <div class="navbar-nav" *ngIf="isAdmin">
-    <a class="nav-item nav-link" routerLink="/">ADMINISTRACION</a>
-  </div>
+    <div class="navbar-nav" *ngIf="isAdmin">
+      <a class="nav-item nav-link" routerLink="/">ADMINISTRACION</a>
+    </div>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/test">PELICULATEST</a>
+    </div>
+  </ul>
 </nav>
 
 <!-- main app container -->
