@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
+import { AdminCinemaShowComponent } from './components/admin-cinema-show/admin-cinema-show.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { MovieListingComponent } from './components/movie-listing/movie-listing.
     LoginComponent,
     RegisterComponent,
     MovieListingComponent,
+    AdminCinemaShowComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
