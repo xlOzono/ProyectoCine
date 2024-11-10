@@ -1,5 +1,5 @@
 <section class="listing">
-  <button (click) ="createShow(movieListing.name)">
+  <button class="movie-button" (click) ="createShow(movieListing.name)">
   <img
     class="movie-photo"
     [src]="movieListing.photo"
@@ -8,7 +8,6 @@
   />
   <h2 class="movie-title">{{ movieListing.name }}</h2>
   </button>
-  <div class="movie" (click)="createShow(movieListing.name)"></div>
 
 
 </section>
