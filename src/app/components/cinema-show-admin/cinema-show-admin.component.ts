@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./cinema-show-admin.component.css']
 })
 export class CinemaShowAdminComponent {
-
+  
 }

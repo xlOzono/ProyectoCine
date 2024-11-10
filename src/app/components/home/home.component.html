@@ -3,8 +3,11 @@
 <div class="movie-results">
   <section class="results">
     <app-movie-listing
+    
       *ngFor="let movieListing of movieListingList"
+      
       [movieListing]="movieListing"
+      
     ></app-movie-listing>
   </section>
 </div>
