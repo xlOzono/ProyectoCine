@@ -13,7 +13,6 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
-import { CinemaShowAdminComponent } from './cinema-show-admin/cinema-show-admin.component';
 
 @NgModule({
   imports: [
@@ -29,7 +28,6 @@ import { CinemaShowAdminComponent } from './cinema-show-admin/cinema-show-admin.
     RegisterComponent,
     MovieListingComponent,
     MovieDetailComponent,
-    CinemaShowAdminComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
