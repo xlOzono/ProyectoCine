@@ -1,3 +1,16 @@
-<p>movie-detail works!</p>
-
-<nav class="navbar-nav"></nav>
+<article>
+  <img
+    class="listing-photo"
+    [src]="movieListing?.photo"
+    alt="movieListing?.name"
+  />
+  <section class="movie-description" style="color: black">
+    <h2 class="movie-title">{{ movieListing?.name }}</h2>
+    <p class="movie-sinopsis">
+      {{ movieListing?.sinopsis }}
+    </p>
+    <p class="movie-duration">
+      {{ movieListing?.duracion }}
+    </p>
+  </section>
+</article>
