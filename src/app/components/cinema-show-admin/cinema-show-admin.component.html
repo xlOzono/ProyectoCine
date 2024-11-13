@@ -3,9 +3,9 @@
 <div class="option-container">
   <div class="section">
     <h2><span class="number">01</span> | Opciones de Idioma</h2>
-    <div class="button-group">
-      <button class="btn-option" [ngClass]="{'active': selectedLanguage === 'subtitulada'}" (click)="selectLanguage('subtitulada')">SUBTITULADA</button>
-      <button class="btn-option" [ngClass]="{'active': selectedLanguage === 'doblada'}" (click)="selectLanguage('doblada')">DOBLADA</button>
+    <div class="button-group mx-5">
+      <button class="btn-option" style="width: 50%;" [ngClass]="{'active': selectedLanguage === 'subtitulada'}" (click)="selectLanguage('subtitulada')">SUBTITULADA</button>
+      <button class="btn-option" style="width: 50%;" [ngClass]="{'active': selectedLanguage === 'doblada'}" (click)="selectLanguage('doblada')">DOBLADA</button>
     </div>
   </div>
 
@@ -13,28 +13,37 @@
 
   <div class="section">
     <h2><span class="number">02</span> | Formato de Proyección</h2>
-    <div class="button-group">
+    <div class="button-group mx-5">
       <button class="btn-option" [ngClass]="{'active': selectedFormat === '2D'}" (click)="selectFormat('2D')">2D</button>
       <button class="btn-option" [ngClass]="{'active': selectedFormat === '3D'}" (click)="selectFormat('3D')">3D</button>
       <button class="btn-option" [ngClass]="{'active': selectedFormat === '4D'}" (click)="selectFormat('4D')">4D</button>
     </div>
   </div>
 
-  <div class="section">
-    <h2><span class="number">03</span> | Asignación de Precio</h2>
-    <div class="price-group">
-      <input type="text" class="input-price" placeholder="$" [(ngModel)]="price" />
-      <button class="btn-confirm" (click)="confirmPrice()">CONFIRMAR</button>
-    </div>
-  </div>
-
   <div class="separator"></div>
 
   <div class="section">
-    <h2><span class="number">04</span> | Promociones</h2>
+    <h2><span class="number">03</span> | Asignación de Precio</h2>
+    <div class="price-group mx-5">
+      
+      <input type="text" class="input-price mt-3" placeholder="$" [(ngModel)]="price" />
+      <button class="btn-confirm mt-3" (click)="confirmPrice()">CONFIRMAR</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="option-container mt-5">
+  <div class="section">
+    <h2><span class="number"> 05 </span> | Fechas de Función </h2>
     <div class="promo-group">
       <input type="text" class="input-promo" [(ngModel)]="promoCode" />
+      
       <button class="btn-add-promo" (click)="addPromotion()">AGREGAR</button>
     </div>
   </div>
 </div>
+
+
