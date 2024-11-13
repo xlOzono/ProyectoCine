@@ -1,0 +1,83 @@
+.option-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.section {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.section .number {
+    color: #ff2e38;
+}
+
+.separator {
+    width: 2px;
+    height: 90px;
+    background-color: #ff2e38;
+    margin: auto 20px;
+}
+
+.button-group, .price-group, .promo-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-option {
+    background-color: #333333;
+    color: #9A9A9A;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-align: center;
+    min-width: 120px;
+}
+
+
+.btn-option.active {
+    background-color: #ff2e38;
+    color: white;
+}
+
+.btn-confirm, .btn-promo, .btn-add-promo {
+    background-color: #ff2e38;
+    color: white;
+    width: 180px;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+}
+
+.input-price, .input-promo {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 1px solid #9A9A9A;
+    border-radius: 5px;
+    color: white;
+    background-color: #333333;
+    width: 195px;
+    text-align: center;
+}

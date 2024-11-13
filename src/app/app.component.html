@@ -11,13 +11,10 @@
       CERRAR SESIÓN
     </button>
     <div class="navbar-nav" *ngIf="isAdmin">
-      <a class="nav-item nav-link" routerLink="/">ADMINISTRACION</a>
+      <button class="add-button rounded-circle" routerLink="/add-showtimes">+</button>
     </div>
     <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink="/test">PELICULATEST</a>
-    </div>
-    <div class ="navbar-nav">
-      <button class="btn btn-link nav-item nav-link" (click)="createShow()">CREAR FUNCION</button>
     </div>
   </ul>
 </nav>

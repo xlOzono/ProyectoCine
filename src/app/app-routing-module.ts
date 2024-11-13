@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },
   { path: 'test', component: MovieDetailComponent },
-  {path: 'cinema-show-admin/:name', component: CinemaShowAdminComponent},
+  { path: 'add-showtimes', component: CinemaShowAdminComponent, canActivate: [AuthGuard]},
 
 
   // otherwise redirect to home
