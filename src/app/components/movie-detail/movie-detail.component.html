@@ -1,16 +1,41 @@
-<article>
-  <img
-    class="listing-photo"
-    [src]="movieListing?.photo"
-    alt="movieListing?.name"
-  />
-  <section class="movie-description" style="color: black">
-    <h2 class="movie-title">{{ movieListing?.name }}</h2>
-    <p class="movie-sinopsis">
-      {{ movieListing?.sinopsis }}
-    </p>
-    <p class="movie-duration">
-      {{ movieListing?.duracion }}
-    </p>
-  </section>
-</article>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 d-flex justify-content-center">
+      <div class="card w-75 ms-5">
+        <img
+          class="card-img-top"
+          [src]="movieListing?.photo"
+          alt="Movie Poster"
+        />
+        <div class="card-header border-danger">
+          <h2 class="card-title">
+            <strong>{{ movieListing?.name }}</strong>
+          </h2>
+        </div>
+        <div class="card-body">
+          <strong>Sinopsis</strong>
+          <p class="card-text">
+            {{ movieListing?.sinopsis }}
+          </p>
+        </div>
+        <div class="card-footer">
+          <strong>Duración</strong>
+          <p>{{ movieListing?.duracion }} minutos</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8 ms-5 d-flex flex-column align-items-center">
+      <div class="ratio ratio-16x9 w-100">
+        <iframe
+          [src]="sanitizedTrailerUrl"
+          [title]="movieListing?.name"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
