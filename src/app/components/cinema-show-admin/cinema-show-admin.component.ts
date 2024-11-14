@@ -10,7 +10,6 @@ export class CinemaShowAdminComponent {
   selectedLanguage: string = ' ';
   selectedFormat: string = ' ';
   price: string = '';
-  promoCode: string = '';
 
   selectLanguage(language: string) {
     this.selectedLanguage = language;
@@ -24,9 +23,5 @@ export class CinemaShowAdminComponent {
 
   confirmPrice() {
     console.log("Precio", this.price);
-  }
-
-  addPromotion() {
-    console.log("Agregar", this.promoCode);
   }
 }

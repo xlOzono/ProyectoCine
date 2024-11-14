@@ -1,49 +1,61 @@
 <div class="bg-color"></div>
 
-<div class="option-container">
-  <div class="section">
-    <h2><span class="number">01</span> | Opciones de Idioma</h2>
-    <div class="button-group mx-5">
-      <button class="btn-option" style="width: 50%;" [ngClass]="{'active': selectedLanguage === 'subtitulada'}" (click)="selectLanguage('subtitulada')">SUBTITULADA</button>
-      <button class="btn-option" style="width: 50%;" [ngClass]="{'active': selectedLanguage === 'doblada'}" (click)="selectLanguage('doblada')">DOBLADA</button>
+<div class="container mt-3 d-flex flex-column">
+  <div class="row align-items-start justify-content-center">
+    <div class="col-md-3">
+      <h2 class="fs-4 fw-bold text-start"><span class="number">01</span> | Opciones de Idioma</h2>
+      <div class="btn-group w-100 mt-4" role="group">
+        <button class="btn btn-dark" [ngClass]="{'active': selectedLanguage === 'subtitulada'}" (click)="selectLanguage('subtitulada')">SUBTITULADA</button>
+        <button class="btn btn-dark" [ngClass]="{'active': selectedLanguage === 'doblada'}" (click)="selectLanguage('doblada')">DOBLADA</button>
+      </div>
     </div>
-  </div>
 
-  <div class="separator"></div>
-
-  <div class="section">
-    <h2><span class="number">02</span> | Formato de Proyección</h2>
-    <div class="button-group mx-5">
-      <button class="btn-option" [ngClass]="{'active': selectedFormat === '2D'}" (click)="selectFormat('2D')">2D</button>
-      <button class="btn-option" [ngClass]="{'active': selectedFormat === '3D'}" (click)="selectFormat('3D')">3D</button>
-      <button class="btn-option" [ngClass]="{'active': selectedFormat === '4D'}" (click)="selectFormat('4D')">4D</button>
+    <div class="col-md-1 d-flex justify-content-center">
+      <div class="separator"></div>
     </div>
-  </div>
 
-  <div class="separator"></div>
-
-  <div class="section">
-    <h2><span class="number">03</span> | Asignación de Precio</h2>
-    <div class="price-group mx-5">
-      
-      <input type="text" class="input-price mt-3" placeholder="$" [(ngModel)]="price" />
-      <button class="btn-confirm mt-3" (click)="confirmPrice()">CONFIRMAR</button>
+    <div class="col-md-3">
+      <h2 class="fs-4 fw-bold text-start"><span class="number">02</span> | Formato de Proyección</h2>
+      <div class="btn-group w-100 mt-4" role="group">
+        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '2D'}" (click)="selectFormat('2D')">2D</button>
+        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '3D'}" (click)="selectFormat('3D')">3D</button>
+        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '4D'}" (click)="selectFormat('4D')">4D</button>
+      </div>
     </div>
-  </div>
 
+    <div class="col-md-1 d-flex justify-content-center">
+      <div class="separator"></div>
+    </div>
+
+    <div class="col-md-3">
+      <h2 class="fs-4 fw-bold text-start"><span class="number">03</span> | Asignación de Precio</h2>
+      <div class="input-group mt-4">
+        <input type="text" class="form-control input-price" placeholder="$" [(ngModel)]="price">
+        <button class="btn btn-danger" (click)="confirmPrice()">CONFIRMAR</button>
+      </div>
+    </div>
+
+    <div class="col-md-11 mt-5">
+      <h2 class="fs-4 fw-bold text-start"><span class="number">04</span> | Fechas de Función</h2>
+      <div class="input-group mt-4">
+        <button class="btn btn-danger">AGREGAR</button>
+      </div>
+    </div>
+
+    <div class="col-md-11 mt-5">
+      <h2 class="fs-4 fw-bold text-start"><span class="number">05</span> | Horario de Funciones</h2>
+      <div class="input-group mt-4">
+        <button class="btn btn-danger">AGREGAR</button>
+      </div>
+    </div>
+
+    <div class="col-md-11 mt-5">
+      <h2 class="fs-4 fw-bold text-start"><span class="number">06</span> | Asientos No Disponibles</h2>
+      <div class="input-group mt-4">
+        <button class="btn btn-danger">CONFIRMAR</button>
+      </div>
+    </div>
+
+    <button class="btn btn-danger mt-5 col-md-11">GUARDAR</button>
+  </div>
 </div>
-
-
-
-<div class="option-container mt-5">
-  <div class="section">
-    <h2><span class="number"> 05 </span> | Fechas de Función </h2>
-    <div class="promo-group">
-      <input type="text" class="input-promo" [(ngModel)]="promoCode" />
-      
-      <button class="btn-add-promo" (click)="addPromotion()">AGREGAR</button>
-    </div>
-  </div>
-</div>
-
-
