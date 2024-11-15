@@ -20,21 +20,30 @@
         </div>
         <div class="card-footer">
           <strong>Duración</strong>
-          <p>{{ movieListing?.duracion }} minutos</p>
+          <p>{{ movieListing?.duration }} minutos</p>
         </div>
       </div>
     </div>
 
     <div class="col-md-8 ms-5 d-flex flex-column align-items-center">
-      <div class="ratio ratio-16x9 w-100">
-        <iframe
-          [src]="sanitizedTrailerUrl"
-          [title]="movieListing?.name"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
+      <div class="video-container position-relative w-100">
+        <div
+          class="spinner-border text-danger position-absolute top-50 start-50 translate-middle"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <div class="ratio ratio-16x9">
+          <iframe
+            [src]="sanitizedTrailerUrl"
+            [title]="movieListing?.name"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
   </div>

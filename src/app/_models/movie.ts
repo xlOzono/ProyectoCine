@@ -1,7 +1,8 @@
 export interface Movie {
   name: string;
   sinopsis: string;
-  duracion: number;
+  duration: number;
   photo: string;
   trailer: string;
+  genre: string;
 }

@@ -1,4 +1,4 @@
-import { Component , inject} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Movie } from 'src/app/_models/movie';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -10,7 +10,9 @@ import { MovieService } from 'src/app/services/movie.service';
 export class HomeComponent {
   movieService: MovieService = inject(MovieService);
   movieListingList: Movie[] = [];
-  constructor(){
+  carouselMoviesList: Movie[] = [];
+  constructor() {
     this.movieListingList = this.movieService.getMovieList();
+    this.carouselMoviesList = this.movieService.filterMovies('Sci-Fi');
   }
 }
