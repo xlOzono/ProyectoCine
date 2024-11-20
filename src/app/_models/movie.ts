@@ -5,4 +5,5 @@ export interface Movie {
   photo: string;
   trailer: string;
   genre: string;
+  carouselPhoto: string;
 }

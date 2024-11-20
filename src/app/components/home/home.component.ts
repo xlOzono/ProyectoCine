@@ -13,6 +13,6 @@ export class HomeComponent {
   carouselMoviesList: Movie[] = [];
   constructor() {
     this.movieListingList = this.movieService.getMovieList();
-    this.carouselMoviesList = this.movieService.filterMovies('Sci-Fi');
+    this.carouselMoviesList = this.movieService.filterMovies('Drama');
   }
 }
