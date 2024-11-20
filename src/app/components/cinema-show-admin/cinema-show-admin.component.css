@@ -53,8 +53,10 @@
     background-color: #ff4a4a;
 }
 
-.input-price {
+.input-price, .input-dates, .input-rooms {
     background-color: #333333;
     color: white;
+    border: none;
+    border-radius: 5px;
     font-size: 18px;
 }
