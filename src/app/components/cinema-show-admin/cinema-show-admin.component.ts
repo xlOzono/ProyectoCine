@@ -16,14 +16,12 @@ export class CinemaShowAdminComponent {
   hora: string = '';
   sala:string = '';
 
-  addFecha(){
-    this.funcion.addFech(this.date);
-  }
+
 
   removeFecha(indice: number){
     this.funcion.deleteFecha(indice);
   }
-
+//--------------------------------------------------------------------------------------
 
   addFuncion(){
     this.funcion.addFun(this.sala, this.hora);
@@ -32,19 +30,34 @@ export class CinemaShowAdminComponent {
   removeFuncion(indice: number){
     this.funcion.deleteFunction(indice);
   }
+//--------------------------------------------------------------------------------------
 
-  selectLanguage(language: string) {
-    this.selectedLanguage = language;
-    console.log(this.selectedLanguage);
+  selectLanguage() {
+    this.funcion.changeIdioma(this.selectedLanguage);
   }
 
-  selectFormat(format: string) {
-    this.selectedFormat = format;
-    console.log(this.selectedFormat);
+  selectFormat() {
+    this.funcion.changeFormato(this.selectedFormat);
   }
 
   confirmPrice() {
-    console.log("Precio", this.price);
+    this.funcion.changePrecio(this.price);
   }
 
+  addFecha(): void {
+    if (!this.date) {}
+    const selectedDate = new Date(this.date);
+    
+    const days = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado','domingo'];
+
+    const dayName = days[selectedDate.getDay()];
+    const year = selectedDate.getFullYear();
+    const month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = (selectedDate.getDate() + 1).toString().padStart(2, '0');
+
+    const formattedDate = `${dayName} ${day}/${month}/${year}`;
+    
+    this.funcion.addFech(formattedDate); //pasarselo al servicio
+
+  }
 }
