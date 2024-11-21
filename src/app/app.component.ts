@@ -7,6 +7,7 @@ import { Role } from './_models/role';
 
 @Component({ selector: 'app-root', templateUrl: 'app.component.html' })
 export class AppComponent {
+
     user?: User | null;
 
     constructor(private accountService: AccountService) {
@@ -22,5 +23,5 @@ export class AppComponent {
     }
     createShow() {
         
-    }
+    }   
 }
