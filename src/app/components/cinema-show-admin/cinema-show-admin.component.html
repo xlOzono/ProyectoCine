@@ -35,19 +35,25 @@
       </div>
     </div>
 
-    <div class="col-md-4 mt-5">
+    <div class="col-md-5 mt-5">
       <h2 class="fs-4 fw-bold text-start"><span class="number">04</span> | Fechas de Función</h2>
       <div class="input-group mt-4">
-        <input type="date" class="input-dates" [(ngModel)]="date"/>
-        <button class="btn btn-danger" (click)="addDates()">AGREGAR</button>
+        <input type="date" class="input-dates" style="padding: 10px 20px;" [(ngModel)]="date"/>
+        <button class="btn btn-danger" (click)="addFecha()">AGREGAR</button>
       </div>
+      <ul class="lista-fechas mt-5">
+        <li *ngFor="let f of funcion.fechas; let i = index" class="fecha mx-5">
+          <button class="btn-borrarFecha" (click)="removeFecha(i)"> X </button>
+          <span>{{ f }}</span>
+        </li>
+      </ul>
     </div>
 
-    <div class="col-md-5 mt-5">
+    <div class="col-md-6 mt-5">
       <h2 class="fs-4 fw-bold text-start"><span class="number">05</span> | Horario de Funciones</h2>
       <div class="input-group mt-4">
         <label class="fs-4 fw-bold text-start mt-2" for="hora"> Hora </label>
-        <input type="time" class="form-control input-dates" [(ngModel)]="date"/>
+        <input type="time" class="form-control input-dates" [(ngModel)]="hora"/>
         
         <label class="fs-4 fw-bold text-start mt-2" for="salas"> Sala </label>
         <select id="salas" class="form-control input-rooms" [(ngModel)]="sala">
@@ -61,14 +67,15 @@
         </select>
         <button class="btn btn-danger" (click)="addFuncion()">AGREGAR</button>
       </div>
+      <ul class="lista-funciones mt-5">
+        <li *ngFor="let f of funcion.funciones; let i = index" class="funcion mx-5">
+          <button class="btn-borrarFuncion" (click)="removeFuncion(i)"> X </button>
+          <span class="function-text">{{ f }}</span>
+        </li>
+      </ul>
     </div>
 
-    <ul class="mt-5">
-      <li *ngFor=" let f of funcion.funciones" class="btn btn-danger">
-        {{f}} <button class="btn btn-dark"> X </button>
-      </li>
-    </ul>
-    {{ funcion.funciones | json}}
+    
 
     <button class="btn btn-danger mt-5 col-md-9">GUARDAR</button>
   </div>

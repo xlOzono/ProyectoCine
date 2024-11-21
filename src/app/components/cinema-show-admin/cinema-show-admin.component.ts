@@ -7,16 +7,30 @@ import { FunAdminService } from 'src/app/fun-admin.service';
   styleUrls: ['./cinema-show-admin.component.css']
 })
 export class CinemaShowAdminComponent {
-  constructor( public funcion: FunAdminService ){}
+  constructor( public funcion: FunAdminService){}
 
   selectedLanguage: string = ' ';
   selectedFormat: string = ' ';
   price: string = '';
   date:string = '';
+  hora: string = '';
   sala:string = '';
 
+  addFecha(){
+    this.funcion.addFech(this.date);
+  }
+
+  removeFecha(indice: number){
+    this.funcion.deleteFecha(indice);
+  }
+
+
   addFuncion(){
-    this.funcion.add(this.sala, this.date);
+    this.funcion.addFun(this.sala, this.hora);
+  }
+
+  removeFuncion(indice: number){
+    this.funcion.deleteFunction(indice);
   }
 
   selectLanguage(language: string) {
@@ -31,10 +45,6 @@ export class CinemaShowAdminComponent {
 
   confirmPrice() {
     console.log("Precio", this.price);
-  }
-
-  addDates() {
-    console.log("Aceptar");
   }
 
 }
