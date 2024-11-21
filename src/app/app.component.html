@@ -7,12 +7,11 @@
   />
   <ul class="nav nav-pills">
     <a class="nav-item nav-link" routerLink="/">PELICULAS</a>
-    <select *ngIf="isAdmin" class="btn btn-link nav-item nav-link">
+    <select *ngIf="isAdmin" class="btn btn-link nav-item nav-link" (change) = "onRouteChange($event)">
       <option value="" hidden>MÁS OPCIONES</option>
-      <option routerLink="/PROMOCIONES">PROMOCIONES</option>
+      <option routerLink="'/PROMOCIONES'">PROMOCIONES</option>
       <option routerLink="/ASIENTOS">ASIENTOS</option>
       <option routerLink="/CARRUSEL">CARRUSEL</option>
-      
     </select>
     <button class="btn btn-link nav-item nav-link" (click)="logout()">
       CERRAR SESIÓN
