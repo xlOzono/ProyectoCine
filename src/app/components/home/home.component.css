@@ -15,3 +15,25 @@ html {
 .movie-results {
   
 }
+
+.add-button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: #ff2e38;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.add-button:hover {
+  transform: scale(1.1);
+}

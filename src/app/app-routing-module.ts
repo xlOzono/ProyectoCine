@@ -7,13 +7,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { CinemaShowAdminComponent } from './components/cinema-show-admin/cinema-show-admin.component';
+import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },
   { path: 'test', component: MovieDetailComponent },
-  { path: 'add-showtimes', component: CinemaShowAdminComponent, canActivate: [AuthGuard]},
+  { path: 'add-movie', component: MovieInfoComponent},
+  { path: 'add-showtimes', component: CinemaShowAdminComponent },
 
 
   // otherwise redirect to home

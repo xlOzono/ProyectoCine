@@ -1,0 +1,92 @@
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  height: 100%;
+  width: 25%;
+  float: left;
+}
+
+.movie-poster {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-movie-button {
+  width: 14vw; 
+  height: 35vh; 
+  background-color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 2vh; 
+}
+
+.add-movie-button:hover {
+  background-color: #d0d0d0;
+}
+
+.add-icon {
+  width: 4vw; 
+  height: 4vw;
+  max-width: 50px;
+  max-height: 50px;
+  opacity: 0.6;
+}
+
+.movie-details {
+  text-align: center;
+}
+
+.movie-title {
+  font-size: 1.5em;
+  color: #FF2E38;
+  margin: 0;
+}
+
+.detail-item {
+  margin-top: 10px; 
+}
+
+.detail-title {
+  font-size: 1.2em;
+  color: white;
+  margin: 0;
+}
+
+.detail-info {
+  font-size: 0.9em; 
+  color: rgba(255, 255, 255, 0.478); 
+  margin: 0; 
+}
+
+.edit-button {
+  margin-top: 2vh;
+  width: 10vw;
+  padding: 5px 10px;
+  background-color: #FF2E38;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.5vw;
+  font-weight: bold;
+}
+
+app-video-player {
+  width: 75%;
+  height: 40%;
+  float: right
+}
+
+app-schedule {
+  width: 75%;
+  height: 60%;
+  float: right;
+}

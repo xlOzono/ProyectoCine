@@ -1,0 +1,47 @@
+<div class="bg-color"></div>
+
+<div class="movie-info">
+    <div class="movie-poster">
+      <button class="add-movie-button">
+        <img src="assets/images/insert-image.png" alt="Add movie icon" class="add-icon">
+      </button>
+    </div>
+    
+    <div class="movie-details">
+      <h2 class="movie-title">"TÍTULO DE LA PELÍCULA"</h2>
+      <div class="detail-item">
+        <p class="detail-title">Sinopsis</p>
+        <p class="detail-info">Sin información.</p>
+      </div>
+      <div class="detail-item">
+        <p class="detail-title">Duración</p>
+        <p class="detail-info">Sin información.</p>
+      </div>
+    </div>  
+    <button class="edit-button">EDITAR</button>
+</div>
+<app-video-player></app-video-player>
+<app-schedule></app-schedule>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

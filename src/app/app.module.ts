@@ -15,6 +15,9 @@ import { MovieListingComponent } from './components/movie-listing/movie-listing.
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { CinemaShowAdminComponent } from './components/cinema-show-admin/cinema-show-admin.component';
 import { FormsModule } from '@angular/forms';
+import { MovieInfoComponent } from './components/movie-info/movie-info.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
 
 @NgModule({
   imports: [
@@ -32,6 +35,9 @@ import { FormsModule } from '@angular/forms';
     MovieListingComponent,
     MovieDetailComponent,
     CinemaShowAdminComponent,
+    MovieInfoComponent,
+    ScheduleComponent,
+    VideoPlayerComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
