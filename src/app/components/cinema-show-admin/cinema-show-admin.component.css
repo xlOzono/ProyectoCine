@@ -114,10 +114,8 @@
 .lista-fechas {
     display: flex;
     flex-wrap: wrap;
-    gap: 70px;
     width: 800px;
     margin-top: 15px;
-    
 }
 
 /* Elementos de la lista de funciones */
@@ -134,8 +132,9 @@
     border-radius: 5px;
     border: none;
     transition: background-color 0.2s ease, color 0.2s ease;
-    margin-bottom: 5px;           /* Espacio entre los elementos */
     position: relative;            /* Para posicionar el botón "X" */
+    margin-right: 70px;
+    margin-bottom: 30px;           /* Espacio entre los elementos */
 }
 
 /* Botón para remover funciones */
