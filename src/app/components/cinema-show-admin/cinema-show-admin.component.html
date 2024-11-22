@@ -5,8 +5,8 @@
     <div class="col-md-3">
       <h2 class="fs-4 fw-bold text-start"><span class="number">01</span> | Opciones de Idioma</h2>
       <div class="btn-group w-100 mt-4" role="group">
-        <button class="btn btn-dark" [ngClass]="{'active': selectedLanguage === 'subtitulada'}" (click)="selectLanguage('subtitulada')">SUBTITULADA</button>
-        <button class="btn btn-dark" [ngClass]="{'active': selectedLanguage === 'doblada'}" (click)="selectLanguage('doblada')">DOBLADA</button>
+        <button class="btn btn-dark" [ngClass]="{'active': selectedLanguage === 'subtitulada'}" (click)="selectLanguage()">SUBTITULADA</button>
+        <button class="btn btn-dark" [ngClass]="{'active': selectedLanguage === 'doblada'}" (click)="selectLanguage()">DOBLADA</button>
       </div>
     </div>
 
@@ -17,9 +17,9 @@
     <div class="col-md-3">
       <h2 class="fs-4 fw-bold text-start"><span class="number">02</span> | Formato de Proyección</h2>
       <div class="btn-group w-100 mt-4" role="group">
-        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '2D'}" (click)="selectFormat('2D')">2D</button>
-        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '3D'}" (click)="selectFormat('3D')">3D</button>
-        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '4D'}" (click)="selectFormat('4D')">4D</button>
+        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '2D'}" (click)="selectFormat()">2D</button>
+        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '3D'}" (click)="selectFormat()">3D</button>
+        <button class="btn btn-dark" [ngClass]="{'active': selectedFormat === '4D'}" (click)="selectFormat()">4D</button>
       </div>
     </div>
 
@@ -35,19 +35,27 @@
       </div>
     </div>
 
-    <div class="col-md-4 mt-5">
+    <div class="col-md-5 mt-5">
       <h2 class="fs-4 fw-bold text-start"><span class="number">04</span> | Fechas de Función</h2>
       <div class="input-group mt-4">
-        <input type="date" class="input-dates" [(ngModel)]="date"/>
-        <button class="btn btn-danger" (click)="addDates()">AGREGAR</button>
+        <input type="date" class="input-dates" style="padding: 10px 20px;" [(ngModel)]="date"/>
+        <button class="btn btn-danger" (click)="addFecha()">AGREGAR</button>
+      </div>
+      <div class="cont-fech">
+        <ul class="lista-fechas">
+          <li *ngFor="let f of funcion.fechas; let i = index" class="fecha">
+            <button class="btn-borrarFecha" (click)="removeFecha(i)"> X </button>
+            <span class="label-fecha">{{ f }}</span>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <div class="col-md-5 mt-5">
+    <div class="col-md-6 mt-5">
       <h2 class="fs-4 fw-bold text-start"><span class="number">05</span> | Horario de Funciones</h2>
       <div class="input-group mt-4">
         <label class="fs-4 fw-bold text-start mt-2" for="hora"> Hora </label>
-        <input type="time" class="form-control input-dates" [(ngModel)]="date"/>
+        <input type="time" class="form-control input-dates" [(ngModel)]="hora"/>
         
         <label class="fs-4 fw-bold text-start mt-2" for="salas"> Sala </label>
         <select id="salas" class="form-control input-rooms" [(ngModel)]="sala">
@@ -61,15 +69,17 @@
         </select>
         <button class="btn btn-danger" (click)="addFuncion()">AGREGAR</button>
       </div>
+      <ul class="lista-funciones mt-5">
+        <li *ngFor="let f of funcion.funciones; let i = index" class="funcion mx-5">
+          <button class="btn-borrarFuncion" (click)="removeFuncion(i)"> X </button>
+          <span class="function-text">{{ f }}</span>
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <ul class="mt-5">
-      <li *ngFor=" let f of funcion.funciones" class="btn btn-danger">
-        {{f}} <button class="btn btn-dark"> X </button>
-      </li>
-    </ul>
-    {{ funcion.funciones | json}}
-
-    <button class="btn btn-danger mt-5 col-md-9">GUARDAR</button>
+  <div class="centrado">
+    <button class="btn btn-guardar mx-5 mt-5">GUARDAR</button>
   </div>
 </div>
+
