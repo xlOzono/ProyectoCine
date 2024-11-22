@@ -12,6 +12,8 @@ html {
   margin: 0;
 }
 
+button{text-transform: uppercase;}
+
 body {
   min-height: 100%;
   background-color: transparent;
@@ -44,21 +46,35 @@ body {
 }
 
 /* ESTILO BOTON PRIMARIO*/
-.btn.btn-primary.w-100.mb-2 {
+.btn.btn-primary.w-100.mb-2, 
+.btn.btn-primary{
   font-weight: bold;
   color: white;
   background-color: #ff2e38;
   border-color: #ff2e38;
   margin-top: 5px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+}
+
+.btn.btn-primary:active{
+  background-color: #ff2e38;
 }
 
 /* ESTILO BOTON SECUNDARIO*/
-.btn.btn-secondary.w-100 {
+.btn.btn-secondary.w-100, 
+.btn.btn-secondary {
   font-weight: bold;
   color: white;
-  background-color: #222222;
+  background-color: #333333;
   border-color: #222222;
-  margin-top: 10px;
+  margin-top: 5px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+}
+
+.btn.btn-secondary:active{
+  background-color: #222222;
 }
 
 .bg-overlay {
