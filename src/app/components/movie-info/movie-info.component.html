@@ -1,25 +1,60 @@
 <div class="bg-color"></div>
 
-<div class="movie-info">
-    <div class="movie-poster">
-      <button class="add-movie-button">
-        <img src="assets/images/insert-image.png" alt="Add movie icon" class="add-icon">
-      </button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 d-flex justify-content-center">
+      <div class="card w-75 ms-5">
+        <img
+          class="card-img-top"
+          src="assets/images/insert-image.png"
+          alt="INSERT IMAGE"
+        />
+        <div class="card-header border-danger">
+          <h2 class="card-title">
+            <strong>MOVIE NAME</strong>
+          </h2>
+        </div>
+        <div class="card-body">
+          <strong>Sinopsis</strong>
+          <p class="card-text">EJEMPLO SINOPSIS</p>
+        </div>
+        <div class="card-footer">
+          <strong>Duración</strong>
+          <p>X minutos</p>
+        </div>
+        <button
+          class="btn btn-primary w-100 mb-2"
+          data-bs-toggle="modal"
+          data-bs-target="#editInfo"
+        >
+          EDITAR
+        </button>
+      </div>
     </div>
-    
-    <div class="movie-details">
-      <h2 class="movie-title"> TÍTULO DE LA PELÍCULA </h2>
 
-      <div class="detail-item">
-        <p class="detail-title"> Sinopsis </p>
-        <p class="detail-info"> Sin información. </p>
+    <div class="col-md-8 ms-5 d-flex flex-column align-items-center">
+      <div class="video-container position-relative w-100">
+        <div
+          class="spinner-border text-danger position-absolute top-50 start-50"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <div class="ratio ratio-16x9 img">
+          <div class=""></div>
+          <iframe
+            src=""
+            title="EJEMPLO"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-      <div class="detail-item">
-        <p class="detail-title">Duración</p>
-        <p class="detail-info">Sin información.</p>
-      </div>
-    </div>  
-    <button class="edit-button" data-bs-toggle="modal" data-bs-target="#editInfo"> EDITAR </button>
+    </div>
+  </div>
 </div>
 
 <!------------------------------------------------------------ Modal -------------------------------------------------------------->
@@ -27,72 +62,70 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-
-        <h1 class="titulo-mensaje" id="exampleModalLabel"> Editar </h1>
-        <button class="btn" data-bs-dismiss="modal"> X </button>
-
+        <h1 class="titulo-mensaje" id="exampleModalLabel">Editar</h1>
+        <button class="btn" data-bs-dismiss="modal">X</button>
       </div>
-      <div class="modal-body" >
+      <div class="modal-body">
         <form class="p-4 border rounded shadow-sm">
           <div class="mb-3">
             <label for="email" class="form-label">Titulo de la pelicula</label>
-            <input 
-              type="" 
-              class="form-control" 
-              id="email" 
-              placeholder="Ingresa tu correo" 
-              required>
+            <input
+              type=""
+              class="form-control"
+              id="email"
+              placeholder="Ingresa tu correo"
+              required
+            />
             <div class="form-text"></div>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Sinapsis</label>
-            <input 
-              type="password" 
-              class="form-control" 
-              id="password" 
-              placeholder="Contraseña" 
-              required>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Contraseña"
+              required
+            />
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Duración</label>
-            <input 
-              type="password" 
-              class="form-control" 
-              id="password" 
-              placeholder="Contraseña" 
-              required>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Contraseña"
+              required
+            />
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Imagen</label>
-            <input 
-              type="password" 
-              class="form-control" 
-              id="password" 
-              placeholder="Contraseña" 
-              required>
-          </div>   
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Contraseña"
+              required
+            />
+          </div>
           <div class="mb-3">
             <label for="password" class="form-label">Link del video</label>
-            <input 
-              type="password" 
-              class="form-control" 
-              id="password" 
-              placeholder="Contraseña" 
-              required>
-          </div>    
-           
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Contraseña"
+              required
+            />
+          </div>
         </form>
-        
       </div>
       <div class="modal-footer">
-
-        <button class="btn btn-cerrar" data-bs-dismiss="modal"> Cerrar </button>
-        <button class="btn btn-danger"> Guardar </button>
-
+        <button class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-danger">Guardar</button>
       </div>
     </div>
   </div>
 </div>
 
-<app-video-player></app-video-player>
 <app-schedule></app-schedule>
