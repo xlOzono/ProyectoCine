@@ -7,10 +7,7 @@
   />
   <ul class="nav nav-pills">
     <a class="nav-item nav-link" routerLink="/">PELICULAS</a>
-    <button class="btn btn-primary" (click)="logout()">CERRAR SESIÓN</button>
-    <div class="navbar-nav" *ngIf="isAdmin">
-      <a class="nav-item nav-link" routerLink="/">ADMINISTRACION</a>
-    </div>
+    <button class="nav-item nav-link" (click)="logout()">CERRAR SESIÓN</button>
   </ul>
 </nav>
 
