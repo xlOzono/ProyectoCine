@@ -14,7 +14,7 @@
     <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
     <div *ngIf="success" class="alert alert-success">{{ success }}</div>
     <div class="card">
-      <h4 class="card-header">Iniciar Sesión</h4>
+      <h4 class="card-header my-2 fs-2">Iniciar Sesión</h4>
       <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="mb-3">
