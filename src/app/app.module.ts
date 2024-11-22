@@ -17,7 +17,6 @@ import { CinemaShowAdminComponent } from './components/cinema-show-admin/cinema-
 import { FormsModule } from '@angular/forms';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
-import { VideoPlayerComponent } from './components/video-player/video-player.component';
 
 @NgModule({
   imports: [
@@ -25,7 +24,7 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [
     AppComponent,
@@ -37,14 +36,13 @@ import { VideoPlayerComponent } from './components/video-player/video-player.com
     CinemaShowAdminComponent,
     MovieInfoComponent,
     ScheduleComponent,
-    VideoPlayerComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
-    fakeBackendProvider
-  ]
+    fakeBackendProvider,
+  ],
 })
 export class AppModule {}

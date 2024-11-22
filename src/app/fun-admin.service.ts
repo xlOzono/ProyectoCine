@@ -11,21 +11,19 @@ export class FunAdminService {
   precio: string = ' ';
   funciones: string[] = ['14:45 | Sala 7'];
   fechas: string[] = ['MIÉRCOLES \n18/02/2024'];
+  trailers: string[] = [];
 
   changeIdioma(opcion: string) {
     this.idioma = opcion;
   }
-  //--------------------------------------------------------------------------------------
 
   changeFormato(form: string) {
     this.idioma = form;
   }
-  //--------------------------------------------------------------------------------------
 
   changePrecio(valor: string) {
     this.idioma = valor;
   }
-  //--------------------------------------------------------------------------------------
 
   addFech(fecha: string) {
     /*lo que esta adentro es simplemento como nos referiremos al 
@@ -37,14 +35,8 @@ export class FunAdminService {
     // Elimina el elemento en la posición `index`
     this.fechas.splice(index, 1);
   }
-  //--------------------------------------------------------------------------------------
 
   addFun(sala: string, horario: string) {
-    /*lo que esta adentro es simplemento como nos referiremos al 
-  funciones: string[] = [];
-  trailers:string[] = [];
-  
-  add(sala: string, horario: string){ 
     /*lo que esta adentro es simplemente como nos referiremos al 
     parametro dentro de la funcion*/
     this.funciones.push(horario + ' | ' + sala);
