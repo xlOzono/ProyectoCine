@@ -14,16 +14,3 @@
   display: flex; 
   justify-content: flex-end; 
 }
-
-.add-schedule-button {
-  background-color: #FF2E38;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 15px;
-  border-radius: 4px;
-  margin-right: 10vw;
-}
