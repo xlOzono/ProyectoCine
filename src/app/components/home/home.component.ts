@@ -16,7 +16,8 @@ export class HomeComponent {
   movieService: MovieService = inject(MovieService);
   movieListingList: Movie[] = [];
   carouselMoviesList: Movie[] = [];
-  constructor() {
+  constructor(private accountService: AccountService) {
+    this.accountService.user.subscribe((x) => (this.user = x));
     this.movieListingList = this.movieService.getMovieList();
     this.carouselMoviesList = this.movieService.filterMovies('Drama');
   }
