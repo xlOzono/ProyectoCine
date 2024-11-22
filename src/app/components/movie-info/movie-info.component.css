@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 .movie-info {
   display: flex;
   flex-direction: column;
@@ -10,13 +8,7 @@
   float: left;
 }
 
-.movie-poster {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 30%;
-}
+
 
 .add-movie-button {
   width: 16vw; 
@@ -28,7 +20,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  margin-bottom: 2vh; 
+
 }
 
 .add-movie-button:hover {
@@ -49,7 +41,10 @@
 }
 
 .movie-title {
-  font-size: 20px;
+  font-size: 17px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .borde-rojo {
@@ -94,7 +89,7 @@ app-video-player {
   float: right;
 }  
 
->>>>>>> Stashed changes
+
 app-schedule {
   width: 75%;
   height: 60%;
