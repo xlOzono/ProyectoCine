@@ -2,15 +2,9 @@
 
 <div class="movie-results">
   <section class="results">
-    <app-movie-listing
-    
-      *ngFor="let movieListing of movieListingList"
-      
-      [movieListing]="movieListing"
-      
-    ></app-movie-listing>
+    <app-movie-listing *ngFor="let movieListing of movieListingList"[movieListing]="movieListing"></app-movie-listing>
   </section>
   <div class="navbar-nav" *ngIf="isAdmin">
-    <button class="add-button rounded-circle" routerLink="/add-movie">+</button>
+    <button class="add-button rounded-circle" routerLink="/add-movie"><i class="bi bi-plus"></i></button>
   </div>
 </div>

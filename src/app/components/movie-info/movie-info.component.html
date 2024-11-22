@@ -8,17 +8,91 @@
     </div>
     
     <div class="movie-details">
-      <h2 class="movie-title">"TÍTULO DE LA PELÍCULA"</h2>
+      <h2 class="movie-title"> TÍTULO DE LA PELÍCULA </h2>
+
       <div class="detail-item">
-        <p class="detail-title">Sinopsis</p>
-        <p class="detail-info">Sin información.</p>
+        <p class="detail-title"> Sinopsis </p>
+        <p class="detail-info"> Sin información. </p>
       </div>
       <div class="detail-item">
         <p class="detail-title">Duración</p>
         <p class="detail-info">Sin información.</p>
       </div>
     </div>  
-    <button class="edit-button">EDITAR</button>
+    <button class="edit-button" data-bs-toggle="modal" data-bs-target="#editInfo"> EDITAR </button>
 </div>
+
+<!------------------------------------------------------------ Modal -------------------------------------------------------------->
+<div class="mensaje modal fade" id="editInfo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h1 class="titulo-mensaje" id="exampleModalLabel"> Editar </h1>
+        <button class="btn" data-bs-dismiss="modal"> X </button>
+
+      </div>
+      <div class="modal-body" >
+        <form class="p-4 border rounded shadow-sm">
+          <div class="mb-3">
+            <label for="email" class="form-label">Titulo de la pelicula</label>
+            <input 
+              type="" 
+              class="form-control" 
+              id="email" 
+              placeholder="Ingresa tu correo" 
+              required>
+            <div class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Sinapsis</label>
+            <input 
+              type="password" 
+              class="form-control" 
+              id="password" 
+              placeholder="Contraseña" 
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Duración</label>
+            <input 
+              type="password" 
+              class="form-control" 
+              id="password" 
+              placeholder="Contraseña" 
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Imagen</label>
+            <input 
+              type="password" 
+              class="form-control" 
+              id="password" 
+              placeholder="Contraseña" 
+              required>
+          </div>   
+          <div class="mb-3">
+            <label for="password" class="form-label">Link del video</label>
+            <input 
+              type="password" 
+              class="form-control" 
+              id="password" 
+              placeholder="Contraseña" 
+              required>
+          </div>    
+           
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+
+        <button class="btn btn-cerrar" data-bs-dismiss="modal"> Cerrar </button>
+        <button class="btn btn-danger"> Guardar </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-video-player></app-video-player>
 <app-schedule></app-schedule>

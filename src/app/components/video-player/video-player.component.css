@@ -1,40 +1,24 @@
-.video-player {
-    display: flex; /* Habilita el uso de flexbox */
-    flex-direction: column; /* Organiza los hijos en una columna */
-    align-items: center; /* Centra el contenido horizontalmente */
-    height: 100%; /* Asegura que ocupe todo el alto disponible */
-  }
-  
-  .video-placeholder {
-    width: 35vw; /* Ajusta el tamaño del rectángulo del video */
-    height: 35vh; /* Altura del rectángulo */
-    display: flex;
-    justify-content: center; /* Centra el botón horizontalmente en el rectángulo */
-    position: relative; /* Posicionamiento relativo para el botón */
-  }
-  
-  .add-video-button {
-    width: 100%; /* Asegura que el botón ocupe todo el ancho del rectángulo */
-    height: 100%; /* Asegura que el botón ocupe todo el alto del rectángulo */
-    background-color: #e0e0e0; /* Color de fondo */
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px; /* Bordes redondeados, opcional */
-    position: absolute; /* Posiciona el botón dentro del contenedor */
-    top: 0;
-    left: 0;
-  }
-  
-  .add-video-button:hover {
-    background-color: #d0d0d0; /* Cambio de color al pasar el cursor */
-  }
-  
-  .add-icon {
-    width: 50px; /* Tamaño del icono */
-    height: 50px;
-    opacity: 0.6; /* Transparencia para un efecto más sutil */
-  }
-  
+.video-placeholder {
+  width: 50vw; /* Ajusta el tamaño del rectángulo del video */
+  height: 36vh; /* Altura del rectángulo */
+  display: flex;
+  justify-content: center; /* Centra el botón horizontalmente en el rectángulo */
+  position: relative; /* Posicionamiento relativo para el botón */
+}
+
+.add-video-button {
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 200;
+  font-size: 80px;
+  color: black;
+}
