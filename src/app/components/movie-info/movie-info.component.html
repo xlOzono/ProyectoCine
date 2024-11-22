@@ -2,28 +2,35 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 d-flex justify-content-center">
-      <div class="card w-75 ms-5">
-        <img
-          class="card-img-top"
-          src="assets/images/insert-image.png"
-          alt="INSERT IMAGE"
-        />
-        <div class="card-header border-danger">
-          <h2 class="card-title">
-            <strong class="style-title">MOVIE NAME</strong>
-          </h2>
+    <div class="col-md-3" style="margin-left: 5%">
+      <div class="card w-75">
+        <div class="card add-movie-button">
+          <img
+            class="card-img-top"
+            src="assets/images/insert-image.png"
+            alt="INSERT IMAGE"
+            style="
+              height: 20%;
+              width: 30%;
+              position: absolute;
+              left: 35%;
+              top: 40%;
+            "
+          />
+        </div>
+        <div class="card-header border-danger" style="margin-top: 10px">
+          <strong class="movie-title"> titulo de película </strong>
         </div>
         <div class="card-body">
-          <strong>Sinopsis</strong>
-          <p class="card-text">EJEMPLO SINOPSIS</p>
+          <strong style="color: white">Sinopsis</strong>
+          <p class="card-text" style="color: gray">EJEMPLO SINOPSIS</p>
         </div>
         <div class="card-footer">
-          <strong>Duración</strong>
-          <p>X minutos</p>
+          <strong style="color: white">Duración</strong>
+          <p style="color: gray">X minutos</p>
         </div>
         <button
-          class="btn btn-primary w-100 mb-2"
+          class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#editInfo"
         >
@@ -31,6 +38,7 @@
         </button>
       </div>
     </div>
+
     <div class="col-md-8 ms-5 d-flex flex-column align-items-center">
       <div class="video-container position-relative w-100">
         <div
@@ -51,78 +59,80 @@
             allowfullscreen
           ></iframe>
         </div>
-
-        <!------------------------------------------------------------ Modal -------------------------------------------------------------->
-        <div class="mensaje modal fade" id="editInfo">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="titulo-mensaje" id="exampleModalLabel">Editar</h1>
-                <button class="btn" data-bs-dismiss="modal">X</button>
-              </div>
-              <div class="modal-body">
-                <form class="p-4 border rounded shadow-sm">
-                  <div class="mb-3">
-                    <label for="titulo">Titulo de la pelicula</label>
-                    <input
-                      class="form-control"
-                      id="titulo"
-                      placeholder="Ej. VENOM"
-                      required
-                    />
-                    <div class="form-text"></div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="sinopsis" class="form-label">Sinopsis</label>
-                    <textarea
-                      class="form-control caja-sinop"
-                      id="sinopsis"
-                      placeholder="Ej. En Venom: El último baile, Tom Hardy regresa como Venom, uno de los personajes más grandes y complejos de Marvel, para la última película de la trilogía. Eddie y Venom están huyendo. Perseguidos por sus dos mundos y con la red cerrándose, el dúo se ve obligado a tomar una decisión devastadora que echará el telón al último baile de Venom y Eddie."
-                      rows="7"
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label for="duracion" class="form-label">Duración</label>
-                    <input
-                      class="form-control"
-                      id="duracion"
-                      placeholder="Ej. 120 min"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="imagen" class="form-label">Imágen</label>
-                    <input
-                      class="form-control"
-                      id="imagen"
-                      placeholder="Link imagen"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="link" class="form-label">Link del video</label>
-                    <input
-                      class="form-control"
-                      id="link"
-                      placeholder="https://www.youtube.com/embed/dG-Yk4SDm94"
-                      required
-                    />
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-secondary" data-bs-dismiss="modal">
-                  Cerrar
-                </button>
-                <button class="btn btn-primary">Guardar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <app-schedule></app-schedule>
       </div>
     </div>
+
+    <!------------------------------------------------------------ Modal -------------------------------------------------------------->
+    <div class="mensaje modal fade" id="editInfo">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="titulo-mensaje" id="exampleModalLabel">Editar</h1>
+            <button class="btn" data-bs-dismiss="modal">X</button>
+          </div>
+          <div class="modal-body">
+            <form class="p-4 border rounded shadow-sm">
+              <div class="mb-3">
+                <label for="titulo">Titulo de la pelicula</label>
+                <input
+                  class="form-control"
+                  id="titulo"
+                  placeholder="Ej. VENOM"
+                  required
+                />
+                <div class="form-text"></div>
+              </div>
+              <div class="mb-3">
+                <label for="sinopsis" class="form-label">Sinopsis</label>
+                <textarea
+                  class="form-control caja-sinop"
+                  id="sinopsis"
+                  placeholder="Ej. En Venom: El último baile, Tom Hardy regresa como Venom, uno de los personajes más grandes y complejos de Marvel, para la última película de la trilogía. Eddie y Venom están huyendo. Perseguidos por sus dos mundos y con la red cerrándose, el dúo se ve obligado a tomar una decisión devastadora que echará el telón al último baile de Venom y Eddie."
+                  rows="7"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="duracion" class="form-label">Duración</label>
+                <input
+                  class="form-control"
+                  id="duracion"
+                  placeholder="Ej. 120 min"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="imagen" class="form-label">Imágen</label>
+                <input
+                  class="form-control"
+                  id="imagen"
+                  placeholder="Link imagen"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="link" class="form-label">Link del video</label>
+                <input
+                  class="form-control"
+                  id="link"
+                  placeholder="https://www.youtube.com/embed/dG-Yk4SDm94"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Cerrar
+            </button>
+            <button class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-schedule></app-schedule>
+    <app-video-player></app-video-player>
+    <app-schedule></app-schedule>
   </div>
 </div>
