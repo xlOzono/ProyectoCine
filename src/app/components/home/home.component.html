@@ -1,23 +1,25 @@
 <div class="bg-color"></div>
-<div
-  id="carouselExampleControls"
-  class="carousel slide mb-5"
-  data-bs-ride="carousel"
->
-  <div class="carousel-inner">
-    <!-- Generate a carousel-item for each movie -->
-    <ng-container *ngFor="let movie of carouselMoviesList; let i = index">
-      <div class="carousel-item" [ngClass]="{ active: i === 0 }">
-        <!-- Center the image -->
-        <img
-          [src]="movie.carouselPhoto"
-          class="d-block img-fluid"
-          [alt]="movie.name"
-          [routerLink]="['/details', movie.name]"
-          style="max-height: 400px; margin: auto"
-        />
-      </div>
-    </ng-container>
+<div *ngIf="!isAdmin">
+  <div
+    id="carouselExampleControls"
+    class="carousel slide mb-5"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <!-- Generate a carousel-item for each movie -->
+      <ng-container *ngFor="let movie of carouselMoviesList; let i = index">
+        <div class="carousel-item" [ngClass]="{ active: i === 0 }">
+          <!-- Center the image -->
+          <img
+            [src]="movie.carouselPhoto"
+            class="d-block img-fluid"
+            [alt]="movie.name"
+            [routerLink]="['/details', movie.name]"
+            style="max-height: 400px; margin: auto"
+          />
+        </div>
+      </ng-container>
+    </div>
   </div>
 
   <button
