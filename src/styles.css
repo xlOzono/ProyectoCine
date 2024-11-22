@@ -44,7 +44,8 @@ body {
 }
 
 /* ESTILO BOTON PRIMARIO*/
-.btn.btn-primary.w-100.mb-2 {
+.btn.btn-primary.w-100.mb-2,
+.btn.btn-primary {
   font-weight: bold;
   color: white;
   background-color: #ff2e38;
