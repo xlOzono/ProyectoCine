@@ -11,7 +11,7 @@
         />
         <div class="card-header border-danger">
           <h2 class="card-title">
-            <strong>MOVIE NAME</strong>
+            <strong class="style-title">MOVIE NAME</strong>
           </h2>
         </div>
         <div class="card-body">
@@ -68,61 +68,57 @@
       <div class="modal-body">
         <form class="p-4 border rounded shadow-sm">
           <div class="mb-3">
-            <label for="email" class="form-label">Titulo de la pelicula</label>
+            <label for="titulo">Titulo de la pelicula</label>
             <input
-              type=""
               class="form-control"
-              id="email"
-              placeholder="Ingresa tu correo"
+              id="titulo"
+              placeholder="Ej. VENOM"
               required
             />
             <div class="form-text"></div>
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Sinapsis</label>
+            <label for="sinopsis" class="form-label">Sinopsis</label>
+            <textarea
+              class="form-control caja-sinop"
+              id="sinopsis"
+              placeholder="Ej. En Venom: El último baile, Tom Hardy regresa como Venom, uno de los personajes más grandes y complejos de Marvel, para la última película de la trilogía. Eddie y Venom están huyendo. Perseguidos por sus dos mundos y con la red cerrándose, el dúo se ve obligado a tomar una decisión devastadora que echará el telón al último baile de Venom y Eddie."
+              rows="7"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="duracion" class="form-label">Duración</label>
             <input
-              type="password"
               class="form-control"
-              id="password"
-              placeholder="Contraseña"
+              id="duracion"
+              placeholder="Ej. 120 min"
               required
             />
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Duración</label>
+            <label for="imagen" class="form-label">Imágen</label>
             <input
-              type="password"
               class="form-control"
-              id="password"
-              placeholder="Contraseña"
+              id="imagen"
+              placeholder="Link imagen"
               required
             />
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Imagen</label>
+            <label for="link" class="form-label">Link del video</label>
             <input
-              type="password"
               class="form-control"
-              id="password"
-              placeholder="Contraseña"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Link del video</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="Contraseña"
+              id="link"
+              placeholder="https://www.youtube.com/embed/dG-Yk4SDm94"
               required
             />
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-cerrar" data-bs-dismiss="modal">Cerrar</button>
-        <button class="btn btn-danger">Guardar</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>

@@ -1,101 +1,9 @@
-.movie-info {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  color: white;
-  height: 100%;
-  width: 28%;
-  float: left;
-}
-
-.movie-poster {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 130px;
-}
-
-.add-movie-button {
-  width: 14vw; 
-  height: 37vh; 
-  background-color: #e0e0e0;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  margin-bottom: 2vh; 
-}
-
-.add-movie-button:hover {
-  background-color: #d0d0d0;
-}
-
-.add-icon {
-  width: 4vw; 
-  height: 4vw;
-  max-width: 50px;
-  max-height: 50px;
-  opacity: 0.6;
-}
-
-.movie-details {
-  margin-left: 120px;
-}
-
-.movie-title {
-  font-size: 15px;
-}
-
-.detail-item {
-  margin-top: 5px; 
-}
-
-.detail-title {
-  font-size: 1.2em;
-  color: white;
-  margin: 0;
-}
-
-.detail-info {
-  font-size: 0.9em; 
-  color: rgba(255, 255, 255, 0.478); 
-  margin: 0; 
-}
-
-.edit-button {
-  margin-top: 2vh;
-  width: 14vw;
-  padding: 5px 10px;
-  background-color: #FF2E38;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
-  margin-left: 200px;
-  position: absolute;
-  bottom: 0;
-}
-
-app-video-player {
-  width: 75%;
-  height: 40%;
-  float: right;
-}  
-
 app-schedule {
   width: 75%;
   height: 60%;
   float: right;
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
 .mensaje {
   color: white;
 }
@@ -104,29 +12,12 @@ app-schedule {
   font-size: 25px;
   font-weight: bolder;
   margin-left: 10px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .modal-content {
   background-color: #1f1f1f;
 }
 
-.btn-cerrar {
-  background-color: #333333;
-  color: white;
-  font-weight: bold;
-  padding: 10px 30px;
-  font-size: 15px;
-  border-radius: 5px;
-  border: none;
-}
-
-.btn-danger {
-  background-color: #ff2e38;
-  color: white;
-  font-weight: bold;
-  padding: 10px 30px;
-  font-size: 15px;
-  border-radius: 5px;
-  border: none;
+.caja-sinop {
+  padding: 10px 15px;
 }
