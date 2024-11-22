@@ -10,16 +10,21 @@ import { CinemaShowAdminComponent } from './components/cinema-show-admin/cinema-
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    title: 'CineMax',
+  },
+  { path: 'account/login', component: LoginComponent, title: 'CineMax' },
+  { path: 'account/register', component: RegisterComponent, title: 'CineMax' },
+  { path: 'details/:name', component: MovieDetailComponent, title: 'CineMax' },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'account/login', component: LoginComponent },
-  { path: 'account/register', component: RegisterComponent },
-  { path: 'test', component: MovieDetailComponent },
-  { path: 'add-movie', component: MovieInfoComponent},
+  { path: 'add-movie', component: MovieInfoComponent },
   { path: 'add-showtimes', component: CinemaShowAdminComponent },
 
-
   // otherwise redirect to home
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '', title: 'CineMax' },
 ];
 
 @NgModule({
