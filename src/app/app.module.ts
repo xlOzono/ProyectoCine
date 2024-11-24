@@ -13,10 +13,11 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
-import { CinemaShowAdminComponent } from './components/cinema-show-admin/cinema-show-admin.component';
+import { AddShowsComponent } from './components/add-shows/add-shows.component';
 import { FormsModule } from '@angular/forms';
 import { MovieInfoComponent } from './components/movie-info/movie-info.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { DisplayShowtimesComponent } from './components/display-showtimes/display-showtimes.component';
 
 @NgModule({
   imports: [
@@ -33,9 +34,10 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     RegisterComponent,
     MovieListingComponent,
     MovieDetailComponent,
-    CinemaShowAdminComponent,
+    AddShowsComponent,
     MovieInfoComponent,
     ScheduleComponent,
+    DisplayShowtimesComponent,
   ],
   bootstrap: [AppComponent],
   providers: [

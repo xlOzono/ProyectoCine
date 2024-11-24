@@ -1,0 +1,189 @@
+.container {
+  max-width: 90%;
+  min-height: auto;
+  max-height: 100vh;
+  height: fit-content;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.separator {
+  width: 2px;
+  height: 130px;
+  background-color: #ff2e38;
+  margin: auto;
+}
+
+.number {
+  color: #ff2e38;
+}
+
+.btn-group,
+.input-group {
+  gap: 10px;
+}
+
+.btn-dark {
+  background-color: #333333;
+  color: #9a9a9a;
+  font-weight: bold;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-dark.active,
+.btn-dark:hover {
+  background-color: #ff2e38;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #ff2e38;
+  color: white;
+  font-weight: bold;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-danger:hover {
+  background-color: #ff4a4a;
+}
+
+.input-price,
+.input-dates,
+.input-rooms {
+  background-color: #333333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+/* Lista de funciones */
+.lista-funciones {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Elementos de la lista de funciones */
+.funcion {
+  display: flex; /* Utiliza flexbox para centrar */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  background-color: #ff2e38;
+  color: white;
+  font-weight: bold;
+  height: 50px; /* Asegura que la altura sea suficiente */
+  width: 150px; /* Asegura que el ancho sea suficiente */
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin-bottom: 30px; /* Espacio entre los elementos */
+  position: relative; /* Para posicionar el botón "X" */
+}
+
+/* Botón para remover funciones */
+.btn-borrarFuncion {
+  background-color: #333333;
+  color: white;
+  font-weight: bold;
+  border: none;
+  width: 35px;
+  height: 50px;
+  font-size: 15px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: absolute; /* Posiciona el botón en la esquina */
+  right: -40px; /* Ajusta la posición horizontal */
+}
+
+.btn-remove:hover {
+  background-color: #ff4a4a;
+  color: white;
+}
+
+.cont-fech {
+  position: relative;
+  left: -28px;
+  margin-top: 50px;
+}
+
+.lista-fechas {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+  margin-top: 15px;
+}
+
+/* Elementos de la lista de funciones */
+.fecha {
+  display: flex; /* Utiliza flexbox para centrar */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  background-color: #ff2e38;
+  color: white;
+  font-weight: bold;
+  height: 70px; /* Asegura que la altura sea suficiente */
+  width: 150px; /* Asegura que el ancho sea suficiente */
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative; /* Para posicionar el botón "X" */
+  margin-right: 70px;
+  margin-bottom: 30px; /* Espacio entre los elementos */
+}
+
+/* Botón para remover funciones */
+.btn-borrarFecha {
+  background-color: #333333;
+  color: white;
+  font-weight: bold;
+  border: none;
+  width: 35px;
+  height: 70px;
+  font-size: 15px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: absolute; /* Posiciona el botón en la esquina */
+  right: -40px; /* Ajusta la posición horizontal */
+}
+
+.btn-remove:hover {
+  background-color: #ff4a4a;
+  color: white;
+}
+
+.btn-guardar {
+  background-color: #ff2e38;
+  color: white;
+  font-weight: bold;
+  width: 90%;
+  height: 90px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  position: relative;
+  bottom: 10;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.centrado {
+  /*centrar cosas*/
+  justify-content: center;
+  display: flex;
+}
+
+.label-fecha {
+  width: 100px;
+  position: relative;
+  left: 7px;
+  text-transform: uppercase;
+}

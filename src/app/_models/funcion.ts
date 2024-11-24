@@ -1,8 +1,9 @@
 export interface Funcion {
     showID: number,
-    date: Date,
-    startTime: Date,
-    endTime: Date,
-    movieID: number,
-    sala: number
+    opcionIdioma: string,
+    formato: string,
+    precio: number,
+    showDay: Date,
+    showTimes: string[],
+    movieName: string,
   }

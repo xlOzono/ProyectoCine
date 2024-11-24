@@ -165,7 +165,8 @@ nav {
   font-size: 20;
 }
 
-.nav-item.nav-link {
+.nav-item.nav-link,
+.nav-item .nav-link {
   font-weight: bold;
   color: white;
   margin-left: 40px;

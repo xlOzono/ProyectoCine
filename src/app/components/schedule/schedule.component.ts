@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-schedule',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent {
-
+  constructor(private router: Router) {}
+  
+  navigateToShowtimes(){
+    sessionStorage.setItem('fromAddMovie', 'true');
+    this.router.navigate(['/add-shows']);
+  }
 }

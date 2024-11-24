@@ -67,14 +67,17 @@
       </h2>
       <div class="input-group mt-4">
         <input
-          type="text"
+          type="number"
           class="form-control input-price"
           placeholder="$"
-          [(ngModel)]="price"
+          [(ngModel)]="inputPrice"
         />
         <button class="btn btn-danger" (click)="confirmPrice()">
           CONFIRMAR
         </button>
+      </div>
+      <div *ngIf="priceWarning" class="text-danger mt-2">
+        {{ priceWarning }}
       </div>
     </div>
 
@@ -87,13 +90,19 @@
           type="date"
           class="input-dates"
           style="padding: 10px 20px"
-          [(ngModel)]="date"
+          [(ngModel)]="fecha"
         />
         <button class="btn btn-danger" (click)="addFecha()">AGREGAR</button>
       </div>
+      <div *ngIf="fechaWarning" class="text-danger mt-2">
+        {{ fechaWarning }}
+      </div>
       <div class="cont-fech">
         <ul class="lista-fechas">
-          <li *ngFor="let f of funcion.fechas; let i = index" class="fecha">
+          <li
+            *ngFor="let f of getFormattedDates(); let i = index"
+            class="fecha"
+          >
             <button class="btn-borrarFecha" (click)="removeFecha(i)">X</button>
             <span class="label-fecha">{{ f }}</span>
           </li>
@@ -125,9 +134,12 @@
         </select>
         <button class="btn btn-danger" (click)="addFuncion()">AGREGAR</button>
       </div>
+      <div *ngIf="funcionWarning" class="text-danger mt-2">
+        {{ funcionWarning }}
+      </div>
       <ul class="lista-funciones mt-5">
         <li
-          *ngFor="let f of funcion.funciones; let i = index"
+          *ngFor="let f of this.funcionesTemp; let i = index"
           class="funcion mx-5"
         >
           <button class="btn-borrarFuncion" (click)="removeFuncion(i)">
@@ -140,6 +152,8 @@
   </div>
 
   <div class="centrado">
-    <button class="btn btn-guardar mx-5 mt-5">GUARDAR</button>
+    <button class="btn btn-guardar mx-5 mt-5" (click)="guardarFunciones()">
+      GUARDAR
+    </button>
   </div>
 </div>
