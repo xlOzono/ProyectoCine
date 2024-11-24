@@ -1,0 +1,19 @@
+<div class="cinema">
+    <div class="screen">SCREEN</div> <!--change to be dynamic-->
+    <div class="rows">
+      <div *ngFor="let row of rows" class="row">
+        {{row}}
+            <div
+                *ngFor="let seat of filteredSeats[row]"
+                [ngClass]="['seat', seat.state]"
+                (click)="onSeatClick(seat)"
+
+                >
+                {{ seat.column }}
+        
+    </div>
+      </div>
+    </div>
+    <button (click)="confirmSelection()">Confirmar Selección</button>
+  </div>
+  

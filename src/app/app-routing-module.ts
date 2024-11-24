@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { SeatSelectionComponent } from './components/seat-selection/seat-selection.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'account/login', component: LoginComponent, title: 'CineMax' },
   { path: 'account/register', component: RegisterComponent, title: 'CineMax' },
   { path: 'details/:name', component: MovieDetailComponent, title: 'CineMax' },
+  { path: 'cineSeats', component: SeatSelectionComponent, title: 'CineMax'},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '', title: 'CineMax' },
