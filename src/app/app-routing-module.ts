@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'details/:name', component: MovieDetailComponent, canActivate: [AuthGuard] , title: 'CineMax' },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'add-movie', component: MovieInfoComponent, canActivate: [AuthGuard], data: {roles: [Role.Admin]} },
-  { path: 'add-shows', component: AddShowsComponent, canActivate: [AuthGuard], data: {roles: [Role.Admin]} },
+  { path: 'add-shows', component: AddShowsComponent, canActivate: [AuthGuard], data: {roles: [Role.Admin]} },{
+    path: 'add-shows/:name', component: AddShowsComponent},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '', title: 'CineMax' },

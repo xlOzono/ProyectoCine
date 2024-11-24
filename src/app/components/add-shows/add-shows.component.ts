@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FunAdminService } from 'src/app/services/fun-admin.service';
+import { Funcion } from 'src/app/_models/funcion';
 
 @Component({
   selector: 'app-add-shows',
   templateUrl: './add-shows.component.html',
   styleUrls: ['./add-shows.component.css'],
 })
-export class AddShowsComponent {
+export class AddShowsComponent implements OnInit {
   selectedLanguage: string = ''; 
   selectedFormat: string = '';
   fechas: Date[] = [];
-  funcionesTemp: string[] = []
-  inputPrice: number = 0
+  funcionesTemp: string[] = [];
+  inputPrice: number = 0;
   price: number = 0;
   fecha: string = '';
   hora: string = '';
@@ -21,26 +22,54 @@ export class AddShowsComponent {
   funcionWarning: string = '';
   fechaWarning: string = '';
 
-  constructor(public funcionService: FunAdminService, private router: Router) {
-     const fromAddMovie = sessionStorage.getItem('fromAddMovie');
-     if (!fromAddMovie) {
-       this.router.navigate(['/']);
-     } else {
-       sessionStorage.removeItem('fromAddMovie');
-     }
+  movieName: string | null = null; // Holds the movie name if coming from details/:name
+  existingFunciones: Funcion[] = []; // Stores existing functions if editing
+
+  constructor(
+    public funcionService: FunAdminService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    // Check if the route contains a movie name
+    this.movieName = this.route.snapshot.paramMap.get('name');
+
+    if (this.movieName) {
+      // Load existing functions for the movie
+      this.existingFunciones = this.funcionService.getMovieFunciones(this.movieName);
+      this.populateFromExistingFunciones(this.existingFunciones);
+    } else {
+      // Ensure the component is empty for adding new movie shows
+      this.clearInputs();
+    }
   }
 
-  // Methods to handle functionality
-  removeFecha(index: number) {
-    this.fechas.splice(index, 1);
+  clearInputs(): void {
+    this.selectedLanguage = '';
+    this.selectedFormat = '';
+    this.fechas = [];
+    this.funcionesTemp = [];
+    this.inputPrice = 0;
+    this.price = 0;
+    this.fecha = '';
+    this.hora = '';
+    this.sala = '';
+    this.priceWarning = '';
+    this.funcionWarning = '';
+    this.fechaWarning = '';
   }
 
-  isSubtitulada() {
-    return this.selectedLanguage === 'subtitulada';
-  }
-
-  isDoblada(){
-    return this.selectedLanguage === 'doblada';
+  populateFromExistingFunciones(funciones: Funcion[]): void {
+    if (funciones.length > 0) {
+      // Populate fields from existing functions
+      const firstFuncion = funciones[0];
+      this.selectedLanguage = firstFuncion.opcionIdioma;
+      this.selectedFormat = firstFuncion.formato;
+      this.price = firstFuncion.precio;
+      this.fechas = funciones.map((funcion) => funcion.showDay);
+      this.funcionesTemp = funciones.flatMap((funcion) => funcion.showTimes);
+    }
   }
 
   addFuncion() {
@@ -53,24 +82,28 @@ export class AddShowsComponent {
     }
   }
 
-  isValidFuncion(str: string): boolean{
+  isValidFuncion(str: string): boolean {
     const regex = /^([01]\d|2[0-3]):([0-5]\d) \| Sala -?\d+$/;
     return regex.test(str);
   }
 
-  removeFuncion(indice: number) {
+  isDuplicateFuncion(funcion: string): boolean {
+    return this.funcionesTemp.includes(funcion);
+  }
+
+  removeFuncion(indice: number): void {
     this.funcionesTemp.splice(indice, 1);
   }
 
-  selectLanguage(language: string) {
+  selectLanguage(language: string): void {
     this.selectedLanguage = language;
   }
 
-  selectFormat(format: string) {
+  selectFormat(format: string): void {
     this.selectedFormat = format;
   }
 
-  confirmPrice() {
+  confirmPrice(): void {
     if (this.inputPrice <= 0) {
       this.priceWarning = 'El precio debe ser mayor a 0.';
       this.price = 0; // Reset price if invalid
@@ -94,29 +127,13 @@ export class AddShowsComponent {
   
     const formattedDateToCheck = formatDate(dateToCheck);
   
-    const result = !this.fechas.some((existingDate) => {
+    return !this.fechas.some((existingDate) => {
       const formattedExistingDate = formatDate(existingDate); // Format existing date
-      const isDuplicate = formattedExistingDate === formattedDateToCheck;
-  
-      // Log comparison details
-      console.log(
-        `Comparing: "${formattedExistingDate}" === "${formattedDateToCheck}" -> ${isDuplicate}`
-      );
-  
-      return isDuplicate;
+      return formattedExistingDate === formattedDateToCheck;
     });
-  
-    console.log(
-      `Result: The date "${formattedDateToCheck}" is ${result ? 'new' : 'duplicate'}.`
-    );
-    return result;
   }
 
-  isDuplicateFuncion(funcion: string): boolean {
-    return this.funcionesTemp.includes(funcion);
-  }
-
-  addFecha() {
+  addFecha(): void {
     if (this.fecha) {
       if (this.isNewDate(this.fecha)) {
         const selectedDate = new Date(this.fecha);
@@ -128,14 +145,14 @@ export class AddShowsComponent {
     }
   }
 
-  getFormattedDates(){
+  getFormattedDates(): string[] {
     const daysOfWeek = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
     return this.fechas.map((date) => {
-    const dayName = daysOfWeek[date.getDay()];
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${dayName} ${day}/${month}/${year}`;
+      const dayName = daysOfWeek[date.getDay()];
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+      return `${dayName} ${day}/${month}/${year}`;
     });
   }
 
@@ -143,39 +160,47 @@ export class AddShowsComponent {
     const chileTimezoneOffset = -180;
     const localOffset = date.getTimezoneOffset();
     const adjustedTime = date.getTime() + (localOffset - chileTimezoneOffset) * 60 * 1000;
-  
     return new Date(adjustedTime);
   }
-//FALTA AÑADIR LA CONEXION A LA PAGINA ANTERIOR PARA EXTRAER LOS DATOS DE LA PELICULA
-  guardarFunciones(){
-    if(this.isValidData()){
-      for(const fecha of this.fechas){
-        this.funcionService.addFuncion(this.funcionService.funcionesLength()+1,
-        this.selectedLanguage, 
-        this.selectedFormat,
-        this.price,fecha, this.funcionesTemp, 'movie')
+
+  guardarFunciones(): void {
+    if (this.isValidData()) {
+      for (const fecha of this.fechas) {
+        this.funcionService.addFuncion(
+          this.funcionService.funcionesLength() + 1,
+          this.selectedLanguage,
+          this.selectedFormat,
+          this.price,
+          fecha,
+          this.funcionesTemp,
+          this.movieName || 'Nueva Película' // Use movieName if editing, or default
+        );
       }
+      this.router.navigate(['/']);
     }
   }
 
-  isValidData(): boolean{
-  if (!this.selectedLanguage.trim()) {
-    return false;
+  removeFecha(index: number) {
+    this.fechas.splice(index, 1);
   }
 
-  if (!this.selectedFormat.trim()) {
-    return false;
-  }
+  isValidData(): boolean {
+    if (!this.selectedLanguage.trim()) {
+      return false;
+    }
 
-  if (this.fechas.length === 0 || this.funcionesTemp.length === 0) {
-    return false;
-  }
+    if (!this.selectedFormat.trim()) {
+      return false;
+    }
 
-  if (this.price <= 0) {
-    return false;
-  }
+    if (this.fechas.length === 0 || this.funcionesTemp.length === 0) {
+      return false;
+    }
 
-  return true;
-  }
+    if (this.price <= 0) {
+      return false;
+    }
 
+    return true;
+  }
 }

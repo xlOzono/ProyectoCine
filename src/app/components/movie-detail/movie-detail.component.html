@@ -54,7 +54,7 @@
   </div>
   <div class="row">
     <div *ngIf="isAdmin">
-      <app-schedule></app-schedule>
+      <app-schedule [movieName]="movieListing?.name"></app-schedule>
     </div>
     <app-display-showtimes></app-display-showtimes>
   </div>
