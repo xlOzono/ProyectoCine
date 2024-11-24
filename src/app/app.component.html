@@ -10,7 +10,9 @@
     <button class="btn btn-link nav-item nav-link" (click)="logout()">
       CERRAR SESIÓN
     </button>
-    <a class="nav-item nav-link" routerLink="carousel-editor">EDITAR CARRUSEL</a>
+    <div class="navbar-var" *ngIf="isAdmin">
+      <a class="nav-item nav-link" routerLink="carousel-editor">EDITAR CARRUSEL </a>
+    </div>
     <div class="navbar-nav" *ngIf="isAdmin">
       <a class="nav-item nav-link" routerLink="/">ADMINISTRACION</a>
     </div>
