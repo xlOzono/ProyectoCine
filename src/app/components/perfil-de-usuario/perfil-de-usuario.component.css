@@ -1,0 +1,22 @@
+.container{
+    min-height: 0%;
+}
+.scrollable-content {
+    max-height: 77%; /* Ajusta la altura máxima visible */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    padding-right: 10px; /* Espacio para evitar superposición con el scrollbar */
+}
+
+  /* Opcional: Personalización del scroll bar */
+.scrollable-content::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+    background: #888; /* Color del scrollbar */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del scrollbar al pasar el mouse */
+}

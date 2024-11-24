@@ -1,0 +1,101 @@
+.container {
+  min-height: 0%;
+}
+.container py-4 {
+  background-color: #121212; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #121212;
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #d12f2f;
+}
+
+.card-dark {
+  background-color: #1c1c1c; /* Fondo oscuro para las tarjetas */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: none;
+}
+
+.icon-red {
+  color: #ff4d4d;
+  font-size: 1.5rem;
+}
+
+.total-box h2 {
+  font-size: 2.5rem;
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.btn-danger {
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.payment-method {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 70px;
+}
+
+#totalPrice {
+  color: #ff2e38;
+}
+
+.cards {
+  padding-left: 5%;
+}
+
+.img-thumbnail {
+  border: none;
+  padding: 0;
+}
+
+/* Contenedor por defecto */
+.payment-method {
+  transition: all 0.3s ease; /* Transición suave para el cambio de brillo */
+}
+
+/* Oscurecer al pasar el mouse */
+.payment-method:hover {
+  filter: brightness(0.7); /* Oscurecer ligeramente */
+}
+
+/* Oscurecer los divs no seleccionados */
+.payment-method.dimmed {
+  filter: brightness(0.5); /* Oscurecer más los divs no seleccionados */
+}
+
+/* Div seleccionado */
+.payment-method.selected {
+  filter: brightness(1); /* Mantener el brillo normal */
+}

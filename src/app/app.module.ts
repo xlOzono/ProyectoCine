@@ -13,6 +13,8 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { PerfilDeUsuarioComponent } from './components/perfil-de-usuario/perfil-de-usuario.component';
+import { PurchaseSectionComponent } from './components/purchase-section/purchase-section.component';
 
 @NgModule({
   imports: [
@@ -28,6 +30,8 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
     RegisterComponent,
     MovieListingComponent,
     MovieDetailComponent,
+    PerfilDeUsuarioComponent,
+    PurchaseSectionComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
