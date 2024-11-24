@@ -13,6 +13,8 @@ export class PerfilDeUsuarioComponent {
   currentView: string = 'compras';
   user?: User | null;
   listBuys?: Buy[];
+  selectedCompra?: Buy; // Propiedad para almacenar la compra seleccionada
+
 
   constructor(
     public accountService: AccountService,
@@ -36,14 +38,16 @@ export class PerfilDeUsuarioComponent {
   addMockPurchase() {
     const newPurchase = new Buy(
       'Cinepolis', // Cine
-      'Avatar', // Película
-      '2024-12-25', // Fecha
+      'Venom', // Película
+      '2024-12-26', // Fecha
       1, // Sala
-      "18:00", // Hora
-      ['A1', 'A2'], // Asientos
+      "20:00", // Hora
+      ['A3', 'A5'], // Asientos
       1000, // Precio
-      'Entrada 2D' // Tipo de entrada
+      'Entrada 3D' // Tipo de entrada
     );
+
+    
 
     // Usar el servicio de compras para añadir una nueva compra
     this.purchaseService.addPurchase(newPurchase);
@@ -51,6 +55,15 @@ export class PerfilDeUsuarioComponent {
     // Actualizar la lista de compras para reflejar los cambios
     this.listBuys = this.purchaseService.getPurchases();
   }
+
+  selectCompra(compra: Buy) {
+    this.selectedCompra = compra; // Almacena la compra seleccionada
+  }
+  
+  onsumbit(nombre: string , apellido: string){
+
+  } 
+
 }
 
 

@@ -25,10 +25,11 @@ export class AccountService {
   }
 
   // Método para actualizar el usuario en memoria y almacenamiento local
-  public updateUser(user: User): void {
-    this.userSubject.next(user); // Actualiza el BehaviorSubject
-    localStorage.setItem('user', JSON.stringify(user)); // Sincroniza con el almacenamiento local
+  updateUser(updatedUser: User): void {
+    localStorage.setItem('user', JSON.stringify(updatedUser)); // Guarda los cambios en localStorage
+    this.userSubject.next(updatedUser); // Notifica a los componentes suscritos
   }
+  
 
   login(email: string, password: string) {
     return this.http
@@ -66,4 +67,6 @@ export class AccountService {
   register(user: User) {
     return this.http.post(`${environment.apiUrl}/users/register`, user);
   }
+
+  
 }
