@@ -37,7 +37,7 @@
             </div>
           </div>
 
-          <!-- Link para modificar información -->
+          <!-- Modal para modificar información -->
           <div class="row ms-4">
             <div class="col-12">
               <a
@@ -71,10 +71,14 @@
             </div>
           </div>
 
-          <!-- Link para modificar contraseña -->
+          <!-- Modal para modificar contraseña -->
           <div class="row ms-4">
             <div class="col-12">
-              <a href="#" class="text-danger fw-bold text-decoration-underline"
+              <a
+                href="#"
+                class="text-danger fw-bold text-decoration-underline"
+                data-bs-toggle="modal"
+                data-bs-target="#changePasswordModal"
                 >Modificar Contraseña</a
               >
             </div>
@@ -308,10 +312,12 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content custom-modal ">
+    <div class="modal-content custom-modal">
       <!-- Encabezado del modal -->
       <div class="modal-header custom-modal-header">
-        <h5 class="modal-title" id="editUserModalLabel">Modificar Información</h5>
+        <h5 class="modal-title" id="editUserModalLabel">
+          Modificar Información
+        </h5>
         <button
           type="button"
           class="btn-close btn-close-white"
@@ -321,38 +327,96 @@
       </div>
       <!-- Cuerpo del modal -->
       <div class="modal-body custom-modal-body">
-        <form>
-          <!-- Nombre -->
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
           <div class="mb-3">
             <label for="firstName" class="form-label text-light">Nombre</label>
             <input
               type="text"
               class="form-control"
               id="firstName"
-              name="firstName"
+              formControlName="firstName"
             />
           </div>
-          <!-- Apellido -->
           <div class="mb-3">
             <label for="lastName" class="form-label text-light">Apellido</label>
             <input
               type="text"
               class="form-control"
               id="lastName"
-              name="lastName"
+              formControlName="lastName"
             />
           </div>
-          <!-- Email -->
+          <button type="submit" class="btn btn-danger w-100">
+            Guardar Cambios
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="changePasswordModal"
+  tabindex="-1"
+  aria-labelledby="changePasswordModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content custom-modal">
+      <!-- Encabezado del modal -->
+      <div class="modal-header custom-modal-header">
+        <h5 class="modal-title" id="changePasswordModalLabel">
+          Modificar Contraseña
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Cerrar"
+        ></button>
+      </div>
+      <!-- Cuerpo del modal -->
+      <div class="modal-body custom-modal-body">
+        <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
           <div class="mb-3">
-            <label for="email" class="form-label text-light">Correo Electrónico</label>
+            <label for="currentPassword" class="form-label text-light"
+              >Contraseña Actual</label
+            >
             <input
-              type="email"
+              type="password"
               class="form-control"
-              id="email"
-              name="email"
+              id="currentPassword"
+              formControlName="currentPassword"
+              required
             />
           </div>
-          <button type="submit" class="btn btn-danger w-100">Guardar Cambios</button>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label text-light"
+              >Nueva Contraseña</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="newPassword"
+              formControlName="newPassword"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label text-light"
+              >Confirmar Contraseña</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              formControlName="confirmPassword"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-danger w-100">
+            Guardar Contraseña
+          </button>
         </form>
       </div>
     </div>
