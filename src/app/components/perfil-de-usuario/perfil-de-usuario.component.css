@@ -15,8 +15,8 @@
 }
 
 .scrollable-content::-webkit-scrollbar-thumb {
-  background: #888; /* Color del scrollbar */
-  border-radius: 4px; /* Bordes redondeados */
+  background: #888;
+  border-radius: 4px;
 }
 
 .scrollable-content::-webkit-scrollbar-thumb:hover {
@@ -37,6 +37,8 @@
   color: #fff;
 }
 
+
+/* --------Modal------ */
 /* Botón de cierre */
 .btn-close-white {
   filter: invert(100%); /* Cambia el botón de cierre a blanco */
@@ -59,7 +61,7 @@
 .custom-modal-body .form-control:focus {
   background-color: #2c2c2c;
   border-color: #dc3545; /* Rojo al enfocar */
-  box-shadow: none; /* Sin sombras adicionales */
+  box-shadow: none; 
 }
 
 /* Botón guardar */
@@ -73,5 +75,5 @@
 }
 
 body.modal-open {
-    overflow-y: hidden;
-  }
+  overflow-y: hidden;
+}

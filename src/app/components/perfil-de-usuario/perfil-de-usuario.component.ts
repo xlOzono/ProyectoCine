@@ -13,20 +13,21 @@ import * as bootstrap from 'bootstrap';
 })
 export class PerfilDeUsuarioComponent {
   currentView: string = 'compras';
-  user?: User | null;
+  user?: User | null; // Propiedad para almacenar el usuario
   listBuys?: Buy[];
-  editForm: FormGroup;
+  editForm: FormGroup; // Propiedad para almacenar el formulario
   selectedCompra?: Buy; // Propiedad para almacenar la compra seleccionada
-  passwordForm: FormGroup;
+  passwordForm: FormGroup; // Propiedad para almacenar el formulario
   
 
 
   constructor(
-    private formBuilder: FormBuilder,
-    private accountService: AccountService,
+    private formBuilder: FormBuilder,        // Inyecta el FormBuilder
+    private accountService: AccountService,  // Inyecta el servicio del usuario
     private purchaseService: PurchaseService // Inyecta el servicio de compras
     
   ) {
+    // Declara los formularios con sus respectivas validaciones
     this.editForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -62,32 +63,12 @@ export class PerfilDeUsuarioComponent {
     this.currentView = view; // Cambia la vista activa
   }
 
-  // Añadir una compra simulada
-  addMockPurchase() {
-    const newPurchase = new Buy(
-      'Cinepolis', // Cine
-      'Venom', // Película
-      '2024-12-26', // Fecha
-      1, // Sala
-      "20:00", // Hora
-      ['A3', 'A5'], // Asientos
-      1000, // Precio
-      'Entrada 3D' // Tipo de entrada
-    );
-
-    
-
-    // Usar el servicio de compras para añadir una nueva compra
-    this.purchaseService.addPurchase(newPurchase);
-
-    // Actualizar la lista de compras para reflejar los cambios
-    this.listBuys = this.purchaseService.getPurchases();
-  }
-
+  // Almacena la compra seleccionada
   selectCompra(compra: Buy) {
-    this.selectedCompra = compra; // Almacena la compra seleccionada
+    this.selectedCompra = compra;
   }
-  
+
+  // (Modal) Actualizar el nombre y apellido  
   onSubmit() {
     if (this.editForm.valid && this.accountService.userValue) {
       const updatedUser = {
@@ -102,6 +83,8 @@ export class PerfilDeUsuarioComponent {
       }, 500); // Esperar 500ms para asegurar que el cierre del modal se complete
     }
   }
+
+  // Cierra el modal
   closeModal() {
     const modalElement = document.getElementById('editUserModal');
     if (modalElement) {
@@ -115,6 +98,8 @@ export class PerfilDeUsuarioComponent {
       }
     }
   }
+  
+  // (Modal) Actualizar la contraseña
   onPasswordSubmit(): void {
     if (this.passwordForm.valid) {
       const { currentPassword, newPassword, confirmPassword } = this.passwordForm.value;
