@@ -11,8 +11,13 @@ export class HomeComponent {
   movieService: MovieService = inject(MovieService);
   movieListingList: Movie[] = [];
   carouselMoviesList: Movie[] = [];
+  
   constructor() {
     this.movieListingList = this.movieService.getMovieList();
     this.carouselMoviesList = this.movieService.filterMovies('Drama');
   }
+  ngOnInit(): void {
+    this.movieService.carouselList = this.movieService.getCarouselList();
+  }
+
 }

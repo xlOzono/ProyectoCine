@@ -1,0 +1,36 @@
+<h2 class="fw-bold">EDITOR DE CARRUSEL</h2>
+
+<div class="row justify-content-center">
+  <h3 class=" fw-bold text-center">Películas Disponibles</h3>
+  <ul class="movie-container align-items-center">
+    <ng-container *ngFor="let movie of movieService.movieList">
+      <div *ngIf="!isMovieSelected(movie)">
+      <img 
+            [src]="movie.photo"
+            alt="Movie poster of {{movie.name}}"
+            class="fixed-size rounded"
+            (click)="addMovieToCarusel(movie)"
+            />
+          </div>
+    </ng-container>
+  </ul>
+</div>
+
+<div class=" row">
+  <h3 class="fw-bold text-center">Películas en el Carrusel</h3>
+  <ul class="carousel-container container align-items-center">
+    <ng-container *ngFor="let movie of movieService.carouselList">
+      
+        <img 
+          [src]="movie.carouselPhoto"
+          alt="Movie poster of {{movie.name}}"
+          class="fixed-size-caruousel"
+          (click)="removeMovieFromCarousel(movie.name)"
+        />
+    </ng-container>
+  </ul>
+</div>
+<button class="btn btn-link nav-item nav-link change-button" (click)="showAlert()">Guardar cambios</button>
+
+
+

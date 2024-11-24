@@ -12,5 +12,12 @@ html {
   margin: 0 10%;
 }
 
-.movie-results {
+.carousel-photo {
+  width: 1000px;
+  height: 750px;
+  position:relative;
+  max-width: 70%; /* Asegura que la imagen no exceda el ancho del contenedor */
+  object-fit:contain; /* Mantiene las proporciones de la imagen */
+  transform: translate(25%, 0%); /* Centra el elemento */
+  
 }

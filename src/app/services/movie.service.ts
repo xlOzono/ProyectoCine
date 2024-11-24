@@ -5,7 +5,7 @@ import { Movie } from '../_models/movie';
   providedIn: 'root',
 })
 export class MovieService {
-  protected movieList: Movie[] = [
+  public movieList: Movie[] = [
     {
       name: 'Inception',
       sinopsis:
@@ -43,7 +43,7 @@ export class MovieService {
       duration: 152,
       photo:
         'https://images.moviesanywhere.com/bd47f9b7d090170d79b3085804075d41/c6140695-a35f-46e2-adb7-45ed829fc0c0.jpg',
-      carouselPhoto: 'https://m.media-amazon.com/images/I/71Q1Iu4suSL._AC_SY679_.jpg',
+      carouselPhoto: 'https://wallpapercave.com/wp/wp383267.jpg',
       trailer: 'https://www.youtube.com/embed/EXeTwQWrcwY',
       genre: 'Action',
     },
@@ -124,8 +124,6 @@ export class MovieService {
     },
   ];
   
-  protected carouselList: Movie[] = [];
-
   constructor() {}
 
   getMovieList(): Movie[] {
@@ -139,5 +137,27 @@ export class MovieService {
   filterMovies(genre: string): Movie[] {
     return this.movieList.filter((movie) => movie.genre === genre);
   }
-  
+
+  //carousel functions
+  public copiaMovie :Movie[] = this.movieList.slice();
+  public carouselList: Movie[] = [];
+
+  addToCarousel(movie:Movie): void{
+    if(!this.carouselList.find((m) =>m.name === movie.name)){
+      this.carouselList.push(movie);
+      this.copiaMovie = this.copiaMovie.filter(m => m.name !== movie.name);
+    }
+  }
+  removeFromCarousel(movieName: string): void{
+    const movie = this.carouselList.find(m => m.name === movieName);
+    if (movie) {
+    this.copiaMovie.push(movie);
+    this.carouselList = this.carouselList.filter((movie) => movie.name !== movieName);
+    }
+  }
+
+  getCarouselList(): Movie[]{
+    return this.carouselList;
+  }
 }
+ 
