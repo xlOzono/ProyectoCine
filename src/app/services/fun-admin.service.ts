@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Funcion } from '../_models/funcion';
 import { showTimeFuncion } from '../_models/showTimeFuncion';
+import { Seat } from '../_models/seat';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,95 @@ import { showTimeFuncion } from '../_models/showTimeFuncion';
 export class FunAdminService {
   constructor() {}
 
-  protected movieFunciones: Funcion[] = [];
+  protected movieFunciones: Funcion[] = [
+    // Inception functions
+    {
+      showID: 1,
+      opcionIdioma: 'subtitulada',
+      formato: '2D',
+      precio: 5000,
+      showDay: new Date('2024-12-01'),
+      showTimes: ['18:00 | Sala 1', '21:00 | Sala 2'],
+      movieName: 'Inception',
+      showSeats: this.createShowTimeFunciones(
+        ['18:00 | Sala 1', '21:00 | Sala 2'],
+        10,
+        10
+      ), // Inicializar asientos
+    },
+    {
+      showID: 2,
+      opcionIdioma: 'subtitulada',
+      formato: '3D',
+      precio: 6000,
+      showDay: new Date('2024-12-02'),
+      showTimes: ['16:00 | Sala 3', '19:00 | Sala 4'],
+      movieName: 'Inception',
+      showSeats: this.createShowTimeFunciones(
+        ['16:00 | Sala 3', '19:00 | Sala 4'],
+        10,
+        10
+      ), // Inicializar asientos
+    },
+    {
+      showID: 3,
+      opcionIdioma: 'doblada',
+      formato: '4D',
+      precio: 8000,
+      showDay: new Date('2024-12-03'),
+      showTimes: ['14:00 | Sala 5', '17:00 | Sala 6'],
+      movieName: 'Inception',
+      showSeats: this.createShowTimeFunciones(
+        ['14:00 | Sala 5', '17:00 | Sala 6'],
+        10,
+        10
+      ), // Inicializar asientos
+    },
+
+    // The Shawshank Redemption functions
+    {
+      showID: 4,
+      opcionIdioma: 'doblada',
+      formato: '2D',
+      precio: 4000,
+      showDay: new Date('2024-12-02'),
+      showTimes: ['17:00 | Sala 3', '20:00 | Sala 4'],
+      movieName: 'The Shawshank Redemption',
+      showSeats: this.createShowTimeFunciones(
+        ['17:00 | Sala 3', '20:00 | Sala 4'],
+        10,
+        10
+      ), // Inicializar asientos
+    },
+    {
+      showID: 5,
+      opcionIdioma: 'subtitulada',
+      formato: '3D',
+      precio: 5000,
+      showDay: new Date('2024-12-04'),
+      showTimes: ['15:00 | Sala 1', '18:00 | Sala 2'],
+      movieName: 'The Shawshank Redemption',
+      showSeats: this.createShowTimeFunciones(
+        ['15:00 | Sala 1', '18:00 | Sala 2'],
+        10,
+        10
+      ), // Inicializar asientos
+    },
+    {
+      showID: 6,
+      opcionIdioma: 'doblada',
+      formato: '4D',
+      precio: 7000,
+      showDay: new Date('2024-12-05'),
+      showTimes: ['13:00 | Sala 5', '16:00 | Sala 7'],
+      movieName: 'The Shawshank Redemption',
+      showSeats: this.createShowTimeFunciones(
+        ['13:00 | Sala 5', '16:00 | Sala 7'],
+        10,
+        10
+      ), // Inicializar asientos
+    },
+  ];
 
   addFuncion(
     showID: number,
@@ -40,6 +129,40 @@ export class FunAdminService {
 
   funcionesLength(): number {
     return this.movieFunciones.length;
+  }
+
+  createShowTimeFunciones(
+    showTimes: string[],
+    rows: number,
+    columns: number
+  ): showTimeFuncion[] {
+    return showTimes.map((showTime, index) => ({
+      showID: index + 1, // Generar un ID único para cada horario
+      matrixseats: this.initializeShowSeats(rows, columns), // Inicializar la matriz de asientos
+    }));
+  }
+
+  initializeShowSeats(rows: number, columns: number): Seat[][] {
+    const matrix: Seat[][] = [];
+
+    // Crear filas
+    for (let i = 0; i < rows; i++) {
+      const row: Seat[] = [];
+      const rowLetter = String.fromCharCode(65 + i); // Convertir índice en letra (A, B, C, etc.)
+
+      // Crear columnas
+      for (let j = 1; j <= columns; j++) {
+        row.push({
+          row: rowLetter,
+          column: j,
+          state: 'available', // Estado inicial
+        });
+      }
+
+      matrix.push(row);
+    }
+
+    return matrix;
   }
 
   movieExists(movieName: string): boolean {
@@ -108,7 +231,7 @@ export class FunAdminService {
       });
     }
   }
-  
+
   private isSameFuncion(func1: Funcion, func2: Funcion): boolean {
     return (
       func1.showDay.toDateString() === func2.showDay.toDateString() &&
