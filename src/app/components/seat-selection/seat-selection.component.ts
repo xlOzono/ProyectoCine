@@ -9,7 +9,10 @@ import { SeatService } from 'src/app/services/seat.service';
 export class SeatSelectionComponent implements OnInit {
   rows: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
   seats!: Seat[];
-  filteredSeats: { [key: string]: Seat[] } = {};
+  filteredSeats: { [key: string]: Seat[] } = {
+
+  };
+  
   constructor(private seatService: SeatService){}
   
   ngOnInit(): void {
