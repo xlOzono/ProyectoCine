@@ -22,7 +22,7 @@ export class AddShowsComponent implements OnInit {
   funcionWarning: string = '';
   fechaWarning: string = '';
 
-  movieName: string | null = null; // Holds the movie name if coming from details/:name
+  movieName: string | null = null; // Holds the movie name from the route
   existingFunciones: Funcion[] = []; // Stores existing functions if editing
 
   constructor(
@@ -32,15 +32,17 @@ export class AddShowsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Check if the route contains a movie name
+    // Extract movie name from the route
     this.movieName = this.route.snapshot.paramMap.get('name');
 
     if (this.movieName) {
-      // Load existing functions for the movie
+      // Load existing functions for the movie if editing
+
       this.existingFunciones = this.funcionService.getMovieFunciones(this.movieName);
       this.populateFromExistingFunciones(this.existingFunciones);
+
     } else {
-      // Ensure the component is empty for adding new movie shows
+      // Ensure the component is cleared for adding new movie shows
       this.clearInputs();
     }
   }
@@ -62,23 +64,26 @@ export class AddShowsComponent implements OnInit {
 
   populateFromExistingFunciones(funciones: Funcion[]): void {
     if (funciones.length > 0) {
-      // Populate fields from existing functions
       const firstFuncion = funciones[0];
       this.selectedLanguage = firstFuncion.opcionIdioma;
       this.selectedFormat = firstFuncion.formato;
       this.price = firstFuncion.precio;
       this.fechas = funciones.map((funcion) => funcion.showDay);
-      this.funcionesTemp = funciones.flatMap((funcion) => funcion.showTimes);
+      this.funcionesTemp = Array.from(
+        new Set(funciones.flatMap((funcion) => funcion.showTimes))
+      );
+      
     }
+
   }
 
-  addFuncion() {
+  addFuncion(): void {
     const funcion = `${this.hora} | ${this.sala}`;
-    if (this.isDuplicateFuncion(funcion)) {
+    if (this.funcionesTemp.includes(funcion)) {
       this.funcionWarning = 'Esta función ya está agregada.';
     } else if (this.isValidFuncion(funcion)) {
       this.funcionesTemp.push(funcion);
-      this.funcionWarning = ''; // Clear warning if function is valid
+      this.funcionWarning = ''; // Clear warning
     }
   }
 
@@ -93,6 +98,10 @@ export class AddShowsComponent implements OnInit {
 
   removeFuncion(indice: number): void {
     this.funcionesTemp.splice(indice, 1);
+  }
+
+  removeFecha(index: number) {
+    this.fechas.splice(index, 1);
   }
 
   selectLanguage(language: string): void {
@@ -143,6 +152,7 @@ export class AddShowsComponent implements OnInit {
         this.fechaWarning = 'Esta fecha ya está agregada.';
       }
     }
+
   }
 
   getFormattedDates(): string[] {
@@ -164,43 +174,50 @@ export class AddShowsComponent implements OnInit {
   }
 
   guardarFunciones(): void {
+
     if (this.isValidData()) {
-      for (const fecha of this.fechas) {
-        this.funcionService.addFuncion(
-          this.funcionService.funcionesLength() + 1,
-          this.selectedLanguage,
-          this.selectedFormat,
-          this.price,
-          fecha,
-          this.funcionesTemp,
-          this.movieName || 'Nueva Película' // Use movieName if editing, or default
-        );
+      // Prepare new functions to be added or updated
+      const newFunciones = this.fechas.map((fecha) => ({
+        showID: this.funcionService.funcionesLength() + 1, // Increment ID
+        opcionIdioma: this.selectedLanguage,
+        formato: this.selectedFormat,
+        precio: this.price,
+        showDay: fecha,
+        showTimes: [...this.funcionesTemp], // Copy the times
+        movieName: this.movieName || 'Nueva Película', // Use existing name or fallback
+      }));
+  
+      // Log the new functions being processed
+  
+      if (this.movieName) {
+        // Update existing movie functions
+        this.funcionService.updateFunciones(this.movieName, newFunciones);
+      } else {
+        // Add new functions
+        for (const funcion of newFunciones) {
+          this.funcionService.addFuncion(
+            funcion.showID,
+            funcion.opcionIdioma,
+            funcion.formato,
+            funcion.precio,
+            funcion.showDay,
+            funcion.showTimes,
+            funcion.movieName
+          );
+        }
       }
+      // Redirect after saving
       this.router.navigate(['/']);
     }
   }
-
-  removeFecha(index: number) {
-    this.fechas.splice(index, 1);
-  }
+  
+  
 
   isValidData(): boolean {
-    if (!this.selectedLanguage.trim()) {
-      return false;
-    }
-
-    if (!this.selectedFormat.trim()) {
-      return false;
-    }
-
-    if (this.fechas.length === 0 || this.funcionesTemp.length === 0) {
-      return false;
-    }
-
-    if (this.price <= 0) {
-      return false;
-    }
-
+    if (!this.selectedLanguage.trim()) return false;
+    if (!this.selectedFormat.trim()) return false;
+    if (this.fechas.length === 0 || this.funcionesTemp.length === 0) return false;
+    if (this.price <= 0) return false;
     return true;
   }
 }

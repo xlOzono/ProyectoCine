@@ -152,7 +152,11 @@
   </div>
 
   <div class="centrado">
-    <button class="btn btn-guardar mx-5 mt-5" (click)="guardarFunciones()">
+    <button
+      class="btn btn-guardar mx-5 mt-5"
+      (click)="guardarFunciones()"
+      [disabled]="!isValidData()"
+    >
       GUARDAR
     </button>
   </div>

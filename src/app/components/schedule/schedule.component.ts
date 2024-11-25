@@ -12,12 +12,12 @@ export class ScheduleComponent {
   constructor(private router: Router) {}
   
   navigateToShowtimes(): void {
-    sessionStorage.setItem('fromAddMovie', 'true');
-    
     if (this.movieName) {
+      sessionStorage.setItem('fromExistingMovie', 'true');
       // Navigate to details page for editing existing movie shows
       this.router.navigate([`/add-shows/${this.movieName}`]);
     } else {
+      sessionStorage.setItem('fromAddMovie', 'true');
       // Navigate to add new movie shows
       this.router.navigate(['/add-shows']);
     }
