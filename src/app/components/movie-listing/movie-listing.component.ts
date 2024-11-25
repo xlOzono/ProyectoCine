@@ -8,4 +8,5 @@ import { Movie } from 'src/app/_models/movie';
 })
 export class MovieListingComponent {
   @Input() movieListing!: Movie;
+
 }

@@ -13,6 +13,11 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { AddShowsComponent } from './components/add-shows/add-shows.component';
+import { FormsModule } from '@angular/forms';
+import { MovieInfoComponent } from './components/movie-info/movie-info.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { DisplayShowtimesComponent } from './components/display-showtimes/display-showtimes.component';
 import { SeatSelectionComponent } from './components/seat-selection/seat-selection.component';
 import { PurchaseSectionComponent } from './components/purchase-section/purchase-section.component';
 
@@ -21,7 +26,8 @@ import { PurchaseSectionComponent } from './components/purchase-section/purchase
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   declarations: [
     AppComponent,
@@ -30,6 +36,10 @@ import { PurchaseSectionComponent } from './components/purchase-section/purchase
     RegisterComponent,
     MovieListingComponent,
     MovieDetailComponent,
+    AddShowsComponent,
+    MovieInfoComponent,
+    ScheduleComponent,
+    DisplayShowtimesComponent,
     SeatSelectionComponent,
     PurchaseSectionComponent,
   ],
@@ -38,7 +48,7 @@ import { PurchaseSectionComponent } from './components/purchase-section/purchase
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
-    fakeBackendProvider
-  ]
+    fakeBackendProvider,
+  ],
 })
 export class AppModule {}

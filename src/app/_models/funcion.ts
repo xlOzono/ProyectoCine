@@ -1,4 +1,12 @@
-import { showTimeFuncion } from "./showTimeFuncion";
+export interface Funcion {
+    showID: number,
+    opcionIdioma: string,
+    formato: string,
+    precio: number,
+    showDay: Date,
+    showTimes: string[],
+    movieName: string,
+  }import { showTimeFuncion } from "./showTimeFuncion";
 export interface Funcion {
     showID: number;            // ID único de la función
     opcionIdioma: string;      // Idioma de la función (e.g., "Español")
@@ -7,5 +15,6 @@ export interface Funcion {
     showDay: Date;             // Día de la función
     showTimes: string[];       // Horarios disponibles
     showSeats: showTimeFuncion [];  // Estado de los asientos
+    movieName: string,
     
   } 

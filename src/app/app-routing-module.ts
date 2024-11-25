@@ -6,6 +6,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { AddShowsComponent } from './components/add-shows/add-shows.component';
+import { MovieInfoComponent } from './components/movie-info/movie-info.component';
+import { Role } from './_models/role';
 import { SeatSelectionComponent } from './components/seat-selection/seat-selection.component';
 import { PurchaseSectionComponent } from './components/purchase-section/purchase-section.component';
 
@@ -18,7 +21,11 @@ const routes: Routes = [
   },
   { path: 'account/login', component: LoginComponent, title: 'CineMax' },
   { path: 'account/register', component: RegisterComponent, title: 'CineMax' },
-  { path: 'details/:name', component: MovieDetailComponent, title: 'CineMax' },
+  { path: 'details/:name', component: MovieDetailComponent, canActivate: [AuthGuard] , title: 'CineMax' },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'add-movie', component: MovieInfoComponent, canActivate: [AuthGuard], data: {roles: [Role.Admin]} },
+  { path: 'add-shows', component: AddShowsComponent, canActivate: [AuthGuard], data: {roles: [Role.Admin]} },{
+    path: 'add-shows/:name', component: AddShowsComponent},
   { path: 'cineSeats', component: SeatSelectionComponent, title: 'CineMax'},
   { path: 'compra', component: PurchaseSectionComponent, title: 'CineMax'},
 

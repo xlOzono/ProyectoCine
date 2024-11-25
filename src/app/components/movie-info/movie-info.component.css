@@ -1,0 +1,20 @@
+.movie-title {
+  font-size: 17px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.titulo-mensaje {
+  font-size: 25px;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+.modal-content {
+  background-color: #1f1f1f;
+}
+
+.caja-sinop {
+  padding: 10px 15px;
+}

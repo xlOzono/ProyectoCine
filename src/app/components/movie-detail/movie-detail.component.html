@@ -1,5 +1,9 @@
-<div class="container-fluid">
-  <div class="row">
+<div class="bg-color"></div>
+
+<div class="container-fluid mt-5">
+  <!-- Movie Details Row -->
+  <div class="row justify-content-center">
+    <!-- Movie Poster and Details -->
     <div class="col-md-3 d-flex justify-content-center">
       <div class="card w-75 ms-5">
         <img
@@ -25,26 +29,33 @@
       </div>
     </div>
 
-    <div class="col-md-8 ms-5 d-flex flex-column align-items-center">
-      <div class="video-container position-relative w-100">
-        <div
-          class="spinner-border text-danger position-absolute top-50 start-50 translate-middle"
-          role="status"
+    <!-- Trailer -->
+    <div class="col-md-8 d-flex justify-content-center align-items-start">
+      <div
+        class="video-container justify-content-center position-relative d-flex w-75"
+      >
+        <output
+          class="spinner-border text-danger position-absolute top-50 start-50"
         >
           <span class="visually-hidden">Loading...</span>
-        </div>
-
-        <div class="ratio ratio-16x9">
+        </output>
+        <div class="ratio ratio-16x9 w-100">
           <iframe
             [src]="sanitizedTrailerUrl"
             [title]="movieListing?.name"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
+            class="trailer-iframe"
           ></iframe>
         </div>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <div *ngIf="isAdmin">
+      <app-schedule [movieName]="movieListing?.name"></app-schedule>
+    </div>
+    <app-display-showtimes></app-display-showtimes>
   </div>
 </div>
