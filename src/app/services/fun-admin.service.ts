@@ -141,7 +141,36 @@ export class FunAdminService {
       return isSameDate && isSameIdioma && isSameFormato && isSameMovieName;
     });
   }
-  
-  
+
+updateFunciones(
+  movieName: string,
+  newFunciones: Funcion[]
+): void {
+  // Remove all existing functions for the given movie
+  this.movieFunciones = this.movieFunciones.filter(
+    (funcion) => funcion.movieName.toLowerCase() !== movieName.toLowerCase()
+  );
+
+  // Add the new functions
+  for (const newFuncion of newFunciones) {
+    const isDuplicate = this.movieFunciones.some((funcion) =>
+      this.isSameFuncion(funcion, newFuncion)
+    );
+
+    if (!isDuplicate) {
+      this.movieFunciones.push(newFuncion);
+    }
+  }
+}
+
+private isSameFuncion(func1: Funcion, func2: Funcion): boolean {
+  return (
+    func1.showDay.toDateString() === func2.showDay.toDateString() &&
+    func1.opcionIdioma.toLowerCase() === func2.opcionIdioma.toLowerCase() &&
+    func1.formato.toLowerCase() === func2.formato.toLowerCase() &&
+    func1.movieName.toLowerCase() === func2.movieName.toLowerCase() &&
+    JSON.stringify(func1.showTimes) === JSON.stringify(func2.showTimes)
+  );
+}
 
 }
