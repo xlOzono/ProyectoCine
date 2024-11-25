@@ -133,7 +133,7 @@ export class MovieService {
   }
 
   getMovieByName(name: string): Movie | undefined {
-    return this.movieList.find((Movie) => Movie.name === name);
+    return this.movieList.find((Movie) => Movie.name.toLowerCase() === name.toLowerCase());
   }
 
   filterMovies(genre: string): Movie[] {

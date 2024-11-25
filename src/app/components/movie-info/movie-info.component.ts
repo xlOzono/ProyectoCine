@@ -52,7 +52,11 @@ export class MovieInfoComponent {
   }
 
   publishMovie(): void {
-    if (this.tempMovie ) {
+    if (this.tempMovie) {
+      const existingMovie = this.movieService.getMovieByName(this.tempMovie.name);
+      if (existingMovie) {
+        return;
+      }
       this.movieService.addMovie(this.tempMovie);
     }
   }
