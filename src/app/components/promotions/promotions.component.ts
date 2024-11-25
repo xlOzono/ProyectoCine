@@ -1,34 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { Promotion } from 'src/app/models/promotion';
 import { PromotionService } from 'src/app/services/promotion.service';
-import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Role } from 'src/app/models/role';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-promotions',
   templateUrl: './promotions.component.html',
   styleUrls: ['./promotions.component.css']
 })
-export class PromotionsComponent implements OnInit{
+export class PromotionsComponent {
   isAddPromotionsRoute: boolean = false;
   promotionsList: Promotion[] = []
   user?: User | null;
 
-  constructor(private router: Router,
-    private promotionService: PromotionService) {}
-
+  constructor(
+    private promotionService: PromotionService,
+    private accountService: AccountService
+  ) {}
+  
   ngOnInit(): void {
-    // Observa los cambios en la ruta
-    this.router.events.subscribe(() => {
-      // Verifica si la ruta actual es '/add-showtimes'
-      this.isAddPromotionsRoute = this.router.url === '/add-promotions';
+    // Suscríbete al usuario
+    this.accountService.user.subscribe(user => {
+      this.user = user;
+
+      // Carga la lista de promociones cuando el usuario esté definido
+      if (this.user) {
+        this.promotionsList = this.promotionService.getPromotionList();
+      }
     });
-    this.promotionsList = this.promotionService.getPromotionList();
   }
 
-  get isAdmin() {
-    return this.user?.role === Role.Admin;
+  get isAdmin(): boolean {
+    return this.user?.role === Role.Admin || false;
   }
 
 }

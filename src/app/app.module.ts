@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,6 +17,15 @@ import { FormsModule } from '@angular/forms';
 import { PromotionsComponent } from './components/promotions/promotions.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CinemaseatsComponent } from './components/cinemaseats/cinemaseats.component';
+import { PromotionsListingComponent } from './components/promotions-listing/promotions-listing.component';
+import { CreatePromotionsComponent } from './components/create-promotions/create-promotions.component';
+import { NameDescriptionComponent } from './components/name-description/name-description.component';
+import { PercentageImageComponent } from './components/percentage-image/percentage-image.component';
+import { DateScheduleComponent } from './components/date-schedule/date-schedule.component';
+import { ShowsDaysComponent } from './components/shows-days/shows-days.component';
+import { SavePromotionComponent } from './components/save-promotion/save-promotion.component';
+import { DaysDialogComponent } from './components/days-dialog/days-dialog.component';
+import { CustomDialogComponent } from './components/custom-dialog/custom-dialog.component';
 
 @NgModule({
   imports: [
@@ -38,6 +46,15 @@ import { CinemaseatsComponent } from './components/cinemaseats/cinemaseats.compo
     PromotionsComponent,
     CarouselComponent,
     CinemaseatsComponent,
+    PromotionsListingComponent,
+    CreatePromotionsComponent,
+    NameDescriptionComponent,
+    PercentageImageComponent,
+    DateScheduleComponent,
+    ShowsDaysComponent,
+    SavePromotionComponent,
+    DaysDialogComponent,
+    CustomDialogComponent
   ],
   bootstrap: [AppComponent],
   providers: [

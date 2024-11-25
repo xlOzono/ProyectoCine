@@ -15,8 +15,8 @@ html {
 body {
   min-height: 100%;
   background-color: transparent;
-  color: white;
-  font-family: "Inter", sans-serif;
+  color: white !important;
+  font-family: "Inter", sans-serif !important;
 }
 
 .card {
