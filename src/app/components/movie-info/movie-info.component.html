@@ -1,33 +1,26 @@
 <div class="bg-color"></div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3" style="margin-left: 5%">
-      <div class="card w-75">
-        <div class="card add-movie-button">
-          <img
-            class="card-img-top"
-            src="assets/images/insert-image.png"
-            alt="INSERT IMAGE"
-            style="
-              height: 20%;
-              width: 30%;
-              position: absolute;
-              left: 35%;
-              top: 40%;
-            "
-          />
-        </div>
-        <div class="card-header border-danger" style="margin-top: 10px">
-          <strong class="movie-title"> titulo de película </strong>
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-3 d-flex justify-content-center">
+      <div class="card w-75 ms-5">
+        <img
+          class="card-img-top"
+          [src]="tempMovie?.photo || 'assets/images/photo.png'"
+          alt="INSERT IMAGE"
+        />
+        <div class="card-header border-danger">
+          <h2 class="card-title">
+            <strong>{{ tempMovie?.name || 'Título de la película' }}</strong>
+          </h2>
         </div>
         <div class="card-body">
           <strong style="color: white">Sinopsis</strong>
-          <p class="card-text" style="color: gray">EJEMPLO SINOPSIS</p>
+          <p class="card-text" style="color: gray">{{ tempMovie?.sinopsis || 'Sin información' }}</p>
         </div>
         <div class="card-footer">
           <strong style="color: white">Duración</strong>
-          <p style="color: gray">X minutos</p>
+          <p style="color: gray">{{ tempMovie?.duration || 'Sin información' }}</p>
         </div>
         <button
           class="btn btn-primary"
@@ -39,20 +32,19 @@
       </div>
     </div>
 
-    <div class="col-md-8 ms-5 d-flex flex-column align-items-center">
-      <div class="video-container position-relative w-100">
-        <div
+    <div class="col-md-8 d-flex justify-content-center align-items-start">
+      <div
+        class="video-container justify-content-center position-relative d-flex w-75"
+      >
+        <output
           class="spinner-border text-danger position-absolute top-50 start-50"
-          role="status"
         >
           <span class="visually-hidden">Loading...</span>
-        </div>
-
-        <div class="ratio ratio-16x9 img">
-          <div class=""></div>
+        </output>
+        <div class="ratio ratio-16x9 w-100">
           <iframe
-            src=""
-            title="EJEMPLO"
+            [src]="sanitizedTrailerUrl"
+            [title]="tempMovie?.name"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
@@ -61,94 +53,139 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="row">
+  <app-schedule></app-schedule>
+  <app-display-showtimes></app-display-showtimes>
+  </div>
+  <div class="d-flex justify-content-center align-items-center mt-3">
+    <button class="btn btn-primary w-50" (click)="publishMovie()" routerLink=" ">Agregar</button>
+  </div>
+</div>
 
     <!------------------------------------------------------------ Modal -------------------------------------------------------------->
-    <div class="mensaje modal fade" id="editInfo">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="titulo-mensaje" id="exampleModalLabel">Editar</h1>
-            <button class="btn" data-bs-dismiss="modal">X</button>
+<div class="mensaje modal fade" id="editInfo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="titulo-mensaje" id="exampleModalLabel">Editar</h1>
+        <button class="btn" style="color: white" data-bs-dismiss="modal">X</button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" class="p-4 border rounded shadow-sm" (ngSubmit)="addInfoMovie()">
+          <div class="mb-3">
+            <label for="titulo">Titulo de la pelicula</label>
+            <input
+              type="text"
+              class="form-control"
+              id="titulo"
+              formControlName="name"
+              placeholder="Ej. VENOM"
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+            />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">El título es obligatorio.</div>
+            </div>
           </div>
-          <div class="modal-body">
-            <form class="p-4 border rounded shadow-sm">
-              <div class="mb-3">
-                <label for="titulo">Titulo de la pelicula</label>
-                <input
-                  class="form-control"
-                  id="titulo"
-                  placeholder="Ej. VENOM"
-                  required
-                />
-                <div class="form-text"></div>
-              </div>
-              <div class="mb-3">
-                <label for="sinopsis" class="form-label">Sinopsis</label>
-                <textarea
-                  class="form-control caja-sinop"
-                  id="sinopsis"
-                  placeholder="Ej. En Venom: El último baile, Tom Hardy regresa como Venom, uno de los personajes más grandes y complejos de Marvel, para la última película de la trilogía. Eddie y Venom están huyendo. Perseguidos por sus dos mundos y con la red cerrándose, el dúo se ve obligado a tomar una decisión devastadora que echará el telón al último baile de Venom y Eddie."
-                  rows="7"
-                  required
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="duracion" class="form-label">Duración</label>
-                <input
-                  class="form-control"
-                  id="duracion"
-                  placeholder="Ej. 120 min"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="genero" class="form-label">Género</label>
-                <input
-                  class="form-control"
-                  id="genero"
-                  placeholder="Ej. Horror"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="imagen" class="form-label">Imagen</label>
-                <input
-                  class="form-control"
-                  id="imagen"
-                  placeholder="Link imagen"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="imagenCarrusel" class="form-label">Imagen carrusel</label>
-                <input
-                  class="form-control"
-                  id="imagenCarrusel"
-                  placeholder="Link imagen carrusel"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="link" class="form-label">Link del video</label>
-                <input
-                  class="form-control"
-                  id="link"
-                  placeholder="https://www.youtube.com/embed/dG-Yk4SDm94"
-                  required
-                />
-              </div>
-            </form>
+      
+          <div class="mb-3">
+            <label for="sinopsis" class="form-label">Sinopsis</label>
+            <textarea
+              class="form-control"
+              id="sinopsis"
+              formControlName="sinopsis"
+              rows="7"
+              placeholder="Ej. En Venom: El último baile, Tom Hardy regresa como Venom, uno de los personajes más grandes y complejos de Marvel, para la última película de la trilogía. Eddie y Venom están huyendo. Perseguidos por sus dos mundos y con la red cerrándose, el dúo se ve obligado a tomar una decisión devastadora que echará el telón al último baile de Venom y Eddie."
+              [ngClass]="{ 'is-invalid': submitted && f.sinopsis.errors }"
+            ></textarea>
+            <div *ngIf="submitted && f.sinopsis.errors" class="invalid-feedback">
+              <div *ngIf="f.sinopsis.errors.required">La sinopsis es obligatoria.</div>
+            </div>
           </div>
+      
+          <div class="mb-3">
+            <label for="duracion" class="form-label">Duración</label>
+            <input
+              type="text"
+              class="form-control"
+              id="duracion"
+              formControlName="duration"
+              placeholder="Ej. 120 min"
+              [ngClass]="{ 'is-invalid': submitted && f.duration.errors }"
+            />
+            <div *ngIf="submitted && f.duration.errors" class="invalid-feedback">
+              <div *ngIf="f.duration.errors.required">La duración es obligatoria.</div>
+            </div>
+          </div>
+      
+          <div class="mb-3">
+            <label for="genero" class="form-label">Género</label>
+            <input
+              type="text"
+              class="form-control"
+              id="genero"
+              formControlName="genre"
+              placeholder="Ej. Horror"
+              [ngClass]="{ 'is-invalid': submitted && f.genre.errors }"
+            />
+            <div *ngIf="submitted && f.genre.errors" class="invalid-feedback">
+              <div *ngIf="f.genre.errors.required">El género es obligatorio.</div>
+            </div>
+          </div>
+      
+          <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imagen"
+              formControlName="photo"
+              placeholder="Link imagen"
+              [ngClass]="{ 'is-invalid': submitted && f.photo.errors }"
+            />
+            <div *ngIf="submitted && f.photo.errors" class="invalid-feedback">
+              <div *ngIf="f.photo.errors.required">El link de la imagen es obligatorio.</div>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="imagenCarrusel" class="form-label">Imagen Carrusel</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imagenCarrusel"
+              formControlName="carouselPhoto"
+              placeholder="Link de la imagen carrusel"
+              [ngClass]="{ 'is-invalid': submitted && f.carouselPhoto.errors }"
+            />
+            <div *ngIf="submitted && f.carouselPhoto.errors" class="invalid-feedback">
+              <div *ngIf="f.carouselPhoto.errors.required">
+                El link de la imagen carrusel es obligatorio.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="link" class="form-label">Link del video</label>
+            <input
+              type="text"
+              class="form-control"
+              id="link"
+              formControlName="trailer"
+              placeholder="https://www.youtube.com/embed/dG-Yk4SDm94"
+              [ngClass]="{ 'is-invalid': submitted && f.trailer.errors }"
+            />
+            <div *ngIf="submitted && f.trailer.errors" class="invalid-feedback">
+              <div *ngIf="f.trailer.errors.required">El link del video es obligatorio.</div>
+            </div>
+          </div>
+
           <div class="modal-footer">
-            <button class="btn btn-secondary" data-bs-dismiss="modal">
-              Cerrar
-            </button>
-            <button class="btn btn-primary">Guardar</button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button class="btn btn-primary" type="submit" [disabled]="form.invalid" data-bs-dismiss="modal">Guardar</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
-
-    <app-schedule></app-schedule>
   </div>
 </div>

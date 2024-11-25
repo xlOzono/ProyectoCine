@@ -140,4 +140,7 @@ export class MovieService {
     return this.movieList.filter((movie) => movie.genre === genre);
   }
   
+  addMovie(newMovie: Movie): void {
+    this.movieList.push(newMovie);
+  }
 }
