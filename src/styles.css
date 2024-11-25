@@ -26,8 +26,9 @@ body {
 }
 
 .card {
-  background-color: #121212;
-  border-radius: 10px;
+  background-color: #121212 !important;
+  border-radius: 10px !important;
+  color: white !important;
 }
 
 .bg-image {
