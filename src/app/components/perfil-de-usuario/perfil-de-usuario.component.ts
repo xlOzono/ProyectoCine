@@ -118,7 +118,50 @@ export class PerfilDeUsuarioComponent {
       alert('Contraseña no valida.');
     }
   }
-
+  generateMockBuys(): void {
+    if (this.user) {
+      const mockBuys: Buy[] = [
+        {
+          cinema: 'CineMax',
+          movieName: 'Inception',
+          date: '2024-12-01',
+          auditorium: 1,
+          hour: '18:00',
+          seats: ['A1', 'A2', 'A3'],
+          price: 15000,
+          tickets: '3',
+        },
+        {
+          cinema: 'CineStar',
+          movieName: 'The Shawshank Redemption',
+          date: '2024-12-02',
+          auditorium: 3,
+          hour: '20:00',
+          seats: ['B5', 'B6'],
+          price: 10000,
+          tickets: '2',
+        },
+        {
+          cinema: 'CineWorld',
+          movieName: 'Avatar',
+          date: '2024-12-03',
+          auditorium: 4,
+          hour: '21:00',
+          seats: ['C10', 'C11', 'C12', 'C13'],
+          price: 20000,
+          tickets: '4',
+        },
+      ];
+  
+      // Asignar los valores de prueba al usuario
+      mockBuys.forEach((buy) => this.user?.addBuy(buy));
+  
+      alert('¡Compras simuladas añadidas con éxito!');
+      this.listBuys = this.user.getBuys(); // Refrescar la lista de compras
+    } else {
+      alert('No hay usuario disponible.');
+    }
+  }
 }
 
 
