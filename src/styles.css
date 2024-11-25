@@ -62,11 +62,16 @@ body {
   padding: 10px 20px;
 }
 
+.btn.btn-primary.w-100.mb-2:hover,
+.btn.btn-primary:hover {
+  background-color: #cc242e; /* Fondo más oscuro al hacer hover */
+  border-color: #cc242e; /* Oscurecer el borde también */
+  color: white; /* Asegura que el color del texto no cambie */
+}
+
 .btn.btn-primary:active {
   background-color: #ff2e38;
 }
-
-.btn
 
 /* ESTILO BOTON SECUNDARIO*/
 .btn.btn-secondary.w-100,
@@ -178,4 +183,22 @@ nav {
   border-radius: 10px;
   display: flex;
   align-items: center;
+}
+
+.nav-item.nav-link:hover,
+.nav-item .nav-link:hover {
+  background-color: #cc242e;
+  color: white;
+}
+
+.nav-item.nav-link:visited,
+.nav-item .nav-link:visited {
+  color: white;
+}
+
+.nav-item.nav-link:focus,
+.nav-item .nav-link:focus {
+  color: white; /* Evita cambios de color al enfocar */
+  background-color: #ff2e38; /* Fondo consistente al enfocar */
+  outline: none; /* Evita bordes de enfoque del navegador */
 }
