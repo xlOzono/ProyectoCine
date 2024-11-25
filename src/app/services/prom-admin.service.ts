@@ -39,8 +39,8 @@ export class PromAdminService {
   // Método para cambiar el porcentaje
   changePercentage(valor: number) {
     this.porcentaje = valor;
-    console.log('Porcentaje confirmado:', this.porcentaje);
-    alert(`Porcentaje confirmado: ${this.porcentaje}`);
+    console.log('Porcentaje confirmado:', this.porcentaje, '%');
+    alert(`Porcentaje confirmado: ${this.porcentaje} %`);
     this.emitPromotion();
   }
 

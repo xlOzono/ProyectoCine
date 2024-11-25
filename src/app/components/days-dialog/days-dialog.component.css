@@ -1,40 +1,39 @@
-/* Fondo opaco para el backdrop */
 .modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
-    z-index: 1040; /* Asegúrate de que el fondo no cubra el modal */
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1040; 
   }
   
-  /* Contenedor del modal */
+
   .modal-dialog {
     position: fixed;
-    top: 50%; /* Centramos verticalmente */
-    left: 50%; /* Centramos horizontalmente */
-    transform: translate(-50%, -50%); /* Ajustamos para que quede exactamente centrado */
-    z-index: 1050; /* Modal debe estar por encima del fondo */
-    max-width: 600px; /* Limita el ancho máximo */
-    width: 100%; /* El modal puede ocupar todo el ancho hasta el máximo permitido */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1050; 
+    max-width: 600px;
+    width: 100%; 
   }
   
-  /* Estilos del contenido del modal */
+
   .modal-content {
-    background-color: rgb(0, 0, 0); /* Fondo blanco para el contenido */
+    background-color: rgb(0, 0, 0); 
     padding: 30px;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para simular profundidad */
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   .modal-header {
-    border-bottom: none; /* Elimina el borde inferior si lo prefieres */
+    border-bottom: none; 
     padding-bottom: 0;
   }
   
   .modal-body {
-    margin-top: 10px; /* Puedes ajustar el valor según lo necesites */
+    margin-top: 10px; 
   }
   
   .modal-footer {
@@ -120,12 +119,12 @@
 }
   .form-check-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta el tamaño mínimo de las columnas y las columnas se llenarán automáticamente */
-    gap: 10px; /* Espacio entre las casillas */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px; 
   }
 
   .category-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Cambiar tamaño de las columnas según el contenido */
-    gap: 15px; /* Espacio entre las columnas */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+    gap: 15px; 
   }

@@ -18,19 +18,16 @@ export class PercentageImageComponent {
       alert('Por favor, ingresa un valor numérico válido mayor que 0 y menor que 100');
       return;
     }
-    console.log('Porcentaje confirmado:', this.percentage, '%')
     this.promAdminService.changePercentage(this.percentage);
   }
 
   confirmImageUrl() {
-    // Verificar si la URL está vacía
     if (!this.imagenUrl.trim()) {
         alert('La URL de la imagen no puede estar vacía.');
         console.error('La URL proporcionada está vacía.');
         return;
     }
 
-    // Validar la estructura de la URL con una expresión regular
     const urlPattern = /^(https?:\/\/)[^\s/$.?#].[^\s]*$/i;
     if (!urlPattern.test(this.imagenUrl)) {
         alert('La URL proporcionada no es válida.');
@@ -38,7 +35,6 @@ export class PercentageImageComponent {
         return;
     }
 
-    // Verificar que la URL tenga una extensión de imagen válida
     const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
     const hasValidImageExtension = imageExtensions.some(ext => this.imagenUrl.toLowerCase().endsWith(ext));
     if (!hasValidImageExtension) {
@@ -47,9 +43,7 @@ export class PercentageImageComponent {
         return;
     }
 
-    // Confirmar y proceder
-    console.log('URL de imagen confirmada:', this.imagenUrl);
-    this.promAdminService.changeImage(this.imagenUrl); // Ajusta según tu servicio
+    this.promAdminService.changeImage(this.imagenUrl); 
 }
 
 }

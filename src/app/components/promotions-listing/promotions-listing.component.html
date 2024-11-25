@@ -1,15 +1,12 @@
 <section class="listing">
-    <button class="promotion-button">
+  <button class="promotion-button" (click)="showPromotionDetails(promotionsListing)">
     <img
       class="promotion-photo"
       [src]="promotionsListing.imagenUrl"
       alt="Promotion poster of {{ promotionsListing.nombre }}"
-      
     />
     <h2 class="promotion-title">{{ promotionsListing.nombre }}</h2>
     <h2 class="promotion-code">{{ promotionsListing.promotionCode }}</h2>
-    </button>
-  
-  
-  </section>
+  </button>
+</section>
   

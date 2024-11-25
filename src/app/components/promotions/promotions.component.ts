@@ -21,11 +21,8 @@ export class PromotionsComponent {
   ) {}
   
   ngOnInit(): void {
-    // Suscríbete al usuario
     this.accountService.user.subscribe(user => {
       this.user = user;
-
-      // Carga la lista de promociones cuando el usuario esté definido
       if (this.user) {
         this.promotionsList = this.promotionService.getPromotionList();
       }

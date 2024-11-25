@@ -10,7 +10,6 @@
     font-size: 30;
     color: white;
 }
-
 .promotion-code {
     padding: 10px 20px 0 20px;
     font-family: "Inter", sans-serif;
@@ -18,13 +17,11 @@
     font-size: 20;
     color: white;
  }
-
 .promotion-photo {
     width: 300px;
     object-fit: contain;
-    border-radius: 20px;
+    border-radius: 10px;
 }
-    
 .listing {
     display: flex;
     flex-direction: column; /* Aligns children vertically */

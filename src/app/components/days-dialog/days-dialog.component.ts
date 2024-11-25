@@ -16,7 +16,7 @@ export class DaysDialogComponent {
 
   ngOnChanges() {
     if (this.show) {
-      this.diasSeleccionadosTemp = [...this.diasSeleccionados]; // Clonamos la selección actual
+      this.diasSeleccionadosTemp = [...this.diasSeleccionados]; 
     }
   }
 
@@ -30,7 +30,7 @@ export class DaysDialogComponent {
   }
 
   confirmSelection() {
-    this.diasConfirmados.emit([...this.diasSeleccionadosTemp]); // Emitimos los días seleccionados
+    this.diasConfirmados.emit([...this.diasSeleccionadosTemp]); 
     this.closeModal.emit();
   }
 

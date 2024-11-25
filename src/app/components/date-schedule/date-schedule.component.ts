@@ -50,7 +50,7 @@ export class DateScheduleComponent {
     if (!this.showDateSelector) {
       this.fechas = [];
       this.date = '';
-      this.mostrarBotonFecha = false; // Oculta el botón de confirmación de fechas
+      this.mostrarBotonFecha = false;
       this.confirmFechas();
     }
     else {
@@ -61,28 +61,24 @@ export class DateScheduleComponent {
   addFecha() {
     if (this.fechas.length < 2) {
       if (this.fechas.length === 0) {
-        // Agregar la primera fecha sin restricción
         this.fechas.push(this.date);
       } else {
-        // Comparar la segunda fecha con la primera
         const primeraFecha = new Date(this.fechas[0]);
         const segundaFecha = new Date(this.date);
-
-        // Validar que la segunda fecha sea mayor que la primera
         if (segundaFecha > primeraFecha) {
           this.fechas.push(this.date);
         } else {
           alert("La segunda fecha debe ser posterior a la primera.");
         }
       }
-      // Limpiar el campo de la fecha después de agregarla
+      
       this.date = '';
       this.mostrarBotonFecha = this.fechas.length > 0;
     }
   }
 
   removeFecha(index: number) {
-    this.fechas.splice(index, 1);  // Eliminar la fecha por su índice
+    this.fechas.splice(index, 1);  
   }
 
   
@@ -106,21 +102,21 @@ export class DateScheduleComponent {
   addHora() {
     if (this.horarios.length < 2) {
       if (this.horarios.length === 0) {
-        // Agregar la primera hora sin restricción
+        
         this.horarios.push(this.hora);
       } else {
-        // Comparar la segunda hora con la primera
+        
         const primeraHora = new Date(`1970-01-01T${this.horarios[0]}:00`);
         const segundaHora = new Date(`1970-01-01T${this.hora}:00`);
 
-        // Validar que la segunda hora sea mayor que la primera
+        
         if (segundaHora > primeraHora) {
           this.horarios.push(this.hora);
         } else {
           alert("La segunda hora debe ser posterior a la primera.");
         }
       }
-      // Limpiar el campo de hora después de agregarla
+      
       this.hora = '';
       this.mostrarBotonHora = this.horarios.length > 0;
     }
