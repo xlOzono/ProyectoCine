@@ -1,7 +1,7 @@
 .container {
   min-height: 0%;
   overflow: hidden; /* Ocultar contenido que exceda la altura máxima */
-  max-height: 90vh; /* Altura máxima igual al viewport */
+  max-height: 100vh; /* Altura máxima igual al viewport */
 }
 .scrollable-content {
   max-height: 78.7%; /* Ajusta la altura máxima visible */
