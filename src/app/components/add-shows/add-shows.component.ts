@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FunAdminService } from 'src/app/services/fun-admin.service';
 import { Funcion } from 'src/app/_models/funcion';
+import { showTimeFuncion } from 'src/app/_models/showTimeFuncion';
+import { Seat } from 'src/app/_models/seat';
 
 @Component({
   selector: 'app-add-shows',
@@ -9,7 +11,7 @@ import { Funcion } from 'src/app/_models/funcion';
   styleUrls: ['./add-shows.component.css'],
 })
 export class AddShowsComponent implements OnInit {
-  selectedLanguage: string = ''; 
+  selectedLanguage: string = '';
   selectedFormat: string = '';
   fechas: Date[] = [];
   funcionesTemp: string[] = [];
@@ -38,9 +40,10 @@ export class AddShowsComponent implements OnInit {
     if (this.movieName) {
       // Load existing functions for the movie if editing
 
-      this.existingFunciones = this.funcionService.getMovieFunciones(this.movieName);
+      this.existingFunciones = this.funcionService.getMovieFunciones(
+        this.movieName
+      );
       this.populateFromExistingFunciones(this.existingFunciones);
-
     } else {
       // Ensure the component is cleared for adding new movie shows
       this.clearInputs();
@@ -72,9 +75,7 @@ export class AddShowsComponent implements OnInit {
       this.funcionesTemp = Array.from(
         new Set(funciones.flatMap((funcion) => funcion.showTimes))
       );
-      
     }
-
   }
 
   addFuncion(): void {
@@ -124,18 +125,26 @@ export class AddShowsComponent implements OnInit {
 
   isNewDate(dateString: string): boolean {
     const dateToCheck = this.adjustToChileTime(new Date(dateString)); // Adjust to Chile timezone
-  
+
     const formatDate = (date: Date): string => {
-      const daysOfWeek = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
+      const daysOfWeek = [
+        'lunes',
+        'martes',
+        'miércoles',
+        'jueves',
+        'viernes',
+        'sábado',
+        'domingo',
+      ];
       const dayName = daysOfWeek[date.getDay()];
       const day = String(date.getDate()).padStart(2, '0');
       const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-based
       const year = date.getFullYear();
       return `${dayName} ${day}/${month}/${year}`;
     };
-  
+
     const formattedDateToCheck = formatDate(dateToCheck);
-  
+
     return !this.fechas.some((existingDate) => {
       const formattedExistingDate = formatDate(existingDate); // Format existing date
       return formattedExistingDate === formattedDateToCheck;
@@ -152,11 +161,18 @@ export class AddShowsComponent implements OnInit {
         this.fechaWarning = 'Esta fecha ya está agregada.';
       }
     }
-
   }
 
   getFormattedDates(): string[] {
-    const daysOfWeek = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
+    const daysOfWeek = [
+      'lunes',
+      'martes',
+      'miércoles',
+      'jueves',
+      'viernes',
+      'sábado',
+      'domingo',
+    ];
     return this.fechas.map((date) => {
       const dayName = daysOfWeek[date.getDay()];
       const day = String(date.getDate()).padStart(2, '0');
@@ -169,31 +185,29 @@ export class AddShowsComponent implements OnInit {
   adjustToChileTime(date: Date): Date {
     const chileTimezoneOffset = -180;
     const localOffset = date.getTimezoneOffset();
-    const adjustedTime = date.getTime() + (localOffset - chileTimezoneOffset) * 60 * 1000;
+    const adjustedTime =
+      date.getTime() + (localOffset - chileTimezoneOffset) * 60 * 1000;
     return new Date(adjustedTime);
   }
 
   guardarFunciones(): void {
-
     if (this.isValidData()) {
-      // Prepare new functions to be added or updated
       const newFunciones = this.fechas.map((fecha) => ({
-        showID: this.funcionService.funcionesLength() + 1, // Increment ID
+        showID: this.funcionService.funcionesLength() + 1, // Incrementar ID
         opcionIdioma: this.selectedLanguage,
         formato: this.selectedFormat,
         precio: this.price,
         showDay: fecha,
-        showTimes: [...this.funcionesTemp], // Copy the times
-        movieName: this.movieName || 'Nueva Película', // Use existing name or fallback
+        showTimes: [...this.funcionesTemp], // Copiar los horarios
+        movieName: this.movieName || 'Nueva Película', // Usar nombre existente o predeterminado
+        showSeats: this.createShowTimeFunciones(this.funcionesTemp, 10, 10), // Generar `showTimeFuncion[]`
       }));
-  
-      // Log the new functions being processed
-  
+
       if (this.movieName) {
-        // Update existing movie functions
+        // Actualizar funciones existentes
         this.funcionService.updateFunciones(this.movieName, newFunciones);
       } else {
-        // Add new functions
+        // Agregar nuevas funciones
         for (const funcion of newFunciones) {
           this.funcionService.addFuncion(
             funcion.showID,
@@ -202,22 +216,57 @@ export class AddShowsComponent implements OnInit {
             funcion.precio,
             funcion.showDay,
             funcion.showTimes,
-            funcion.movieName
+            funcion.movieName,
+            funcion.showSeats // Asegurar que los `showSeats` están inicializados
           );
         }
       }
-      // Redirect after saving
+
+      // Redirigir después de guardar
       this.router.navigate(['/']);
     }
   }
-  
-  
+
+  createShowTimeFunciones(
+    showTimes: string[],
+    rows: number,
+    columns: number
+  ): showTimeFuncion[] {
+    return showTimes.map((showTime, index) => ({
+      showID: index + 1, // Generar un ID único para cada horario
+      matrixseats: this.initializeShowSeats(rows, columns), // Inicializar la matriz de asientos
+    }));
+  }
 
   isValidData(): boolean {
     if (!this.selectedLanguage.trim()) return false;
     if (!this.selectedFormat.trim()) return false;
-    if (this.fechas.length === 0 || this.funcionesTemp.length === 0) return false;
+    if (this.fechas.length === 0 || this.funcionesTemp.length === 0)
+      return false;
     if (this.price <= 0) return false;
     return true;
+  }
+
+  initializeShowSeats(rows: number, columns: number): Seat[][] {
+    const matrix: Seat[][] = [];
+
+    // Crear filas
+    for (let i = 0; i < rows; i++) {
+      const row: Seat[] = [];
+      const rowLetter = String.fromCharCode(65 + i); // Convertir índice en letra (A, B, C, etc.)
+
+      // Crear columnas
+      for (let j = 1; j <= columns; j++) {
+        row.push({
+          row: rowLetter,
+          column: j,
+          state: 'available', // Estado inicial
+        });
+      }
+
+      matrix.push(row);
+    }
+
+    return matrix;
   }
 }
