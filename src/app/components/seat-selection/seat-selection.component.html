@@ -1,12 +1,18 @@
+<div>Fomrato: {{ formato }} Movie Name {{ movieName }}</div>
 <div class="cinema d-flex flex-column align-items-center">
   <!-- Screen -->
-  <div class="screen-container d-flex align-items-center justify-content-center">
+  <div
+    class="screen-container d-flex align-items-center justify-content-center"
+  >
     <span class="screen-text">SCREEN</span>
   </div>
 
   <!-- Rows of Seats -->
   <div class="rows mt-4">
-    <div *ngFor="let row of rows" class="row d-flex justify-content-center mb-3 mx-3">
+    <div
+      *ngFor="let row of rows"
+      class="row d-flex justify-content-center mb-3 mx-3"
+    >
       {{ row }}
       <div
         *ngFor="let seat of filteredSeats[row]"
@@ -20,5 +26,7 @@
   </div>
 
   <!-- Confirm Button -->
-  <button class="btn btn-primary mt-4" (click)="confirmSelection()">Confirmar Selección</button>
+  <button class="btn btn-primary mt-4" (click)="confirmSelection()">
+    Confirmar Selección
+  </button>
 </div>

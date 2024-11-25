@@ -118,10 +118,10 @@ export class DisplayShowtimesComponent implements OnInit {
     return funciones.flatMap((funcion) => funcion.showTimes);
   }
 
-  navigateToSeats(time: string, showID: number, formato: string): void {
+  navigateToSeats(time: string, formato: string): void {
     if (this.movieName && this.selectedDate) {
       this.router.navigate(['/seats', this.movieName], {
-        queryParams: { time, showID, formato }, // Include the formato parameter
+        queryParams: { time, formato }, // Include the formato parameter
       });
     }
   }
