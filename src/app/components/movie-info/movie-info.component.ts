@@ -7,7 +7,7 @@ import { Movie } from 'src/app/_models/movie';
 @Component({
   selector: 'app-movie-info',
   templateUrl: './movie-info.component.html',
-  styleUrls: ['./movie-info.component.css']
+  styleUrls: ['./movie-info.component.css'],
 })
 export class MovieInfoComponent {
   form!: FormGroup;
@@ -15,7 +15,11 @@ export class MovieInfoComponent {
   tempMovie: Movie | null = null;
   sanitizedTrailerUrl: SafeResourceUrl | null = null;
 
-  constructor(private formBuilder: FormBuilder, private movieService: MovieService, private sanitizer: DomSanitizer) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private movieService: MovieService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -48,11 +52,19 @@ export class MovieInfoComponent {
       carouselPhoto: this.f.carouselPhoto.value,
       trailer: this.f.trailer.value,
     };
-    this.sanitizedTrailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.tempMovie.trailer);
+    this.sanitizedTrailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      this.tempMovie.trailer
+    );
   }
 
   publishMovie(): void {
-    if (this.tempMovie ) {
+    if (this.tempMovie) {
+      const existingMovie = this.movieService.getMovieByName(
+        this.tempMovie.name
+      );
+      if (existingMovie) {
+        return;
+      }
       this.movieService.addMovie(this.tempMovie);
     }
   }
