@@ -1,0 +1,36 @@
+.btn-guardar {
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    width: 90%;
+    height: 90px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    bottom: 10;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.centrado { 
+    justify-content: center;
+    display: flex;
+}
+
+.promocion-titulo {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.imagen {
+    width: 200px;
+    margin-top: 10px;
+}
+
+.detalles-promocion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }

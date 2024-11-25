@@ -1,0 +1,175 @@
+.btn-group, .input-group {
+    gap: 10px;
+}
+
+.btn-dark {
+    background-color: #333333;
+    width: auto;
+    max-width: 100%;
+    color: #9A9A9A;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-dark.active, .btn-dark:hover {
+    background-color: #ff2e38;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #ff4a4a;
+}
+
+.form-control {
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    width: 50%;
+    max-width: 50%;
+}
+  
+.lista-edades {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    margin-top: 15px;
+    list-style: none;
+    text-align: center;
+}
+
+.edad{
+    display: flex;             
+    align-items: center;         
+    justify-content: center;      
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    height: 70px;                
+    width: 150px;                  
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: relative;           
+    margin-right: 70px;
+    margin-bottom: 30px;         
+}
+
+.selected-items {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.selected-items ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.selected-items li {
+  margin-bottom: 5px;
+}
+
+.categoria {
+    display: flex;                 
+    align-items: center;           
+    justify-content: center;      
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    height: 60px;              
+    width: 140px;                
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: relative;     
+    margin-right: 70px;
+    margin-bottom: 30px;        
+}
+
+.pelicula {
+    display: flex;                
+    align-items: center;          
+    justify-content: center;       
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    height: 60px;             
+    width: 300px;               
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: relative;            
+    margin-right: 70px;
+    margin-bottom: 30px;         
+}
+
+.lista-categorias, .lista-peliculas{
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 0px;
+    justify-content: flex-start;
+    text-align: center;
+  }
+  
+.lista-categorias li, .lista-peliculas li {
+    list-style-type: none;
+    margin: 5px;   
+    
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;  
+  margin: 0;
+}
+
+.btn-borrarEdad {
+    background-color: #333333;
+    color: white;
+    font-weight: bold;
+    border: none;
+    width: 35px;
+    height: 70px;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: absolute;           
+    right: -40px;                   
+}
+
+.btn-condition {
+    background-color: #333333;
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-condition:hover {
+    background-color: #ff4a4a;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-condition.active {
+    background-color: #ff2e38;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}

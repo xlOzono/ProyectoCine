@@ -1,0 +1,83 @@
+<div class="row align-items-start justify-content-center mt-4">
+  <!-- Funciones -->
+  <div class="col-md-5">
+    <div class="d-flex align-items-center">
+      <h3 class="fs-5 fw-bold mb-0">Funciones</h3>
+      <button class="btn btn-danger ms-3" (click)="openCustomModal()">AGREGAR</button>
+    </div>
+
+    <!-- Modal de Selección de Funciones -->
+    <app-custom-dialog
+      [categories]="categories"
+      [movies]="movies"
+      [selectedCategories]="selectedCategories"
+      [selectedMovies]="selectedMovies"
+      [show]="showCustomModal"
+      (closeModal)="closeCustomModal()"
+      (selectionsConfirmed)="onSelectionsConfirmed($event)">
+    </app-custom-dialog>
+
+    <!-- Listado de Funciones Seleccionadas -->
+    <div *ngIf="selectedCategories.length > 0" class="selected-items mt-3">
+      <h5>Categorías seleccionadas:</h5>
+      <ul class="lista-categorias">
+        <li *ngFor="let category of selectedCategories" class="categoria">{{ category }}</li>
+      </ul>
+    </div>
+
+    <div *ngIf="selectedMovies.length > 0" class="selected-items">
+      <h5>Películas seleccionadas:</h5>
+      <ul class="lista-peliculas">
+        <li *ngFor="let movie of selectedMovies" class="pelicula">{{ movie }}</li>
+      </ul>
+    </div>
+    <div class="mt-3">
+      <button class="btn btn-danger" (click)="confirmFunciones()" [disabled]="!selectedCategories.length && !selectedMovies.length">CONFIRMAR FUNCIONES</button>
+    </div>
+  </div>
+
+  <!-- Separador para alinear con Edad -->
+  <div class="col-md-1"></div>
+
+  <!-- Edad -->
+  <div class="col-md-5">
+    <!-- Botón principal para mostrar/ocultar los botones y entrada -->
+    <div class="d-flex align-items-center">
+      <h3 class="fs-5 fw-bold mb-0">Edad</h3>
+      <button class="btn btn-danger ms-3" (click)="toggleAgeSelector()">{{ buttonTextEdad }}</button>
+    </div>
+
+    <!-- Contenedor de los botones "Mayores de" / "Menores de" y la entrada -->
+    <div *ngIf="showAgeSelector" class="mt-3">
+      <!-- Botones "Mayores de" y "Menores de" -->
+      <div class="mt-3">
+        <button 
+          class="btn btn-condition" 
+          [ngClass]="{'mayores': selectedCondition === 'mayores', 'active': selectedCondition === 'mayores'}"
+          (click)="selectCondition('mayores')">Mayores de:</button>
+        <button 
+          class="btn btn-condition" 
+          [ngClass]="{'menores': selectedCondition === 'menores', 'active': selectedCondition === 'menores'}"
+          (click)="selectCondition('menores')">Menores de:</button>
+      </div>
+
+      <!-- Entrada de número y botón "AÑADIR" -->
+      <div class="input-group mt-3">
+        <input type="number" class="form-control" [(ngModel)]="edad" placeholder>
+        <button class="btn btn-danger" (click)="addEdad()">AÑADIR</button>
+      </div>
+    </div>
+
+    <!-- Lista de edades -->
+    <div class="cont-edades mt-3">
+      <ul class="lista-edades">
+        <li *ngFor="let a of edades; let i = index" class="edad">
+          <span>{{ a.condition }}</span>
+          <button class="btn-borrarEdad" (click)="removeEdad(i)">X</button>
+        </li>
+      </ul>
+    </div>
+    <div class="mt-3">
+      <button class="btn btn-danger" (click)="confirmEdades()" [disabled]="!edades.length">CONFIRMAR EDADES</button>
+    </div>
+</div>

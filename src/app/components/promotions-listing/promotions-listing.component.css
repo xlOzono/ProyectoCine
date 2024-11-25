@@ -1,0 +1,37 @@
+.promotion-button{
+    background-color: transparent;
+    border-color: transparent;
+    border: none;
+    }
+.promotion-title {
+    padding: 10px 20px 0 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 30;
+    color: white;
+}
+
+.promotion-code {
+    padding: 10px 20px 0 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 20;
+    color: white;
+ }
+
+.promotion-photo {
+    width: 300px;
+    object-fit: contain;
+    border-radius: 20px;
+}
+    
+.listing {
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+    text-align: center; /* Centers text elements within the container */
+    border-radius: 0px;
+    padding-bottom: 30px;
+}
+    

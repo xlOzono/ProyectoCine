@@ -1,0 +1,17 @@
+body,
+html {
+  overflow-x: hidden;
+}
+
+.results {
+  display: grid;
+  column-gap: 14px;
+  row-gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: space-around;
+  margin: 0 10%;
+}
+
+.movie-results {
+  
+}

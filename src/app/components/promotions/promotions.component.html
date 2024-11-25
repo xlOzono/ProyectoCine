@@ -1,0 +1,17 @@
+<div class="bg-color"></div>
+
+<div class="movie-results">
+  <section class="results">
+    <app-promotions-listing
+    
+      *ngFor="let promotionsListing of promotionsListingList"
+      
+      [promotionsListing]="promotionsListing"
+      
+    ></app-promotions-listing>
+  </section>
+
+  <div class="navbar-nav">
+    <button class="add-button rounded-circle" routerLink="/add-promotions">+</button>
+  </div>
+</div>
