@@ -1,16 +1,61 @@
-<article>
-  <img
-    class="listing-photo"
-    [src]="movieListing?.photo"
-    alt="movieListing?.name"
-  />
-  <section class="movie-description" style="color: black">
-    <h2 class="movie-title">{{ movieListing?.name }}</h2>
-    <p class="movie-sinopsis">
-      {{ movieListing?.sinopsis }}
-    </p>
-    <p class="movie-duration">
-      {{ movieListing?.duracion }}
-    </p>
-  </section>
-</article>
+<div class="bg-color"></div>
+
+<div class="container-fluid mt-5">
+  <!-- Movie Details Row -->
+  <div class="row justify-content-center">
+    <!-- Movie Poster and Details -->
+    <div class="col-md-3 d-flex justify-content-center">
+      <div class="card w-75 ms-5">
+        <img
+          class="card-img-top"
+          [src]="movieListing?.photo"
+          alt="Movie Poster"
+        />
+        <div class="card-header border-danger">
+          <h2 class="card-title">
+            <strong>{{ movieListing?.name }}</strong>
+          </h2>
+        </div>
+        <div class="card-body">
+          <strong>Sinopsis</strong>
+          <p class="card-text">
+            {{ movieListing?.sinopsis }}
+          </p>
+        </div>
+        <div class="card-footer">
+          <strong>Duración</strong>
+          <p>{{ movieListing?.duration }} minutos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trailer -->
+    <div class="col-md-8 d-flex justify-content-center align-items-start">
+      <div
+        class="video-container justify-content-center position-relative d-flex w-75"
+      >
+        <output
+          class="spinner-border text-danger position-absolute top-50 start-50"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </output>
+        <div class="ratio ratio-16x9 w-100">
+          <iframe
+            [src]="sanitizedTrailerUrl"
+            [title]="movieListing?.name"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="trailer-iframe"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="isAdmin">
+      <app-schedule [movieName]="movieListing?.name"></app-schedule>
+    </div>
+    <app-display-showtimes></app-display-showtimes>
+  </div>
+</div>

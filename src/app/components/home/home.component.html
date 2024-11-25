@@ -1,4 +1,46 @@
 <div class="bg-color"></div>
+<div *ngIf="!isAdmin">
+  <div
+    id="carouselExampleControls"
+    class="carousel slide mb-5"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <!-- Generate a carousel-item for each movie -->
+      <ng-container *ngFor="let movie of carouselMoviesList; let i = index">
+        <div class="carousel-item" [ngClass]="{ active: i === 0 }">
+          <!-- Center the image -->
+          <img
+            [src]="movie.carouselPhoto"
+            class="d-block img-fluid"
+            [alt]="movie.name"
+            [routerLink]="['/details', movie.name]"
+            style="max-height: 400px; margin: auto"
+          />
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleControls"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleControls"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 <div class="movie-results">
   <section class="results">
@@ -7,4 +49,13 @@
       [movieListing]="movieListing"
     ></app-movie-listing>
   </section>
+  <div class="navbar-nav" *ngIf="isAdmin">
+    <button
+      title="add-movie-button"
+      class="add-button rounded-circle"
+      routerLink="/add-movie"
+    >
+      <i class="bi bi-plus"></i>
+    </button>
+  </div>
 </div>

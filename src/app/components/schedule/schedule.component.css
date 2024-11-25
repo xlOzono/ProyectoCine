@@ -1,0 +1,16 @@
+.schedule {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 80%;
+  height: 100%;
+  font-size: 30px;
+  position: relative;
+  left: 250px;
+}
+
+.schedule-actions {
+  width: 100%;
+  display: flex; 
+  justify-content: flex-end; 
+}

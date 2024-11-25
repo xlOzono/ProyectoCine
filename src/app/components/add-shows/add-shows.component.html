@@ -1,0 +1,163 @@
+<div class="bg-color"></div>
+
+<div class="container mt-5 d-flex flex-column">
+  <div class="row align-items-start justify-content-center">
+    <div class="col-md-3">
+      <h2 class="fs-4 fw-bold text-start">
+        <span class="number">01</span> | Opciones de Idioma
+      </h2>
+      <div class="btn-group w-100 mt-4" role="group">
+        <button
+          class="btn btn-dark"
+          [class.active]="selectedLanguage === 'subtitulada'"
+          (click)="selectLanguage('subtitulada')"
+        >
+          SUBTITULADA
+        </button>
+        <button
+          class="btn btn-dark"
+          [class.active]="selectedLanguage === 'doblada'"
+          (click)="selectLanguage('doblada')"
+        >
+          DOBLADA
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-1 d-flex justify-content-center">
+      <div class="separator"></div>
+    </div>
+
+    <div class="col-md-3">
+      <h2 class="fs-4 fw-bold text-start">
+        <span class="number">02</span> | Formato de Proyección
+      </h2>
+      <div class="btn-group w-100 mt-4" role="group">
+        <button
+          class="btn btn-dark"
+          [ngClass]="{ active: selectedFormat === '2D' }"
+          (click)="selectFormat('2D')"
+        >
+          2D
+        </button>
+        <button
+          class="btn btn-dark"
+          [ngClass]="{ active: selectedFormat === '3D' }"
+          (click)="selectFormat('3D')"
+        >
+          3D
+        </button>
+        <button
+          class="btn btn-dark"
+          [ngClass]="{ active: selectedFormat === '4D' }"
+          (click)="selectFormat('4D')"
+        >
+          4D
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-1 d-flex justify-content-center">
+      <div class="separator"></div>
+    </div>
+
+    <div class="col-md-3">
+      <h2 class="fs-4 fw-bold text-start">
+        <span class="number">03</span> | Asignación de Precio
+      </h2>
+      <div class="input-group mt-4">
+        <input
+          type="number"
+          class="form-control input-price"
+          placeholder="$"
+          [(ngModel)]="inputPrice"
+        />
+        <button class="btn btn-danger" (click)="confirmPrice()">
+          CONFIRMAR
+        </button>
+      </div>
+      <div *ngIf="priceWarning" class="text-danger mt-2">
+        {{ priceWarning }}
+      </div>
+    </div>
+
+    <div class="col-md-5 mt-5">
+      <h2 class="fs-4 fw-bold text-start">
+        <span class="number">04</span> | Fechas de Función
+      </h2>
+      <div class="input-group mt-4">
+        <input
+          type="date"
+          class="input-dates"
+          style="padding: 10px 20px"
+          [(ngModel)]="fecha"
+        />
+        <button class="btn btn-danger" (click)="addFecha()">AGREGAR</button>
+      </div>
+      <div *ngIf="fechaWarning" class="text-danger mt-2">
+        {{ fechaWarning }}
+      </div>
+      <div class="cont-fech">
+        <ul class="lista-fechas">
+          <li
+            *ngFor="let f of getFormattedDates(); let i = index"
+            class="fecha"
+          >
+            <button class="btn-borrarFecha" (click)="removeFecha(i)">X</button>
+            <span class="label-fecha">{{ f }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-6 mt-5">
+      <h2 class="fs-4 fw-bold text-start">
+        <span class="number">05</span> | Horario de Funciones
+      </h2>
+      <div class="input-group mt-4">
+        <label class="fs-4 fw-bold text-start mt-2" for="hora"> Hora </label>
+        <input
+          type="time"
+          class="form-control input-dates"
+          [(ngModel)]="hora"
+        />
+
+        <label class="fs-4 fw-bold text-start mt-2" for="salas"> Sala </label>
+        <select id="salas" class="form-control input-rooms" [(ngModel)]="sala">
+          <option value="Sala 1">Sala 1</option>
+          <option value="Sala 2">Sala 2</option>
+          <option value="Sala 3">Sala 3</option>
+          <option value="Sala 4">Sala 4</option>
+          <option value="Sala 5">Sala 5</option>
+          <option value="Sala 6">Sala 6</option>
+          <option value="Sala 7">Sala 7</option>
+        </select>
+        <button class="btn btn-danger" (click)="addFuncion()">AGREGAR</button>
+      </div>
+      <div *ngIf="funcionWarning" class="text-danger mt-2">
+        {{ funcionWarning }}
+      </div>
+      <ul class="lista-funciones mt-5">
+        <li
+          *ngFor="let f of this.funcionesTemp; let i = index"
+          class="funcion mx-5"
+        >
+          <button class="btn-borrarFuncion" (click)="removeFuncion(i)">
+            X
+          </button>
+          <span class="function-text">{{ f }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="centrado">
+    <button
+      class="btn btn-guardar mx-5 mt-5"
+      (click)="guardarFunciones()"
+      [disabled]="!isValidData()"
+    >
+      GUARDAR
+    </button>
+  </div>
+</div>

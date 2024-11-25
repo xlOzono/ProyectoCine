@@ -13,7 +13,7 @@
   <div class="container" id="session-card">
     <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
     <div class="card">
-      <h4 class="card-header">Registrarse</h4>
+      <h4 class="card-header my-2 fs-2">Registrarse</h4>
       <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="mb-3">

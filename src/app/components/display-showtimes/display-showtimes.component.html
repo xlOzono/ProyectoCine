@@ -1,0 +1,63 @@
+<!-- Showtimes Row -->
+<div class="row mt-5">
+  <div class="col-md-12">
+    <ul class="nav nav-pills justify-content-center">
+      <li *ngFor="let date of getUniqueDates()" class="nav-item mx-2">
+        <button
+          class="nav-link"
+          [class.active]="selectedDate === date"
+          (click)="selectDate(date)"
+        >
+          {{ formatDate(date) }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Showtimes Cards -->
+<div class="row mt-5">
+  <div class="col-12" *ngIf="selectedDate">
+    <!-- Loop through all possible combinations of opcionIdioma and formato -->
+    <div *ngFor="let idioma of opcionIdiomas">
+      <div *ngFor="let formato of formatos">
+        <div
+          class="card bg-dark text-white border-danger my-3"
+          *ngIf="
+            movieFuncionesByCriteria(idioma, formato, selectedDate).length > 0
+          "
+        >
+          <div class="card-body">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">
+                <strong>{{ idioma.toUpperCase() }}</strong>
+              </h5>
+              <span class="badge bg-danger">{{ formato }}</span>
+            </div>
+
+            <!-- Divider -->
+            <hr class="border-danger" />
+
+            <!-- Showtimes -->
+            <div class="d-flex gap-3 justify-content-start">
+              <button
+                class="btn btn-outline-danger btn-sm"
+                *ngFor="
+                  let time of getShowTimesByCriteria(
+                    selectedDate,
+                    idioma,
+                    formato
+                  )
+                "
+                (click)="navigateToSeats(time, formato)"
+              >
+                {{ time }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,5 +7,6 @@ import { Movie } from 'src/app/_models/movie';
   styleUrls: ['./movie-listing.component.css'],
 })
 export class MovieListingComponent {
-  @Input()  movieListing!: Movie
+  @Input() movieListing!: Movie;
+
 }

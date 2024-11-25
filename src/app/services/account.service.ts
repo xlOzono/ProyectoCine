@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from 'src/enviroments/enviroment';
 import { User } from 'src/app/_models/user';
+import { Role } from '../_models/role';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {

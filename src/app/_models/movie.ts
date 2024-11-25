@@ -1,6 +1,9 @@
-export interface Movie{
-    name: string,
-    sinopsis: string,
-    duracion: number,
-    photo: string,   
+export interface Movie {
+  name: string;
+  sinopsis: string;
+  duration: number;
+  photo: string;
+  trailer: string;
+  genre: string;
+  carouselPhoto: string;
 }
