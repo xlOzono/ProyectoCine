@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { Buy } from 'src/app/_models/buy';
@@ -31,7 +31,8 @@ export class PurchaseSectionComponent {
 
   constructor(
     public accountService: AccountService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.accountService.user.subscribe((x) => (this.user = x));
 
@@ -54,13 +55,11 @@ export class PurchaseSectionComponent {
     this.selectedPaymentMethod = index;
   }
 
-  
-
   get totalPrice(): number {
     const serviceFee = 1800; // Cargo fijo
     return this.price + serviceFee;
   }
-  
+
   completePurchase(): void {
     if (!this.user) {
       alert('Debe iniciar sesión para completar la compra.');
@@ -93,5 +92,19 @@ export class PurchaseSectionComponent {
     // Confirmación de compra
     alert('Compra realizada con éxito.');
     console.log('Compra agregada a la lista del usuario:', this.user.getBuys());
+
+    // Redirigir al inicio
+    this.router
+      .navigate(['/'])
+      .then((success) => {
+        if (success) {
+          console.log('Navegación exitosa al inicio.');
+        } else {
+          console.error('Error al navegar al inicio.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error durante la navegación:', error);
+      });
   }
 }
