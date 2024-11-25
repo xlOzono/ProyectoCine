@@ -14,7 +14,6 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { PerfilDeUsuarioComponent } from './components/perfil-de-usuario/perfil-de-usuario.component';
-import { PurchaseSectionComponent } from './components/purchase-section/purchase-section.component';
 
 @NgModule({
   imports: [
@@ -31,7 +30,7 @@ import { PurchaseSectionComponent } from './components/purchase-section/purchase
     MovieListingComponent,
     MovieDetailComponent,
     PerfilDeUsuarioComponent,
-    PurchaseSectionComponent,
+
   ],
   bootstrap: [AppComponent],
   providers: [
