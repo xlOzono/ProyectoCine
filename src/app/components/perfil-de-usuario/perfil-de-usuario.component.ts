@@ -122,7 +122,6 @@ export class PerfilDeUsuarioComponent {
     if (this.user) {
       const mockBuys: Buy[] = [
         {
-          cinema: 'CineMax',
           movieName: 'Inception',
           date: '2024-12-01',
           auditorium: 1,
@@ -132,7 +131,6 @@ export class PerfilDeUsuarioComponent {
           tickets: '3',
         },
         {
-          cinema: 'CineStar',
           movieName: 'The Shawshank Redemption',
           date: '2024-12-02',
           auditorium: 3,
@@ -142,7 +140,6 @@ export class PerfilDeUsuarioComponent {
           tickets: '2',
         },
         {
-          cinema: 'CineWorld',
           movieName: 'Avatar',
           date: '2024-12-03',
           auditorium: 4,

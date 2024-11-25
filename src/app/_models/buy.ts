@@ -1,5 +1,4 @@
 export interface Buy {
-  cinema: string;
   movieName: string;
   date: string;
   auditorium: number;
