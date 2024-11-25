@@ -16,9 +16,9 @@ export class SeatSelectionComponent implements OnInit {
   filteredSeats: { [key: string]: Seat[] } = {};
   movieName: string | null = null;
   time: string | null = null;
-  date: string | null = null;
   showID: number | null = null;
   selectedShowTimeFuncion?: showTimeFuncion;
+  formato: any;
 
   constructor(
     private seatService: SeatService,
@@ -28,24 +28,23 @@ export class SeatSelectionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Obtener parámetros de la ruta y consulta
     this.movieName = this.route.snapshot.paramMap.get('name');
     this.route.queryParams.subscribe((params) => {
       this.time = params['time'];
-      this.date = params['date'];
       this.showID = +params['showID'];
+      this.formato = params['formato'];
     });
 
-    // Filtrar función y showTimeFuncion según showID y time
     if (this.movieName && this.showID && this.time) {
       const funcion = this.funcionService.getFuncionById(this.showID);
 
       if (funcion) {
         this.selectedShowTimeFuncion = funcion.showSeats.find(
-          (seat) => seat.showID === this.showID
+          (seat) => seat.showTime === this.time && seat.format === this.formato
         );
       }
 
+      // Filter seats if the showTimeFuncion exists
       if (this.selectedShowTimeFuncion) {
         this.filterSeatsByRow(this.selectedShowTimeFuncion.matrixseats);
       }
@@ -53,11 +52,9 @@ export class SeatSelectionComponent implements OnInit {
   }
 
   filterSeatsByRow(seats: Seat[][]): void {
-    this.filteredSeats = {}; // Reiniciar el mapa de asientos filtrados
+    this.filteredSeats = {};
     this.rows.forEach((row) => {
-      this.filteredSeats[row] = seats
-        .flat() // Convertir matriz en lista plana
-        .filter((seat) => seat.row === row);
+      this.filteredSeats[row] = seats.flat().filter((seat) => seat.row === row);
     });
   }
 
@@ -75,7 +72,6 @@ export class SeatSelectionComponent implements OnInit {
       .filter((seat) => seat.state === 'selected');
     console.log('Asientos seleccionados:', selectedSeats);
 
-    // Actualiza el estado en el servicio si es necesario
     if (this.selectedShowTimeFuncion) {
       this.seatService.updateSeats(selectedSeats || []);
     }

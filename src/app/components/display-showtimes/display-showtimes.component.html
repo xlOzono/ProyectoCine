@@ -42,14 +42,18 @@
             <!-- Showtimes -->
             <div class="d-flex gap-3 justify-content-start">
               <button
-                  class="btn btn-outline-danger btn-sm"
-                  *ngFor="
-                    let time of getShowTimesByCriteria(selectedDate, idioma, formato);
-                    let showID = index
-                  "
-                  (click)="navigateToSeats(time, showID + 1)" 
-                >
-                  {{ time }}
+                class="btn btn-outline-danger btn-sm"
+                *ngFor="
+                  let time of getShowTimesByCriteria(
+                    selectedDate,
+                    idioma,
+                    formato
+                  );
+                  let showID = index
+                "
+                (click)="navigateToSeats(time, showID + 1, formato)"
+              >
+                {{ time }}
               </button>
             </div>
           </div>

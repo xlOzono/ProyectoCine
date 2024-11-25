@@ -21,9 +21,10 @@ export class FunAdminService {
       movieName: 'Inception',
       showSeats: this.createShowTimeFunciones(
         ['18:00 | Sala 1', '21:00 | Sala 2'],
-        10,
-        10
-      ), // Inicializar asientos
+        10, // Rows
+        10, // Columns
+        '2D' // Movie format
+      ),
     },
     {
       showID: 2,
@@ -35,9 +36,10 @@ export class FunAdminService {
       movieName: 'Inception',
       showSeats: this.createShowTimeFunciones(
         ['16:00 | Sala 3', '19:00 | Sala 4'],
-        10,
-        10
-      ), // Inicializar asientos
+        10, // Rows
+        10, // Columns
+        '3D' // Movie format
+      ),
     },
     {
       showID: 3,
@@ -49,9 +51,10 @@ export class FunAdminService {
       movieName: 'Inception',
       showSeats: this.createShowTimeFunciones(
         ['14:00 | Sala 5', '17:00 | Sala 6'],
-        10,
-        10
-      ), // Inicializar asientos
+        10, // Rows
+        10, // Columns
+        '4D' // Movie format
+      ),
     },
 
     // The Shawshank Redemption functions
@@ -65,9 +68,10 @@ export class FunAdminService {
       movieName: 'The Shawshank Redemption',
       showSeats: this.createShowTimeFunciones(
         ['17:00 | Sala 3', '20:00 | Sala 4'],
-        10,
-        10
-      ), // Inicializar asientos
+        10, // Rows
+        10, // Columns
+        '2D' // Movie format
+      ),
     },
     {
       showID: 5,
@@ -79,9 +83,10 @@ export class FunAdminService {
       movieName: 'The Shawshank Redemption',
       showSeats: this.createShowTimeFunciones(
         ['15:00 | Sala 1', '18:00 | Sala 2'],
-        10,
-        10
-      ), // Inicializar asientos
+        10, // Rows
+        10, // Columns
+        '3D' // Movie format
+      ),
     },
     {
       showID: 6,
@@ -93,9 +98,10 @@ export class FunAdminService {
       movieName: 'The Shawshank Redemption',
       showSeats: this.createShowTimeFunciones(
         ['13:00 | Sala 5', '16:00 | Sala 7'],
-        10,
-        10
-      ), // Inicializar asientos
+        10, // Rows
+        10, // Columns
+        '4D' // Movie format
+      ),
     },
   ];
 
@@ -134,34 +140,30 @@ export class FunAdminService {
   createShowTimeFunciones(
     showTimes: string[],
     rows: number,
-    columns: number
+    columns: number,
+    formato: string // Include format of the movie
   ): showTimeFuncion[] {
-    return showTimes.map((showTime, index) => ({
-      showID: index + 1, // Generar un ID único para cada horario
-      matrixseats: this.initializeShowSeats(rows, columns), // Inicializar la matriz de asientos
+    return showTimes.map((showTime) => ({
+      showTime, // The time of the show
+      format: formato, // Pass the movie format (e.g., "2D", "3D")
+      matrixseats: this.initializeShowSeats(rows, columns), // Generate seats
     }));
   }
 
   initializeShowSeats(rows: number, columns: number): Seat[][] {
     const matrix: Seat[][] = [];
-
-    // Crear filas
     for (let i = 0; i < rows; i++) {
       const row: Seat[] = [];
-      const rowLetter = String.fromCharCode(65 + i); // Convertir índice en letra (A, B, C, etc.)
-
-      // Crear columnas
+      const rowLetter = String.fromCharCode(65 + i); // Convert number to A, B, C...
       for (let j = 1; j <= columns; j++) {
         row.push({
           row: rowLetter,
           column: j,
-          state: 'available', // Estado inicial
+          state: 'available',
         });
       }
-
       matrix.push(row);
     }
-
     return matrix;
   }
 

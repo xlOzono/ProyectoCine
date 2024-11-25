@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FunAdminService } from 'src/app/services/fun-admin.service';
 import { Funcion } from 'src/app/_models/funcion';
-import { showTimeFuncion } from 'src/app/_models/showTimeFuncion';
-import { Seat } from 'src/app/_models/seat';
 
 @Component({
   selector: 'app-add-shows',
@@ -193,22 +191,27 @@ export class AddShowsComponent implements OnInit {
   guardarFunciones(): void {
     if (this.isValidData()) {
       const newFunciones = this.fechas.map((fecha) => ({
-        showID: this.funcionService.funcionesLength() + 1, // Incrementar ID
+        showID: this.funcionService.funcionesLength() + 1, // Increment ID
         opcionIdioma: this.selectedLanguage,
-        formato: this.selectedFormat,
+        formato: this.selectedFormat, // Format of the movie
         precio: this.price,
         showDay: fecha,
-        showTimes: [...this.funcionesTemp], // Copiar los horarios
-        movieName: this.movieName || 'Nueva Película', // Usar nombre existente o predeterminado
-        showSeats: this.createShowTimeFunciones(this.funcionesTemp, 10, 10), // Generar `showTimeFuncion[]`
+        showTimes: [...this.funcionesTemp], // Copy the times array
+        movieName: this.movieName || 'Nueva Película', // Default to 'Nueva Película' if no name is provided
+        showSeats: this.funcionService.createShowTimeFunciones(
+          this.funcionesTemp,
+          10, // Rows
+          10, // Columns
+          this.selectedFormat // Pass the format of the movie
+        ),
       }));
 
       if (this.movieName) {
-        // Actualizar funciones existentes
+        // Update existing movie's functions
         this.funcionService.updateFunciones(this.movieName, newFunciones);
       } else {
-        // Agregar nuevas funciones
-        for (const funcion of newFunciones) {
+        // Add new movie functions
+        newFunciones.forEach((funcion) => {
           this.funcionService.addFuncion(
             funcion.showID,
             funcion.opcionIdioma,
@@ -217,25 +220,14 @@ export class AddShowsComponent implements OnInit {
             funcion.showDay,
             funcion.showTimes,
             funcion.movieName,
-            funcion.showSeats // Asegurar que los `showSeats` están inicializados
+            funcion.showSeats
           );
-        }
+        });
       }
 
-      // Redirigir después de guardar
+      // Redirect after saving
       this.router.navigate(['/']);
     }
-  }
-
-  createShowTimeFunciones(
-    showTimes: string[],
-    rows: number,
-    columns: number
-  ): showTimeFuncion[] {
-    return showTimes.map((showTime, index) => ({
-      showID: index + 1, // Generar un ID único para cada horario
-      matrixseats: this.initializeShowSeats(rows, columns), // Inicializar la matriz de asientos
-    }));
   }
 
   isValidData(): boolean {
@@ -245,28 +237,5 @@ export class AddShowsComponent implements OnInit {
       return false;
     if (this.price <= 0) return false;
     return true;
-  }
-
-  initializeShowSeats(rows: number, columns: number): Seat[][] {
-    const matrix: Seat[][] = [];
-
-    // Crear filas
-    for (let i = 0; i < rows; i++) {
-      const row: Seat[] = [];
-      const rowLetter = String.fromCharCode(65 + i); // Convertir índice en letra (A, B, C, etc.)
-
-      // Crear columnas
-      for (let j = 1; j <= columns; j++) {
-        row.push({
-          row: rowLetter,
-          column: j,
-          state: 'available', // Estado inicial
-        });
-      }
-
-      matrix.push(row);
-    }
-
-    return matrix;
   }
 }
