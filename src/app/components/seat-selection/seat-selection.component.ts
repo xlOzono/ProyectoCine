@@ -136,7 +136,6 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
   }
 
   confirmSelection(): void {
-    console.log('Confirming seat selection...');
     const selectedSeats = this.selectedShowTimeFuncion?.matrixseats
       .flat()
       .filter((seat) => seat.state === 'selected');
@@ -147,25 +146,66 @@ export class SeatSelectionComponent implements OnInit, OnDestroy {
       return;
     }
 
-    console.log('Selected seats:', selectedSeats);
+    // Convertir los asientos seleccionados a formato string (e.g., "A1, B3")
+    const seatStrings = selectedSeats.map(
+      (seat) => `${seat.row}${seat.column}`
+    );
+    console.log('Asientos seleccionados:', seatStrings);
 
-    // Update the state of the selected seats
+    // Actualizar el estado de los asientos seleccionados
     selectedSeats.forEach((seat) => {
-      seat.state = 'unavailable'; // Mark the seat as unavailable
+      seat.state = 'unavailable'; // Cambiar el estado a "no disponible"
     });
 
     console.log('Seats after marking as unavailable:', selectedSeats);
 
-    // Persist the updated seat state in the service
+    // Guardar el estado actualizado de los asientos
     if (this.selectedShowTimeFuncion) {
       this.seatService.updateSeats(selectedSeats);
-      alert('Asientos confirmados con éxito.');
-      console.log('Seats successfully updated in SeatService.');
+
+      const funcion = this.funcionService
+        .getMovieFunciones(this.movieName || '')
+        .find((funcion) =>
+          funcion.showSeats.includes(this.selectedShowTimeFuncion!)
+        );
+
+      if (funcion) {
+        // Calcular el precio total
+        const totalPrice = selectedSeats.length * funcion.precio;
+        console.log('Precio total calculado:', totalPrice);
+
+        // Navegar a la sección de compra con los parámetros necesarios
+        this.router
+          .navigate(['/purchase'], {
+            queryParams: {
+              seats: seatStrings.join(','), // Asientos seleccionados como string
+              price: totalPrice, // Precio total calculado
+              date: funcion.showDay.toISOString().split('T')[0], // Fecha en formato yyyy-MM-dd
+              time: this.time, // Hora de la función
+              auditorium: this.time?.split('|')[1]?.trim(), // Sala
+              movie: this.movieName, // Nombre de la película
+              idioma: funcion.opcionIdioma, // Idioma de la función
+              format: funcion.formato, // Formato de la función
+            },
+          })
+          .then((success) => {
+            if (success) {
+              alert('Asientos confirmados con éxito.');
+              console.log('Navegación exitosa a /purchase');
+            } else {
+              console.error('Navegación fallida a /purchase');
+            }
+          })
+          .catch((error) => {
+            console.error('Error durante la navegación:', error);
+          });
+      } else {
+        alert('Hubo un problema al procesar la función.');
+        console.error('No se pudo encontrar la función seleccionada.');
+      }
     } else {
       alert('Hubo un problema al confirmar los asientos. Intente nuevamente.');
-      console.error(
-        'Failed to confirm seats. SelectedShowTimeFuncion is undefined.'
-      );
+      console.error('SelectedShowTimeFuncion no está definido.');
     }
   }
 }

@@ -13,7 +13,6 @@ import { SeatSelectionComponent } from './components/seat-selection/seat-selecti
 import { PurchaseSectionComponent } from './components/purchase-section/purchase-section.component';
 import { PerfilDeUsuarioComponent } from './components/perfil-de-usuario/perfil-de-usuario.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -23,18 +22,53 @@ const routes: Routes = [
   },
   { path: 'account/login', component: LoginComponent, title: 'CineMax' },
   { path: 'account/register', component: RegisterComponent, title: 'CineMax' },
-  { path: 'details/:name', component: MovieDetailComponent, canActivate: [AuthGuard] , title: 'CineMax' },
+  {
+    path: 'details/:name',
+    component: MovieDetailComponent,
+    canActivate: [AuthGuard],
+    title: 'CineMax',
+  },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'add-movie', component: MovieInfoComponent, canActivate: [AuthGuard], data: {roles: [Role.Admin]} },
-  { path: 'add-shows', component: AddShowsComponent, canActivate: [AuthGuard], data: {roles: [Role.Admin]} },{
-    path: 'add-shows/:name', component: AddShowsComponent},
-  { path: 'cineSeats', component: SeatSelectionComponent, title: 'CineMax'},
-  { path: 'compra', component: PurchaseSectionComponent, title: 'CineMax'},
-  { path: 'seats/:name', component: SeatSelectionComponent, title: 'CineMax'},
-  { path: 'details/:name', component: MovieDetailComponent, title: 'CineMax' },
-  { path: 'perfil', component: PerfilDeUsuarioComponent, title: 'CineMax' },
-
-
+  {
+    path: 'add-movie',
+    component: MovieInfoComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin] },
+  },
+  {
+    path: 'add-shows',
+    component: AddShowsComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin] },
+  },
+  {
+    path: 'add-shows/:name',
+    component: AddShowsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'seats/:name',
+    component: SeatSelectionComponent,
+    canActivate: [AuthGuard],
+    title: 'CineMax',
+  },
+  {
+    path: 'details/:name',
+    component: MovieDetailComponent,
+    canActivate: [AuthGuard],
+    title: 'CineMax',
+  },
+  {
+    path: 'perfil',
+    component: PerfilDeUsuarioComponent,
+    canActivate: [AuthGuard],
+    title: 'CineMax',
+  },
+  {
+    path: 'purchase',
+    component: PurchaseSectionComponent,
+    canActivate: [AuthGuard],
+  },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '', title: 'CineMax' },

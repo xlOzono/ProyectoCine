@@ -44,7 +44,6 @@ import { PerfilDeUsuarioComponent } from './components/perfil-de-usuario/perfil-
     SeatSelectionComponent,
     PurchaseSectionComponent,
     PerfilDeUsuarioComponent,
-
   ],
   bootstrap: [AppComponent],
   providers: [
