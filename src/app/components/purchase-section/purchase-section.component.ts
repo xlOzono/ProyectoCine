@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/services/account.service';
+import { Buy } from 'src/app/_models/buy';
 
 @Component({
   selector: 'app-purchase-section',
@@ -53,8 +54,44 @@ export class PurchaseSectionComponent {
     this.selectedPaymentMethod = index;
   }
 
+  
+
   get totalPrice(): number {
     const serviceFee = 1800; // Cargo fijo
     return this.price + serviceFee;
+  }
+  
+  completePurchase(): void {
+    if (!this.user) {
+      alert('Debe iniciar sesión para completar la compra.');
+      console.error('Usuario no autenticado.');
+      return;
+    }
+
+    if (this.selectedPaymentMethod === null) {
+      alert('Debe seleccionar un método de pago.');
+      console.warn('Método de pago no seleccionado.');
+      return;
+    }
+
+    // Crear el objeto Buy
+    const newPurchase: Buy = {
+      movieName: this.movie_name,
+      date: this.date,
+      auditorium: +this.auditorium, // Convertir a número
+      hour: this.hour,
+      seats: this.seats,
+      price: this.totalPrice,
+      tickets: `${this.seats.length} entradas - ${this.format} (${this.idioma})`,
+    };
+
+    console.log('Compra generada:', newPurchase);
+
+    // Agregar la compra a la lista del usuario
+    this.user.addBuy(newPurchase);
+
+    // Confirmación de compra
+    alert('Compra realizada con éxito.');
+    console.log('Compra agregada a la lista del usuario:', this.user.getBuys());
   }
 }
