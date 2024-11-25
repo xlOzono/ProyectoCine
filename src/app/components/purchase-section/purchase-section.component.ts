@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
 import { User } from 'src/app/_models/user';
+import { SeatService } from 'src/app/services/seat.service';
+import { MovieService } from 'src/app/services/movie.service';
+import { FuncionService } from 'src/app/services/funcion.service';
 
 @Component({
   selector: 'app-purchase-section',
@@ -9,7 +12,6 @@ import { User } from 'src/app/_models/user';
 })
 export class PurchaseSectionComponent {
   user?: User | null
-  cinema: string = '';
   movie_name: string = '';
   date: string = '';
   auditorium: number = 0;
@@ -30,11 +32,11 @@ export class PurchaseSectionComponent {
   constructor(public accountService: AccountService){
     this.accountService.user.subscribe(x => this.user = x)
   }
-
   
   selectedPaymentMethod: number | null = null;
 
   selectPaymentMethod(index: number): void {
     this.selectedPaymentMethod = index;
   }
+
 } 

@@ -33,7 +33,7 @@
 }
 
 .card-dark {
-  background-color: #1c1c1c; /* Fondo oscuro para las tarjetas */
+  background-color: #222222;/* Fondo oscuro para las tarjetas */
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
@@ -98,4 +98,8 @@
 /* Div seleccionado */
 .payment-method.selected {
   filter: brightness(1); /* Mantener el brillo normal */
+}
+
+.bi::before {
+  transform: rotate(-45deg);
 }
