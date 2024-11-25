@@ -1,0 +1,47 @@
+/* Estilo para el separador entre secciones */
+.separator {
+    width: 2px;
+    height: 130px;
+    background-color: #ff2e38;
+    margin: auto;
+}
+
+.btn-group, .input-group {
+    gap: 10px;
+}
+
+.btn-danger {
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #ff4a4a;
+}
+
+.number {
+    color: #ff2e38;
+}
+
+
+.input-name, .input-desc {
+    background-color: #333333;
+    color: white;
+    border-color: #9A9A9A;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    width: 50%;
+    max-width: 50%;
+}
+
+/* Estilo de los placeholders */
+::placeholder {
+    color: #9A9A9A;
+}

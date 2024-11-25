@@ -1,0 +1,24 @@
+<div class="centrado">
+    <button class="btn btn-guardar mx-5 mt-5" (click)="savePromotion()">GUARDAR</button>
+  </div>
+  <div *ngIf="nuevaPromocion" class="detalles-promocion">
+    <!-- Mostrar la promoción directamente si 'nuevaPromocion' no es null -->
+    <h3 class="promocion-titulo">Promoción creada: {{ nuevaPromocion.promotionCode }}</h3>
+    <p><strong>Nombre:</strong> {{ nuevaPromocion.nombre }}</p>
+    <p><strong>Descripción:</strong> {{ nuevaPromocion.descripcion }}</p>
+    <p><strong>Porcentaje de descuento:</strong> {{ nuevaPromocion.porcentaje }}%</p>
+    <p *ngIf="nuevaPromocion.fechas && nuevaPromocion.fechas.length > 0"><strong>Fechas:</strong> {{ fechasFormateadas }}</p>
+    <p *ngIf="nuevaPromocion.horarios && nuevaPromocion.horarios.length > 0"><strong>Horarios:</strong> {{ horariosFormateados }}</p>
+    <p *ngIf="nuevaPromocion.funciones && nuevaPromocion.funciones.length > 0">
+      <strong>Funciones </strong>
+      <span *ngIf="isMovies(nuevaPromocion.funciones)">
+        <strong>(Por Película)</strong>: {{ nuevaPromocion.funciones.join(', ') }}
+      </span>
+      <span *ngIf="!isMovies(nuevaPromocion.funciones)">
+        <strong>(Por Categoría)</strong>: {{ nuevaPromocion.funciones.join(', ') }}
+      </span>
+    </p>
+    <p *ngIf="nuevaPromocion.dias && nuevaPromocion.dias.length > 0"><strong>Días:</strong> {{ nuevaPromocion.dias.join(', ') }} </p>
+    <p><strong>Imágen:</strong></p>
+    <div><img [src]="getImageUrl()" alt="Imagen de promoción" class="imagen"></div>
+  </div>

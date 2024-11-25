@@ -1,0 +1,112 @@
+.number {
+    color: #ff2e38;
+}
+
+.btn-group, .input-group {
+    gap: 10px;
+}
+
+.btn-dark {
+    background-color: #333333;
+    width: auto;
+    max-width: 100%;
+    color: #9A9A9A;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-dark.active, .btn-dark:hover {
+    background-color: #ff2e38;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #ff4a4a;
+}
+
+.input-dates, .form-control {
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    width: 50%;
+    max-width: 50%;
+}
+
+.lista-fechas, .lista-horas {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    margin-top: 15px;
+    list-style: none;
+    text-align: center;
+}
+
+.fecha, .hora {
+    display: flex;             
+    align-items: center;         
+    justify-content: center;      
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    height: 70px;                
+    width: 150px;                  
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: relative;           
+    margin-right: 70px;
+    margin-bottom: 30px;         
+}
+
+.btn-borrarHora, .btn-borrarFecha {
+    background-color: #333333;
+    color: white;
+    font-weight: bold;
+    border: none;
+    width: 35px;
+    height: 70px;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: absolute;           
+    right: -40px;                   
+}
+
+.selected-items {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.selected-items ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.selected-items li {
+  margin-bottom: 5px;
+}
+
+.btn-condition {
+    background-color: #333333;
+    color: white;
+    margin-right: 10px;
+}

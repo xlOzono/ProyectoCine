@@ -1,0 +1,51 @@
+.separator {
+    width: 2px;
+    height: 130px;
+    background-color: #ff2e38;
+    margin: auto;
+}
+
+.number {
+    color: #ff2e38;
+}
+
+.input-group {
+    gap: 10px;
+}
+
+.btn-danger {
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #ff4a4a;
+}
+
+.input-price, .form-control {
+    background-color: #333333;
+    color: white;
+    border-color: #9A9A9A;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+    width: 50%;
+    max-width: 50%;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;  
+  margin: 0;
+}
+
+::placeholder {
+    color: #9A9A9A
+}

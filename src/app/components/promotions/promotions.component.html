@@ -1,1 +1,17 @@
-<p>promotions works!</p>
+<div class="bg-color"></div>
+
+<div class="movie-results">
+  <section class="results">
+    <app-promotions-listing
+    
+      *ngFor="let promotionsListing of promotionsList"
+      
+      [promotionsListing]="promotionsListing"
+      
+    ></app-promotions-listing>
+  </section>
+
+  <div class="navbar-nav" *ngIf="isAdmin">
+    <button class="add-button rounded-circle" routerLink="/add-promotions">+</button>
+  </div>
+</div>

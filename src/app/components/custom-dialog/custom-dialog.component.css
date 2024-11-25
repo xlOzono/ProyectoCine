@@ -1,0 +1,131 @@
+/* Fondo opaco para el backdrop */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+    z-index: 1040; /* Asegúrate de que el fondo no cubra el modal */
+  }
+  
+  /* Contenedor del modal */
+  .modal-dialog {
+    position: fixed;
+    top: 50%; /* Centramos verticalmente */
+    left: 50%; /* Centramos horizontalmente */
+    transform: translate(-50%, -50%); /* Ajustamos para que quede exactamente centrado */
+    z-index: 1050; /* Modal debe estar por encima del fondo */
+    max-width: 600px; /* Limita el ancho máximo */
+    width: 100%; /* El modal puede ocupar todo el ancho hasta el máximo permitido */
+  }
+  
+  /* Estilos del contenido del modal */
+  .modal-content {
+    background-color: rgb(0, 0, 0); /* Fondo blanco para el contenido */
+    padding: 30px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para simular profundidad */
+  }
+  
+  .modal-header {
+    border-bottom: none; /* Elimina el borde inferior si lo prefieres */
+    padding-bottom: 0;
+  }
+  
+  .modal-body {
+    margin-top: 10px; /* Puedes ajustar el valor según lo necesites */
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+  }
+
+  .btn-modal {
+    background-color: #1E1E1E;
+    color: #9A9A9A;
+    margin-bottom: 10px;
+  }
+  
+  .btn-modal:hover {
+    background-color: #ff4a4a;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    color: white;
+  } 
+
+  .btn-modal.active {
+    background-color: #FF2E38;
+    color: white;
+    font-weight: bold;
+  }
+
+  .btn-secondary {
+    background-color: #1E1E1E;
+    color: #9A9A9A;
+    border: none;
+  }
+  .btn-secondary:hover {
+    background-color: #2f2e2e;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-primary {
+    background-color: #FF2E38;
+    color: white;
+    border: none;
+  }
+  .btn-primary:hover {
+    background-color: #ff4a4a;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FF2E38;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: inline-block;
+    position: relative;
+    margin-right: 15px;
+    vertical-align: middle;
+  }
+  
+  .form-check-input:checked {
+    background-color: #FF2E38;
+    border-color: #FF2E38;
+  }
+  
+  .form-check-label {
+    font-size: 16px;
+    color: #ffffff;
+    transition: color 0.3s;
+  }
+  
+  .form-check-input:checked + .form-check-label {
+    font-weight: bold;
+    color: #ff4a4a;
+  }
+  
+  .form-check-input:hover {
+    border-color: #ff4a4a;
+    cursor: pointer;
+  }
+
+  .form-check-input:hover:checked {
+    background-color: #ff4a4a;
+  }
+  .form-check-input:focus {
+  outline: 3px solid #252525;
+}
+  .form-check-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta el tamaño mínimo de las columnas y las columnas se llenarán automáticamente */
+    gap: 10px; /* Espacio entre las casillas */
+  }
+
+  .category-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Cambiar tamaño de las columnas según el contenido */
+    gap: 15px; /* Espacio entre las columnas */
+  }

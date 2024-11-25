@@ -1,0 +1,97 @@
+.btn-group, .input-group {
+    gap: 10px;
+}
+
+.btn-danger {
+    background-color: #ff2e38;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #ff4a4a;
+}
+
+.selected-items {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.selected-items ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.selected-items li {
+  margin-bottom: 5px;
+}
+
+.categoria, .dia {
+    display: flex;                 
+    align-items: center;           
+    justify-content: center;      
+    background-color: #333333;
+    color: white;
+    font-weight: bold;
+    height: 60px;              
+    width: 140px;                
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: relative;     
+    margin-right: 70px;
+    margin-bottom: 30px;        
+}
+
+.pelicula {
+    display: flex;                
+    align-items: center;          
+    justify-content: center;       
+    background-color: #333333;
+    color: white;
+    font-weight: bold;
+    height: 60px;             
+    width: 300px;               
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    position: relative;            
+    margin-right: 70px;
+    margin-bottom: 30px;         
+}
+
+.lista-categorias, .lista-peliculas, .lista-dias {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 0px;
+    justify-content: flex-start;
+    text-align: center;
+  }
+  
+.lista-categorias li, .lista-peliculas li, .lista-dias li {
+    list-style-type: none;
+    margin: 5px;   
+    
+}
+
+.btn-show {
+    background-color: #9A9A9A;
+    color: white;
+    font-weight: bold;
+    padding: 15px 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    border-color: white;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-show:hover {
+    background-color: #333333;
+}

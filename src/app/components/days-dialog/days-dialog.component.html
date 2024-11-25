@@ -1,0 +1,26 @@
+<div class="modal-backdrop" *ngIf="show"></div>
+
+<div class="modal-dialog" *ngIf="show">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Seleccionar Días</h5>
+    </div>
+    <div class="modal-body">
+      <!-- Lista de Días -->
+      <div class="dia-list">
+        <div *ngFor="let dia of diasDisponibles" class="form-check">
+          <input type="checkbox" 
+                 class="form-check-input" 
+                 [id]="dia" 
+                 [checked]="diasSeleccionadosTemp.includes(dia)" 
+                 (change)="toggleDiaSelection(dia)">
+          <label class="form-check-label" [for]="dia">{{ dia }}</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="close()">Cerrar</button>
+      <button class="btn btn-primary" (click)="confirmSelection()">Aceptar</button>
+    </div>
+  </div>
+</div>
