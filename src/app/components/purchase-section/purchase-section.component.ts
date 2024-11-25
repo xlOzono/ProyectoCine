@@ -13,7 +13,7 @@ export class PurchaseSectionComponent {
   user?: User | null;
   movie_name: string = '';
   date: string = '';
-  auditorium: string = '';
+  auditorium: number = 0;
   hour: string = '';
   seats: string[] = [];
   price: number = 0;
@@ -78,7 +78,7 @@ export class PurchaseSectionComponent {
     const newPurchase: Buy = {
       movieName: this.movie_name,
       date: this.date,
-      auditorium: +this.auditorium, // Convertir a número
+      auditorium: this.auditorium, // Convertir a número
       hour: this.hour,
       seats: this.seats,
       price: this.totalPrice,
