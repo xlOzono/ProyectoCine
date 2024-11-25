@@ -241,4 +241,7 @@ export class FunAdminService {
       JSON.stringify(func1.showTimes) === JSON.stringify(func2.showTimes)
     );
   }
+  getFuncionById(showID: number): Funcion | undefined {
+    return this.movieFunciones.find((funcion) => funcion.showID === showID);
+  }
 }

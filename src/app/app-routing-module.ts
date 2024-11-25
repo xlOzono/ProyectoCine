@@ -28,6 +28,7 @@ const routes: Routes = [
     path: 'add-shows/:name', component: AddShowsComponent},
   { path: 'cineSeats', component: SeatSelectionComponent, title: 'CineMax'},
   { path: 'compra', component: PurchaseSectionComponent, title: 'CineMax'},
+  { path: 'seats/:name', component: SeatSelectionComponent, title: 'CineMax'},
 
   // otherwise redirect to home
   { path: '**', redirectTo: '', title: 'CineMax' },

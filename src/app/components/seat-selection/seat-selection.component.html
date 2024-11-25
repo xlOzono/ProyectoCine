@@ -6,13 +6,13 @@
 
   <!-- Rows of Seats -->
   <div class="rows mt-4">
-    <div *ngFor="let row of rows" class="row d-flex justify-content-center mb-3 mx-3 ">
-      {{row}}
+    <div *ngFor="let row of rows" class="row d-flex justify-content-center mb-3 mx-3">
+      {{ row }}
       <div
         *ngFor="let seat of filteredSeats[row]"
         [ngClass]="['seat', seat.state]"
         (click)="onSeatClick(seat)"
-        class="seat "
+        class="seat"
       >
         {{ seat.column }}
       </div>
