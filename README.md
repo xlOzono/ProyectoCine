@@ -1,48 +1,52 @@
 ![Captura de pantalla 2024-10-29 083615](https://github.com/user-attachments/assets/454b09f7-48a9-484c-8400-376aff73b179)
 
-# Sistema de Reserva de Boletos de Cine
+# Sistema de Reserva de Boletos de Cine 🎥
 Este proyecto se desarrolló en respuesta a una necesidad identificada por la empresa ficticia “Cinema Max” la cual es que su gran cantidad de clientes pueda reservar sus entradas, elegir sus asientos y efectuar sus pagos en línea, ahorrando tiempo a los usuarios y evitando las largas filas en el cine.
 
 Además, se busca promover las películas y sus respectivos tráilers para captar el interés de los clientes. Para ello, se incluirán funciones para usuarios administradores que les permitirán gestionar tanto las películas como la venta de boletos y la disponibilidad de asientos.
 
-## Características Principales
-### Administradores:
-+ Gestión de funciones y salas de cine, con opción para modificar precios, horarios y promociones.
+## Características Principales 🎟️
 
-+ Control de películas: agregar, editar o eliminar películas, carátulas, géneros, clasificaciones y tráilers.
+### Para Administradores 🎞️
+- **Gestión de funciones y salas:** Modificar precios, horarios y promociones de películas.
+![image](https://github.com/user-attachments/assets/73bf300f-f35a-434d-8a46-5766fe6662d6)
 
-+ Control de la Disponibilidad de Asientos. 
+- **Control de películas:** Agregar, editar o eliminar películas, carátulas, géneros, clasificaciones y tráilers.
+  ![Captura de pantalla 2024-11-26 123322](https://github.com/user-attachments/assets/3f6c6ce6-b8a0-4292-b252-d61e5940d97b)
+  ![Captura de pantalla 2024-11-26 123435](https://github.com/user-attachments/assets/09a71142-9765-4433-917e-8106b7fadcea)
 
-### Clientes:
-+ Visualización de películas en cartelera y sus detalles (género, clasificación, tráiler, sinopsis).
+- **Disponibilidad de asientos:** Monitorear y actualizar la ocupación de salas en tiempo real.
 
-+ Selección de funciones, asientos y compra de boletos en línea.
+### Para Clientes 🍿
+- **Exploración de cartelera:** Ver detalles de películas (género, clasificación, tráiler, sinopsis).
+- **Compra en línea:** Seleccionar funciones, asientos y pagar boletos desde cualquier dispositivo.
+- **Notificaciones:** Alertas sobre cambios en funciones y recordatorios de asistencia.
 
-+ Notificaciones automáticas sobre cambios en funciones y recordatorios.
+## Tecnologías Usadas 💻
 
-## Tecnologías Usadas
+#### Front-End
+- **Angular 15, Node Js**: Framework para desarrollar interfaces dinámicas.
+- **Bootstrap**: Diseño responsivo y componentes estilizados.
+- **HTML, CSS, Typescript**: Base de la interfaz de usuario.
 
-+ Angular 15
-+ Node Js
-+ HTML, CSS, JavaScript
-+ Bootstrap
+#### Herramientas Adicionales
+- **Git**: Control de versiones.
+- **npm**: Gestión de dependencias.
 
-## Instalación
+## Instalación 📁
 **Requisitos Previos**
 + Node.js
 
 + Angular CLI
 
 **Pasos de Instalación**
-1.  Clonar el repositorio: git clone https://github.com/xlOzono/ProyectoCine.git
-2.  Navegar a la carpeta del proyecto: cd CinemaMax
-3.  Instalar dependencias: npm install
-4.  Ejecutar la aplicación: ng serve
+1.  Clonar el repositorio: `git clone https://github.com/xlOzono/ProyectoCine.git`
+2.  Navegar a la carpeta del proyecto: `cd ProyectoCine`
+3.  Instalar dependencias: `npm install`
+4.  Ejecutar la aplicación: `ng serve`
+5.  Abrir el navegador en: http://localhost:4200
 
-## Uso de la Aplicación
-
-
-## Metodología de Desarrollo: Scrum
+## Metodología de Desarrollo: Scrum 📋
 Es una metodología ágil utilizada en el desarrollo de proyectos que se enfoca en entregar resultados incrementales a través de iteraciones llamadas sprints. Facilita la colaboración y la adaptación continua al cambio mediante roles definidos y reuniones regulares para planificar, revisar y mejorar el proceso de trabajo.
 
 ### Roles y Responsabilidades
@@ -53,9 +57,9 @@ Es una metodología ágil utilizada en el desarrollo de proyectos que se enfoca 
 + **Scrum Team:** Jorge Caceres, Jean Piere Durán, Joshua Jara, Katalina Oviedo, Bruno Amestica.
 
 ### Eventos de Scrumm
-+ **Sprint**: 3 frames
++ **Sprint**: 5 frames
 
-+ **Iteración**: 1 semana
++ **Iteración**: 2 semana
 
 + **Sprint Retrospective**: 30 minutos
 
@@ -63,7 +67,7 @@ Es una metodología ágil utilizada en el desarrollo de proyectos que se enfoca 
 
 + **Daily Scrum**: 1 hora
 
-## Estructura de Carpetas
+## Estructura de Carpetas 🗂️
 ### Ejemplo básico
 + /src/app: Contiene los componentes, servicios y módulos.
 
@@ -100,4 +104,3 @@ Es una metodología ágil utilizada en el desarrollo de proyectos que se enfoca 
 + Testing
 
 + Control de Accesos
-
