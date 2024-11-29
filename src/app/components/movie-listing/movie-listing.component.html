@@ -1,8 +1,13 @@
 <section class="listing">
+  <button class="movie-button" (click) ="createShow(movieListing.name)">
   <img
     class="movie-photo"
     [src]="movieListing.photo"
     alt="Movie poster of {{ movieListing.name }}"
+    
   />
   <h2 class="movie-title">{{ movieListing.name }}</h2>
+  </button>
+
+
 </section>

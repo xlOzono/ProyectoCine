@@ -1,4 +1,10 @@
+.movie-button{
+background-color: transparent;
+border-color: transparent;
+border: none;
+}
 .movie-title {
+
   padding: 10px 20px 0 20px;
   font-family: "Inter", sans-serif;
   font-weight: 900;

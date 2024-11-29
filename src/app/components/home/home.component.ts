@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Movie } from 'src/app/_models/movie';
+import { AccountService } from 'src/app/services/account.service';
+import { User } from 'src/app/_models/user';
+import { Role } from 'src/app/_models/role';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +10,16 @@ import { Movie } from 'src/app/_models/movie';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  user?: User | null;
+ 
+  constructor(private accountService: AccountService) {
+    this.accountService.user.subscribe(x => this.user = x);
+  }
+ 
+  get isAdmin() {
+    return this.user?.role === Role.Admin;
+  }
+
   movieListingList: Movie[] = [{
     name: "Inception",
     sinopsis: "A thief who infiltrates the subconscious to steal secrets finds himself in a dangerous mission.",
